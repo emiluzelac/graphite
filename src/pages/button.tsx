@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { PreviewCode } from '@/components/preview-code'
-import { SettingsLinear } from 'icona'
+import { SettingsLinear } from '@emiluzelac/icona'
 
 function Preview() {
   return (
@@ -26,7 +26,7 @@ function Preview() {
 }
 
 const code = `import { Button } from '@/components/ui/button'
-import { SettingsLinear } from 'icona'
+import { SettingsLinear } from '@emiluzelac/icona'
 
 export function Example() {
   return (

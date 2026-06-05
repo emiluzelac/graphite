@@ -3,7 +3,7 @@ import { Transition } from '@headlessui/react'
 import { Button } from '@/components/ui/button'
 import { PreviewCode } from '@/components/preview-code'
 import { cn } from '@/lib/cn'
-import { RefreshLinear } from 'icona'
+import { RefreshLinear } from '@emiluzelac/icona'
 
 function Preview() {
   const [isShowing, setIsShowing] = useState(true)
@@ -40,7 +40,7 @@ const code = `import { useState } from 'react'
 import { Transition } from '@headlessui/react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/cn'
-import { RefreshLinear } from 'icona'
+import { RefreshLinear } from '@emiluzelac/icona'
 
 export function Example() {
   const [isShowing, setIsShowing] = useState(true)

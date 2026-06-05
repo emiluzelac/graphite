@@ -18,7 +18,7 @@
     "@headlessui/react": "^2.2.10",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "icona": "file:../icons/icona",
+    "@emiluzelac/icona": "file:../icons/icona",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router": "^7.17.0",

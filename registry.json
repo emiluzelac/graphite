@@ -85,7 +85,7 @@
       "type": "registry:ui",
       "title": "Combobox",
       "description": "Autocomplete input with anchored options list.",
-      "dependencies": ["@headlessui/react", "icona"],
+      "dependencies": ["@headlessui/react", "@emiluzelac/icona"],
       "registryDependencies": ["@graphite/utils", "@graphite/theme"],
       "files": [{ "path": "src/components/ui/combobox.tsx", "type": "registry:ui" }]
     },
@@ -139,7 +139,7 @@
       "type": "registry:ui",
       "title": "Listbox",
       "description": "Custom select with anchored options and selected indicator.",
-      "dependencies": ["@headlessui/react", "icona"],
+      "dependencies": ["@headlessui/react", "@emiluzelac/icona"],
       "registryDependencies": ["@graphite/utils", "@graphite/theme"],
       "files": [{ "path": "src/components/ui/listbox.tsx", "type": "registry:ui" }]
     },
@@ -175,7 +175,7 @@
       "type": "registry:ui",
       "title": "Select",
       "description": "Native select with custom chrome and chevron.",
-      "dependencies": ["@headlessui/react", "icona"],
+      "dependencies": ["@headlessui/react", "@emiluzelac/icona"],
       "registryDependencies": ["@graphite/utils", "@graphite/theme"],
       "files": [{ "path": "src/components/ui/select.tsx", "type": "registry:ui" }]
     },

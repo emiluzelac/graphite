@@ -7,7 +7,7 @@ A local clone of the [headlessui.com](https://headlessui.com/react) showcase. Ea
 - Vite + React + TypeScript
 - Tailwind CSS v4 (via `@tailwindcss/vite`)
 - `@headlessui/react` v2
-- `icona` (local icon library, `../icons/icona`)
+- `@emiluzelac/icona` (Solar-based icon library; local `file:` link to `../icons/icona`)
 - `react-router`
 
 ## Getting started
@@ -75,4 +75,4 @@ npx shadcn add @graphite/button
 
 This copies `button.tsx` (plus the `cn` util and Graphite theme variables) into the consuming app and installs its npm dependencies.
 
-> **Note:** components that use icons depend on `icona`, which currently resolves via a local `file:` link. Until icona is published to a registry consumers can reach, `shadcn add` for those components (`combobox`, `listbox`, `select`) will fail to install that dependency in external apps.
+> **Note:** components that use icons depend on `@emiluzelac/icona` (npmjs). This app links it locally via `file:../icons/icona`; external registry consumers install the published package.

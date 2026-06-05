@@ -1,5 +1,5 @@
 import { Select as HUISelect, type SelectProps as HUISelectProps } from '@headlessui/react'
-import { AltArrowDownLinear } from 'icona'
+import { AltArrowDownLinear } from '@emiluzelac/icona'
 import { cn } from '@/lib/cn'
 
 export interface SelectProps extends Omit<HUISelectProps, 'className'> {

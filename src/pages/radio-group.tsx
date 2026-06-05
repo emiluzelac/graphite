@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Radio, RadioGroup } from '@/components/ui/radio-group'
 import { PreviewCode } from '@/components/preview-code'
-import { CheckCircleBold } from 'icona'
+import { CheckCircleBold } from '@emiluzelac/icona'
 
 const plans = [
   { name: 'Startup', ram: '12GB', cpus: '6 CPUs', disk: '256GB SSD disk' },
@@ -38,7 +38,7 @@ function Preview() {
 
 const code = `import { useState } from 'react'
 import { Radio, RadioGroup } from '@/components/ui/radio-group'
-import { CheckCircleBold } from 'icona'
+import { CheckCircleBold } from '@emiluzelac/icona'
 
 export function Example() {
   const [selected, setSelected] = useState(plans[0])

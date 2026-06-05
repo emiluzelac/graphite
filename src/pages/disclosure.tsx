@@ -1,6 +1,6 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@/components/ui/disclosure'
 import { PreviewCode } from '@/components/preview-code'
-import { AltArrowDownLinear } from 'icona'
+import { AltArrowDownLinear } from '@emiluzelac/icona'
 
 const faqs = [
   {
@@ -31,7 +31,7 @@ function Preview() {
 }
 
 const code = `import { Disclosure, DisclosureButton, DisclosurePanel } from '@/components/ui/disclosure'
-import { AltArrowDownLinear } from 'icona'
+import { AltArrowDownLinear } from '@emiluzelac/icona'
 
 export function Example() {
   return (

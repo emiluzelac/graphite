@@ -10,7 +10,7 @@ import {
 } from '@headlessui/react'
 import type { ReactNode } from 'react'
 import { cn } from '@/lib/cn'
-import { CheckCircleLinear, SortVerticalLinear } from 'icona'
+import { CheckCircleLinear, SortVerticalLinear } from '@emiluzelac/icona'
 
 type LProps<T> = Omit<ListboxProps<'div', T>, 'className'> & { className?: string }
 

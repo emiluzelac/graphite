@@ -1,5 +1,5 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@/components/ui/menu'
-import { MonitorLinear, MoonLinear, SunLinear } from 'icona'
+import { MonitorLinear, MoonLinear, SunLinear } from '@emiluzelac/icona'
 import { cn } from '@/lib/cn'
 import { useTheme, type Theme } from '@/theme-context'
 

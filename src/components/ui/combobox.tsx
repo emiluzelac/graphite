@@ -11,7 +11,7 @@ import {
 } from '@headlessui/react'
 import type { ReactNode } from 'react'
 import { cn } from '@/lib/cn'
-import { AltArrowDownLinear, CheckCircleLinear } from 'icona'
+import { AltArrowDownLinear, CheckCircleLinear } from '@emiluzelac/icona'
 
 type CProps<T, M extends boolean | undefined = false> = Omit<
   ComboboxProps<T, M, 'div'>,

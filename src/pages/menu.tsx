@@ -7,7 +7,7 @@ import {
   CopyLinear,
   PenLinear,
   TrashBinMinimalisticLinear,
-} from 'icona'
+} from '@emiluzelac/icona'
 
 function Preview() {
   return (
@@ -41,7 +41,7 @@ function Preview() {
 
 const code = `import { Menu, MenuButton, MenuItem, MenuItems } from '@/components/ui/menu'
 import { Separator } from '@/components/ui/separator'
-import { PenLinear, CopyLinear, ArchiveLinear, TrashBinMinimalisticLinear, AltArrowDownLinear } from 'icona'
+import { PenLinear, CopyLinear, ArchiveLinear, TrashBinMinimalisticLinear, AltArrowDownLinear } from '@emiluzelac/icona'
 
 export function Example() {
   return (

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogPanel, DialogTitle } from '@/components/ui/dialog'
 import { PreviewCode } from '@/components/preview-code'
-import { CheckCircleBold } from 'icona'
+import { CheckCircleBold } from '@emiluzelac/icona'
 
 function Preview() {
   const [isOpen, setIsOpen] = useState(true)

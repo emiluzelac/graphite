@@ -6,7 +6,7 @@ import {
   ChartSquareLinear,
   CursorLinear,
   ShieldCheckLinear,
-} from 'icona'
+} from '@emiluzelac/icona'
 
 const solutions = [
   { name: 'Insights', desc: 'Measure actions your users take', Icon: ChartLinear },
@@ -50,7 +50,7 @@ function Preview() {
 }
 
 const code = `import { Popover, PopoverButton, PopoverPanel } from '@/components/ui/popover'
-import { AltArrowDownLinear } from 'icona'
+import { AltArrowDownLinear } from '@emiluzelac/icona'
 
 export function Example() {
   return (
