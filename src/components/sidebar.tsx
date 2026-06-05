@@ -29,7 +29,7 @@ const examples = [{ to: '/signup', label: 'Signup form' }]
 function Section({ title, items }: { title: string; items: { to: string; label: string }[] }) {
   return (
     <div className="mb-8">
-      <h3 className="mb-3 text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-white/40">
+      <h3 className="mb-3 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
         {title}
       </h3>
       <ul className="space-y-1">
@@ -42,8 +42,8 @@ function Section({ title, items }: { title: string; items: { to: string; label: 
                 cn(
                   'block rounded-md px-3 py-1.5 text-sm transition',
                   isActive
-                    ? 'bg-gray-900 text-white dark:bg-white/10'
-                    : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-white/60 dark:hover:bg-white/5 dark:hover:text-white',
+                    ? 'bg-primary text-primary-foreground'
+                    : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground',
                 )
               }
             >
@@ -58,16 +58,14 @@ function Section({ title, items }: { title: string; items: { to: string; label: 
 
 export function Sidebar() {
   return (
-    <aside className="sticky top-0 hidden h-svh w-72 shrink-0 overflow-y-auto border-r border-gray-200 bg-white px-6 py-8 lg:block dark:border-white/5 dark:bg-gray-950">
+    <aside className="sticky top-0 hidden h-svh w-72 shrink-0 overflow-y-auto border-r bg-card px-6 py-8 lg:block">
       <div className="mb-10 flex items-start justify-between">
         <NavLink to="/" className="block">
           <div className="flex items-center gap-2">
-            <div className="size-7 rounded-md bg-gradient-to-br from-sky-400 to-indigo-500" />
-            <span className="text-lg font-semibold text-gray-900 dark:text-white">Headless UI</span>
+            <div className="size-7 rounded-md bg-gradient-to-br from-primary/60 to-primary" />
+            <span className="text-lg font-semibold text-foreground">Headless UI</span>
           </div>
-          <span className="mt-1 block text-xs text-gray-500 dark:text-white/40">
-            Local clone · v2
-          </span>
+          <span className="mt-1 block text-xs text-muted-foreground">Local clone · v2</span>
         </NavLink>
         <ThemeToggle />
       </div>

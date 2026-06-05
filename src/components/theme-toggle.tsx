@@ -23,7 +23,7 @@ export function ThemeToggle() {
           <MenuItem
             key={value}
             onClick={() => setTheme(value)}
-            className={cn(theme === value && 'font-semibold text-sky-600 dark:text-sky-400')}
+            className={cn(theme === value && 'font-semibold text-primary')}
           >
             <Icon className="size-4" />
             {label}

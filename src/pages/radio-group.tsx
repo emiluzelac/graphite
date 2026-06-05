@@ -17,14 +17,12 @@ function Preview() {
         {plans.map((plan) => (
           <Field
             key={plan.name}
-            className="flex items-center gap-3 space-y-0 rounded-xl bg-gray-100 p-4 transition data-checked:bg-gray-200 dark:bg-white/5 dark:data-checked:bg-white/10"
+            className="flex items-center gap-3 space-y-0 rounded-xl bg-muted p-4 transition data-checked:bg-secondary"
           >
             <Radio value={plan} />
             <Label className="flex-1 font-normal">
-              <div className="text-sm/6 font-semibold text-gray-900 dark:text-white">
-                {plan.name}
-              </div>
-              <div className="flex gap-2 text-xs text-gray-500 dark:text-white/50">
+              <div className="text-sm/6 font-semibold text-foreground">{plan.name}</div>
+              <div className="flex gap-2 text-xs text-muted-foreground">
                 <span>{plan.ram}</span>
                 <span aria-hidden="true">·</span>
                 <span>{plan.cpus}</span>
@@ -48,7 +46,7 @@ export function Example() {
   return (
     <RadioGroup value={selected} onChange={setSelected} aria-label="Server size">
       {plans.map((plan) => (
-        <Field key={plan.name} className="flex items-center gap-3 rounded-xl bg-gray-100 p-4 data-checked:bg-gray-200 dark:bg-white/5 dark:data-checked:bg-white/10">
+        <Field key={plan.name} className="flex items-center gap-3 rounded-xl bg-muted p-4 data-checked:bg-secondary">
           <Radio value={plan} />
           <Label>{plan.name}</Label>
         </Field>

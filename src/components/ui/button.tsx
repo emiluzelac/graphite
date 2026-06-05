@@ -5,11 +5,11 @@ type Variant = 'primary' | 'secondary' | 'ghost'
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-sky-600 text-white shadow-inner shadow-white/10 data-hover:bg-sky-500 data-active:bg-sky-700 data-focus:outline-sky-700 dark:data-focus:outline-white',
+    'bg-primary text-primary-foreground shadow-inner shadow-white/10 data-hover:bg-primary/90 data-active:bg-primary/80 data-focus:outline-ring',
   secondary:
-    'bg-gray-900 text-white data-hover:bg-gray-700 data-focus:outline-gray-900 dark:bg-white/10 dark:data-hover:bg-white/20 dark:data-focus:outline-white',
+    'bg-secondary text-secondary-foreground data-hover:bg-secondary/70 data-active:bg-secondary data-focus:outline-ring',
   ghost:
-    'text-gray-700 data-hover:bg-gray-100 data-hover:text-gray-900 data-focus:outline-gray-900 dark:text-white/80 dark:data-hover:bg-white/5 dark:data-hover:text-white dark:data-focus:outline-white',
+    'text-muted-foreground data-hover:bg-accent data-hover:text-accent-foreground data-focus:outline-ring',
 }
 
 export interface ButtonProps extends Omit<HUIButtonProps, 'className'> {

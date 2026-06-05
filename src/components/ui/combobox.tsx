@@ -31,15 +31,14 @@ export function ComboboxInput<T>({
       <HUIComboboxInput
         {...(props as ComboboxInputProps<'input', T>)}
         className={cn(
-          'w-full rounded-lg bg-white py-1.5 pr-10 pl-3 text-sm/6',
-          'border border-gray-300 text-gray-900',
-          'data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-sky-600 data-hover:border-gray-400',
-          'dark:border-white/10 dark:bg-white/5 dark:text-white dark:data-focus:outline-sky-400 dark:data-hover:border-white/20',
+          'w-full rounded-lg bg-card py-1.5 pr-10 pl-3 text-sm/6',
+          'border border-input text-foreground placeholder:text-muted-foreground',
+          'data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-ring data-hover:border-ring',
           className,
         )}
       />
       <HUIComboboxButton className="group absolute inset-y-0 right-0 px-2.5">
-        <AltArrowDownLinear className="size-4 text-gray-500 group-data-hover:text-gray-700 dark:text-white/50 dark:group-data-hover:text-white" />
+        <AltArrowDownLinear className="size-4 text-muted-foreground group-data-hover:text-foreground" />
       </HUIComboboxButton>
     </div>
   )
@@ -55,9 +54,8 @@ export function ComboboxOptions({
       transition
       {...(props as ComboboxOptionsProps<'ul'>)}
       className={cn(
-        'z-10 w-(--input-width) rounded-xl border border-black/5 bg-white p-1 text-sm/6 shadow-lg [--anchor-gap:--spacing(1)]',
+        'z-10 w-(--input-width) rounded-xl border bg-popover p-1 text-sm/6 text-popover-foreground shadow-lg [--anchor-gap:--spacing(1)]',
         'transition duration-100 ease-in data-closed:scale-95 data-closed:opacity-0 data-leave:duration-75',
-        'dark:border-white/10 dark:bg-gray-900',
         'empty:invisible [&]:focus:outline-none',
         className,
       )}
@@ -76,12 +74,11 @@ export function ComboboxOption<T>({ className, children, ...props }: COProps<T>)
       {...(props as ComboboxOptionProps<'li', T>)}
       className={cn(
         'group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none',
-        'text-gray-900 data-focus:bg-gray-100',
-        'dark:text-white dark:data-focus:bg-white/5',
+        'text-popover-foreground data-focus:bg-accent data-focus:text-accent-foreground',
         className,
       )}
     >
-      <CheckCircleLinear className="invisible size-4 text-sky-600 group-data-selected:visible dark:text-sky-400" />
+      <CheckCircleLinear className="invisible size-4 text-primary group-data-selected:visible" />
       <span className="flex-1">{children as ReactNode}</span>
     </HUIComboboxOption>
   )

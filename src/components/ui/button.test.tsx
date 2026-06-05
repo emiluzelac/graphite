@@ -12,9 +12,23 @@ describe('Button', () => {
     expect(onClick).toHaveBeenCalledOnce()
   })
 
-  it('applies the variant classes', () => {
-    render(<Button variant="secondary">Cancel</Button>)
-    expect(screen.getByRole('button', { name: 'Cancel' })).toHaveClass('bg-gray-900')
+  it('applies semantic token classes per variant', () => {
+    render(
+      <>
+        <Button>Save</Button>
+        <Button variant="secondary">Cancel</Button>
+        <Button variant="ghost">More</Button>
+      </>,
+    )
+    expect(screen.getByRole('button', { name: 'Save' })).toHaveClass(
+      'bg-primary',
+      'text-primary-foreground',
+    )
+    expect(screen.getByRole('button', { name: 'Cancel' })).toHaveClass(
+      'bg-secondary',
+      'text-secondary-foreground',
+    )
+    expect(screen.getByRole('button', { name: 'More' })).toHaveClass('text-muted-foreground')
   })
 
   it('does not fire onClick when disabled', async () => {

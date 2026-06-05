@@ -25,13 +25,12 @@ export function Radio<T>({ className, ...props }: RProps<T>) {
     <HUIRadio
       {...(props as RadioProps<'span', T>)}
       className={cn(
-        'group flex size-5 shrink-0 items-center justify-center rounded-full border border-gray-300 bg-white',
-        'data-checked:border-sky-600 data-checked:bg-sky-600',
-        'dark:border-white/30 dark:bg-white/5 dark:data-checked:border-sky-400 dark:data-checked:bg-sky-400',
+        'group flex size-5 shrink-0 items-center justify-center rounded-full border border-input bg-card',
+        'data-checked:border-primary data-checked:bg-primary',
         className,
       )}
     >
-      <CheckCircleBold className="invisible size-5 text-white group-data-checked:visible" />
+      <CheckCircleBold className="invisible size-5 text-primary-foreground group-data-checked:visible" />
     </HUIRadio>
   )
 }

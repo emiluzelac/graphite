@@ -20,10 +20,9 @@ export function MenuButton({
     <HUIMenuButton
       {...props}
       className={cn(
-        'inline-flex items-center gap-2 rounded-md bg-gray-100 px-3 py-1.5 text-sm/6 font-semibold text-gray-900 shadow-inner shadow-black/5',
-        'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-gray-900',
-        'data-hover:bg-gray-200 data-open:bg-gray-200',
-        'dark:bg-gray-800 dark:text-white dark:shadow-white/10 dark:data-focus:outline-white dark:data-hover:bg-gray-700 dark:data-open:bg-gray-700',
+        'inline-flex items-center gap-2 rounded-md bg-secondary px-3 py-1.5 text-sm/6 font-semibold text-secondary-foreground shadow-inner shadow-black/5',
+        'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-ring',
+        'data-hover:bg-secondary/70 data-open:bg-secondary/70',
         className,
       )}
     />
@@ -40,10 +39,9 @@ export function MenuItems({ className, ...props }: MenuItemsLocalProps) {
       {...(props as MenuItemsProps)}
       transition
       className={cn(
-        'origin-top-right rounded-xl border border-gray-200 bg-white p-1 text-sm/6 text-gray-900 shadow-lg',
+        'origin-top-right rounded-xl border bg-popover p-1 text-sm/6 text-popover-foreground shadow-lg',
         'transition duration-100 ease-out [--anchor-gap:--spacing(1)]',
         'focus:outline-none data-closed:scale-95 data-closed:opacity-0',
-        'dark:border-white/5 dark:bg-white/5 dark:text-white dark:shadow-none dark:backdrop-blur',
         className,
       )}
     />
@@ -60,7 +58,7 @@ export function MenuItem({
       as="button"
       className={cn(
         'group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 text-left',
-        'data-focus:bg-gray-100 dark:data-focus:bg-white/10',
+        'data-focus:bg-accent data-focus:text-accent-foreground',
         className,
       )}
     />

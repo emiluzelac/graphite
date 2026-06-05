@@ -20,7 +20,7 @@ export function Dialog({ className, children, ...props }: RootDialogProps) {
     <HUIDialog {...props} className={cn('relative z-50', className)}>
       <HUIDialogBackdrop
         transition
-        className="fixed inset-0 bg-black/30 backdrop-blur-sm transition duration-200 ease-out data-closed:opacity-0 dark:bg-black/60"
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm transition duration-200 ease-out data-closed:opacity-0"
       />
       <div className="fixed inset-0 flex w-screen items-center justify-center p-4">{children}</div>
     </HUIDialog>
@@ -36,9 +36,8 @@ export function DialogPanel({
       {...props}
       transition
       className={cn(
-        'w-full max-w-md space-y-4 rounded-2xl border border-gray-200 bg-white p-8 text-gray-900 shadow-xl',
+        'w-full max-w-md space-y-4 rounded-2xl border bg-card p-8 text-card-foreground shadow-xl',
         'duration-200 ease-out data-closed:scale-95 data-closed:opacity-0',
-        'dark:border-white/10 dark:bg-gray-900 dark:text-white',
         className,
       )}
     />

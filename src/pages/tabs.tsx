@@ -37,13 +37,13 @@ function Preview() {
                 {posts.map((post) => (
                   <li
                     key={post.id}
-                    className="relative rounded-md p-3 text-sm/6 transition hover:bg-gray-200 dark:hover:bg-white/5"
+                    className="relative rounded-md p-3 text-sm/6 transition hover:bg-accent"
                   >
-                    <a href="#" className="font-semibold text-gray-900 dark:text-white">
+                    <a href="#" className="font-semibold text-foreground">
                       <span className="absolute inset-0" />
                       {post.title}
                     </a>
-                    <ul className="flex gap-2 text-gray-500 dark:text-white/50" aria-hidden="true">
+                    <ul className="flex gap-2 text-muted-foreground" aria-hidden="true">
                       <li>{post.date}</li>
                       <li>·</li>
                       <li>{post.comments} comments</li>

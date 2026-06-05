@@ -39,13 +39,13 @@ export function SignupForm() {
             value="agreed"
             className="mt-0.5"
           />
-          <Label className="font-normal text-gray-600 dark:text-white/70">
+          <Label className="font-normal text-muted-foreground">
             I agree to the{' '}
-            <a href="#" className="font-medium text-sky-600 underline dark:text-sky-400">
+            <a href="#" className="font-medium text-foreground underline">
               terms
             </a>{' '}
             and{' '}
-            <a href="#" className="font-medium text-sky-600 underline dark:text-sky-400">
+            <a href="#" className="font-medium text-foreground underline">
               privacy policy
             </a>
             .

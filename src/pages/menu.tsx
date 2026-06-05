@@ -14,24 +14,24 @@ function Preview() {
     <Menu __demoMode>
       <MenuButton>
         Options
-        <AltArrowDownLinear className="size-4 text-gray-500 dark:text-white/60" />
+        <AltArrowDownLinear className="size-4 text-muted-foreground" />
       </MenuButton>
       <MenuItems anchor="bottom end" className="w-52">
         <MenuItem>
-          <PenLinear className="size-4 text-gray-400 dark:text-white/40" />
+          <PenLinear className="size-4 text-muted-foreground" />
           Edit
         </MenuItem>
         <MenuItem>
-          <CopyLinear className="size-4 text-gray-400 dark:text-white/40" />
+          <CopyLinear className="size-4 text-muted-foreground" />
           Duplicate
         </MenuItem>
         <Separator />
         <MenuItem>
-          <ArchiveLinear className="size-4 text-gray-400 dark:text-white/40" />
+          <ArchiveLinear className="size-4 text-muted-foreground" />
           Archive
         </MenuItem>
         <MenuItem>
-          <TrashBinMinimalisticLinear className="size-4 text-gray-400 dark:text-white/40" />
+          <TrashBinMinimalisticLinear className="size-4 text-muted-foreground" />
           Delete
         </MenuItem>
       </MenuItems>

@@ -10,12 +10,7 @@ export function Fieldset({
   className,
   ...props
 }: Omit<HUIFieldsetProps, 'className'> & { className?: string }) {
-  return (
-    <HUIFieldset
-      {...props}
-      className={cn('space-y-6 rounded-xl bg-gray-100 p-6 dark:bg-white/5', className)}
-    />
-  )
+  return <HUIFieldset {...props} className={cn('space-y-6 rounded-xl bg-muted p-6', className)} />
 }
 
 export function Legend({
@@ -23,9 +18,6 @@ export function Legend({
   ...props
 }: Omit<HUILegendProps, 'className'> & { className?: string }) {
   return (
-    <HUILegend
-      {...props}
-      className={cn('text-base/7 font-semibold text-gray-900 dark:text-white', className)}
-    />
+    <HUILegend {...props} className={cn('text-base/7 font-semibold text-foreground', className)} />
   )
 }

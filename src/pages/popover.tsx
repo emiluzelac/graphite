@@ -18,10 +18,7 @@ const solutions = [
 function Preview() {
   return (
     <PopoverGroup className="flex items-center gap-6 text-sm">
-      <a
-        href="#"
-        className="font-medium text-gray-700 hover:text-gray-900 dark:text-white/80 dark:hover:text-white"
-      >
+      <a href="#" className="font-medium text-muted-foreground hover:text-foreground">
         Products
       </a>
       <Popover className="relative" __demoMode>
@@ -34,21 +31,18 @@ function Preview() {
             <a
               key={s.name}
               href="#"
-              className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-white/5"
+              className="flex items-start gap-3 rounded-lg p-3 hover:bg-accent"
             >
-              <s.Icon className="mt-0.5 size-5 text-sky-600 dark:text-sky-400" />
+              <s.Icon className="mt-0.5 size-5 text-primary" />
               <div>
                 <div className="font-semibold">{s.name}</div>
-                <div className="text-gray-500 dark:text-white/50">{s.desc}</div>
+                <div className="text-muted-foreground">{s.desc}</div>
               </div>
             </a>
           ))}
         </PopoverPanel>
       </Popover>
-      <a
-        href="#"
-        className="font-medium text-gray-700 hover:text-gray-900 dark:text-white/80 dark:hover:text-white"
-      >
+      <a href="#" className="font-medium text-muted-foreground hover:text-foreground">
         Pricing
       </a>
     </PopoverGroup>

@@ -16,7 +16,7 @@ const faqs = [
 
 function Preview() {
   return (
-    <div className="w-full max-w-md divide-y divide-gray-200 rounded-xl bg-gray-100 p-2 dark:divide-white/5 dark:bg-white/5">
+    <div className="w-full max-w-md divide-y divide-border rounded-xl bg-muted p-2">
       {faqs.map(({ q, a }, i) => (
         <Disclosure key={q} as="div" className="p-4" defaultOpen={i === 0}>
           <DisclosureButton>

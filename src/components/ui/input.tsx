@@ -10,11 +10,10 @@ export function Input({ className, ...props }: InputProps) {
     <HUIInput
       {...props}
       className={cn(
-        'block w-full rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-sm/6 text-gray-900',
-        'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-gray-900',
-        'data-invalid:border-red-500 data-invalid:data-focus:outline-red-500',
+        'block w-full rounded-lg border border-input bg-card px-3 py-1.5 text-sm/6 text-foreground placeholder:text-muted-foreground',
+        'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-ring',
+        'data-invalid:border-destructive data-invalid:data-focus:outline-destructive',
         'data-disabled:cursor-not-allowed data-disabled:opacity-50',
-        'dark:border-transparent dark:bg-white/5 dark:text-white dark:data-focus:outline-white',
         className,
       )}
     />

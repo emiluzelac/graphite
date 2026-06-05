@@ -11,9 +11,9 @@ function Preview() {
       <Button onClick={() => setIsOpen(true)}>Open dialog</Button>
       <Dialog open={isOpen} onClose={() => setIsOpen(false)} __demoMode>
         <DialogPanel>
-          <CheckCircleBold className="size-10 text-emerald-500 dark:text-emerald-400" />
+          <CheckCircleBold className="size-10 text-emerald-500" />
           <DialogTitle>Payment successful</DialogTitle>
-          <p className="text-sm text-gray-600 dark:text-white/60">
+          <p className="text-sm text-muted-foreground">
             Your payment has been successfully submitted. We've sent you an email with the order
             details.
           </p>

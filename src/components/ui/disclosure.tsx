@@ -17,9 +17,8 @@ export function DisclosureButton({
     <HUIDisclosureButton
       {...props}
       className={cn(
-        'group flex w-full items-center justify-between text-left text-sm/6 font-medium text-gray-900',
-        'focus:outline-none data-focus:outline data-focus:outline-gray-900',
-        'dark:text-white dark:data-focus:outline-white',
+        'group flex w-full items-center justify-between text-left text-sm/6 font-medium text-foreground',
+        'focus:outline-none data-focus:outline data-focus:outline-ring',
         className,
       )}
     />
@@ -33,7 +32,7 @@ export function DisclosurePanel({
   return (
     <HUIDisclosurePanel
       {...props}
-      className={cn('mt-2 text-sm/5 text-gray-600 dark:text-white/50', className)}
+      className={cn('mt-2 text-sm/5 text-muted-foreground', className)}
     />
   )
 }

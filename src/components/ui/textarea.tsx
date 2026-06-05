@@ -10,10 +10,9 @@ export function Textarea({ className, ...props }: TextareaProps) {
     <HUITextarea
       {...props}
       className={cn(
-        'block w-full resize-none rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-sm/6 text-gray-900',
-        'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-gray-900',
-        'data-invalid:border-red-500',
-        'dark:border-transparent dark:bg-white/5 dark:text-white dark:data-focus:outline-white',
+        'block w-full resize-none rounded-lg border border-input bg-card px-3 py-1.5 text-sm/6 text-foreground placeholder:text-muted-foreground',
+        'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-ring',
+        'data-invalid:border-destructive',
         className,
       )}
     />

@@ -27,7 +27,7 @@ const examples = [{ to: '/signup', label: 'Signup form' }]
 function Grid({ title, items }: { title: string; items: { to: string; label: string }[] }) {
   return (
     <section className="mt-12">
-      <h2 className="mb-4 text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-white/40">
+      <h2 className="mb-4 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
         {title}
       </h2>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -35,7 +35,7 @@ function Grid({ title, items }: { title: string; items: { to: string; label: str
           <Link
             key={item.to}
             to={item.to}
-            className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-6 text-center text-sm font-medium text-gray-700 transition hover:border-gray-300 hover:bg-gray-100 hover:text-gray-900 dark:border-white/10 dark:bg-white/5 dark:text-white/80 dark:hover:border-white/20 dark:hover:bg-white/10 dark:hover:text-white"
+            className="rounded-xl border bg-card px-4 py-6 text-center text-sm font-medium text-muted-foreground transition hover:border-ring hover:bg-accent hover:text-accent-foreground"
           >
             {item.label}
           </Link>
@@ -51,7 +51,7 @@ export default function Home() {
       <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
         Completely unstyled, fully accessible UI components.
       </h1>
-      <p className="mt-4 max-w-2xl text-lg text-gray-600 dark:text-white/60">
+      <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
         A local clone of the Headless UI documentation showcase, with a styled preview and source
         code for every component.
       </p>

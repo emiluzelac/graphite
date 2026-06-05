@@ -11,7 +11,7 @@ function Preview() {
         Click to transition
       </Button>
       <Transition show={open}>
-        <div className="size-32 rounded-xl bg-gradient-to-br from-sky-400 to-indigo-500 shadow-lg transition duration-300 ease-in-out data-closed:scale-90 data-closed:opacity-0" />
+        <div className="size-32 rounded-xl bg-gradient-to-br from-primary/60 to-primary shadow-lg transition duration-300 ease-in-out data-closed:scale-90 data-closed:opacity-0" />
       </Transition>
     </div>
   )
@@ -29,7 +29,7 @@ export function Example() {
         Click to transition
       </Button>
       <Transition show={open}>
-        <div className="size-32 rounded-xl bg-gradient-to-br from-sky-400 to-indigo-500 transition duration-300 data-closed:scale-90 data-closed:opacity-0" />
+        <div className="size-32 rounded-xl bg-gradient-to-br from-primary/60 to-primary transition duration-300 data-closed:scale-90 data-closed:opacity-0" />
       </Transition>
     </>
   )
