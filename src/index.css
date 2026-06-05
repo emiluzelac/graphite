@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply min-h-svh bg-white text-gray-900 antialiased dark:bg-gray-950 dark:text-white;
+  }
+}
