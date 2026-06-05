@@ -4,8 +4,8 @@ import {
   type RadioGroupProps,
   type RadioProps,
 } from '@headlessui/react'
+import type { ReactNode } from 'react'
 import { cn } from '@/lib/cn'
-import { CheckCircleBold } from 'icona'
 
 type RGProps<T> = Omit<RadioGroupProps<'div', T>, 'className'> & { className?: string }
 
@@ -18,19 +18,23 @@ export function RadioGroup<T>({ className, ...props }: RGProps<T>) {
   )
 }
 
-type RProps<T> = Omit<RadioProps<'span', T>, 'className'> & { className?: string }
+type RProps<T> = Omit<RadioProps<'span', T>, 'className' | 'children'> & {
+  className?: string
+  children?: ReactNode
+}
 
-export function Radio<T>({ className, ...props }: RProps<T>) {
+export function Radio<T>({ className, children, ...props }: RProps<T>) {
   return (
     <HUIRadio
       {...(props as RadioProps<'span', T>)}
       className={cn(
-        'group flex size-5 shrink-0 items-center justify-center rounded-full border border-input bg-card',
-        'data-checked:border-primary data-checked:bg-primary',
+        'group relative flex cursor-pointer rounded-lg bg-muted px-5 py-4 shadow-md transition',
+        'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-ring',
+        'data-checked:bg-secondary',
         className,
       )}
     >
-      <CheckCircleBold className="invisible size-5 text-primary-foreground group-data-checked:visible" />
+      {children as ReactNode}
     </HUIRadio>
   )
 }

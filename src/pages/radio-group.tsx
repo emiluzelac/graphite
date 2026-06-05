@@ -1,36 +1,35 @@
 import { useState } from 'react'
-import { Field, Label } from '@/components/ui/field'
 import { Radio, RadioGroup } from '@/components/ui/radio-group'
 import { PreviewCode } from '@/components/preview-code'
+import { CheckCircleBold } from 'icona'
 
 const plans = [
-  { name: 'Startup', ram: '12GB', cpus: '6 CPUs', disk: '256GB SSD' },
-  { name: 'Business', ram: '16GB', cpus: '8 CPUs', disk: '512GB SSD' },
-  { name: 'Enterprise', ram: '32GB', cpus: '12 CPUs', disk: '1TB SSD' },
+  { name: 'Startup', ram: '12GB', cpus: '6 CPUs', disk: '256GB SSD disk' },
+  { name: 'Business', ram: '16GB', cpus: '8 CPUs', disk: '512GB SSD disk' },
+  { name: 'Enterprise', ram: '32GB', cpus: '12 CPUs', disk: '1TB SSD disk' },
 ]
 
 function Preview() {
   const [selected, setSelected] = useState(plans[0])
   return (
     <div className="w-full max-w-md">
-      <RadioGroup value={selected} onChange={setSelected} aria-label="Server size">
+      <RadioGroup by="name" value={selected} onChange={setSelected} aria-label="Server size">
         {plans.map((plan) => (
-          <Field
-            key={plan.name}
-            className="flex items-center gap-3 space-y-0 rounded-xl bg-muted p-4 transition data-checked:bg-secondary"
-          >
-            <Radio value={plan} />
-            <Label className="flex-1 font-normal">
-              <div className="text-sm/6 font-semibold text-foreground">{plan.name}</div>
-              <div className="flex gap-2 text-xs text-muted-foreground">
-                <span>{plan.ram}</span>
-                <span aria-hidden="true">·</span>
-                <span>{plan.cpus}</span>
-                <span aria-hidden="true">·</span>
-                <span>{plan.disk}</span>
+          <Radio key={plan.name} value={plan}>
+            <div className="flex w-full items-center justify-between">
+              <div className="text-sm/6">
+                <p className="font-semibold text-foreground">{plan.name}</p>
+                <div className="flex gap-2 text-muted-foreground">
+                  <div>{plan.ram}</div>
+                  <div aria-hidden="true">&middot;</div>
+                  <div>{plan.cpus}</div>
+                  <div aria-hidden="true">&middot;</div>
+                  <div>{plan.disk}</div>
+                </div>
               </div>
-            </Label>
-          </Field>
+              <CheckCircleBold className="size-6 text-primary opacity-0 transition group-data-checked:opacity-100" />
+            </div>
+          </Radio>
         ))}
       </RadioGroup>
     </div>
@@ -38,18 +37,29 @@ function Preview() {
 }
 
 const code = `import { useState } from 'react'
-import { Field, Label } from '@/components/ui/field'
 import { Radio, RadioGroup } from '@/components/ui/radio-group'
+import { CheckCircleBold } from 'icona'
 
 export function Example() {
   const [selected, setSelected] = useState(plans[0])
   return (
-    <RadioGroup value={selected} onChange={setSelected} aria-label="Server size">
+    <RadioGroup by="name" value={selected} onChange={setSelected} aria-label="Server size">
       {plans.map((plan) => (
-        <Field key={plan.name} className="flex items-center gap-3 rounded-xl bg-muted p-4 data-checked:bg-secondary">
-          <Radio value={plan} />
-          <Label>{plan.name}</Label>
-        </Field>
+        <Radio key={plan.name} value={plan}>
+          <div className="flex w-full items-center justify-between">
+            <div className="text-sm/6">
+              <p className="font-semibold text-foreground">{plan.name}</p>
+              <div className="flex gap-2 text-muted-foreground">
+                <div>{plan.ram}</div>
+                <div aria-hidden="true">&middot;</div>
+                <div>{plan.cpus}</div>
+                <div aria-hidden="true">&middot;</div>
+                <div>{plan.disk}</div>
+              </div>
+            </div>
+            <CheckCircleBold className="size-6 text-primary opacity-0 transition group-data-checked:opacity-100" />
+          </div>
+        </Radio>
       ))}
     </RadioGroup>
   )

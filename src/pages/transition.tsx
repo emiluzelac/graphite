@@ -2,17 +2,36 @@ import { useState } from 'react'
 import { Transition } from '@headlessui/react'
 import { Button } from '@/components/ui/button'
 import { PreviewCode } from '@/components/preview-code'
+import { cn } from '@/lib/cn'
+import { RefreshLinear } from 'icona'
 
 function Preview() {
-  const [open, setOpen] = useState(true)
+  const [isShowing, setIsShowing] = useState(true)
   return (
-    <div className="flex flex-col items-center gap-6">
-      <Button variant="secondary" onClick={() => setOpen((o) => !o)}>
+    <div className="flex flex-col items-center">
+      <div className="size-24">
+        <Transition show={isShowing}>
+          <div
+            className={cn(
+              'size-full rounded-xl bg-gradient-to-br from-primary/60 to-primary shadow-lg transition duration-400',
+              'data-closed:scale-50 data-closed:rotate-[-120deg] data-closed:opacity-0',
+              'data-leave:duration-200 data-leave:ease-in-out',
+              'data-leave:data-closed:scale-95 data-leave:data-closed:rotate-0',
+            )}
+          />
+        </Transition>
+      </div>
+      <Button
+        variant="secondary"
+        className="mt-10 rounded-full"
+        onClick={() => {
+          setIsShowing(false)
+          setTimeout(() => setIsShowing(true), 500)
+        }}
+      >
+        <RefreshLinear className="size-4 text-muted-foreground" />
         Click to transition
       </Button>
-      <Transition show={open}>
-        <div className="size-32 rounded-xl bg-gradient-to-br from-primary/60 to-primary shadow-lg transition duration-300 ease-in-out data-closed:scale-90 data-closed:opacity-0" />
-      </Transition>
     </div>
   )
 }
@@ -20,18 +39,37 @@ function Preview() {
 const code = `import { useState } from 'react'
 import { Transition } from '@headlessui/react'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/cn'
+import { RefreshLinear } from 'icona'
 
 export function Example() {
-  const [open, setOpen] = useState(true)
+  const [isShowing, setIsShowing] = useState(true)
   return (
-    <>
-      <Button variant="secondary" onClick={() => setOpen((o) => !o)}>
+    <div className="flex flex-col items-center">
+      <div className="size-24">
+        <Transition show={isShowing}>
+          <div
+            className={cn(
+              'size-full rounded-xl bg-gradient-to-br from-primary/60 to-primary shadow-lg transition duration-400',
+              'data-closed:scale-50 data-closed:rotate-[-120deg] data-closed:opacity-0',
+              'data-leave:duration-200 data-leave:ease-in-out',
+              'data-leave:data-closed:scale-95 data-leave:data-closed:rotate-0',
+            )}
+          />
+        </Transition>
+      </div>
+      <Button
+        variant="secondary"
+        className="mt-10 rounded-full"
+        onClick={() => {
+          setIsShowing(false)
+          setTimeout(() => setIsShowing(true), 500)
+        }}
+      >
+        <RefreshLinear className="size-4 text-muted-foreground" />
         Click to transition
       </Button>
-      <Transition show={open}>
-        <div className="size-32 rounded-xl bg-gradient-to-br from-primary/60 to-primary transition duration-300 data-closed:scale-90 data-closed:opacity-0" />
-      </Transition>
-    </>
+    </div>
   )
 }
 `
