@@ -18,7 +18,10 @@ const solutions = [
 function Preview() {
   return (
     <PopoverGroup className="flex items-center gap-6 text-sm">
-      <a href="#" className="font-medium text-gray-700 hover:text-gray-900 dark:text-white/80 dark:hover:text-white">
+      <a
+        href="#"
+        className="font-medium text-gray-700 hover:text-gray-900 dark:text-white/80 dark:hover:text-white"
+      >
         Products
       </a>
       <Popover className="relative" __demoMode>
@@ -42,7 +45,10 @@ function Preview() {
           ))}
         </PopoverPanel>
       </Popover>
-      <a href="#" className="font-medium text-gray-700 hover:text-gray-900 dark:text-white/80 dark:hover:text-white">
+      <a
+        href="#"
+        className="font-medium text-gray-700 hover:text-gray-900 dark:text-white/80 dark:hover:text-white"
+      >
         Pricing
       </a>
     </PopoverGroup>

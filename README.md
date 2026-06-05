@@ -3,6 +3,7 @@
 A local clone of the [headlessui.com](https://headlessui.com/react) showcase. Each component has a styled preview and the matching source on Preview / Code tabs.
 
 ## Stack
+
 - Vite + React + TypeScript
 - Tailwind CSS v4 (via `@tailwindcss/vite`)
 - `@headlessui/react` v2

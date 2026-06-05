@@ -6,14 +6,14 @@
     <title>Headless UI — Local</title>
     <script>
       // Avoid FOUC: apply theme before first paint.
-      (function () {
+      ;(function () {
         try {
-          var stored = localStorage.getItem('theme');
-          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var isDark = stored === 'dark' || (stored !== 'light' && prefersDark);
-          document.documentElement.classList.toggle('dark', isDark);
+          var stored = localStorage.getItem('theme')
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+          var isDark = stored === 'dark' || (stored !== 'light' && prefersDark)
+          document.documentElement.classList.toggle('dark', isDark)
         } catch (_) {}
-      })();
+      })()
     </script>
   </head>
   <body>

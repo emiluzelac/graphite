@@ -26,7 +26,10 @@ export function TabList({
   )
 }
 
-export function Tab({ className, ...props }: Omit<ComponentProps<typeof HUITab>, 'className'> & { className?: string }) {
+export function Tab({
+  className,
+  ...props
+}: Omit<ComponentProps<typeof HUITab>, 'className'> & { className?: string }) {
   return (
     <HUITab
       {...(props as TabProps)}

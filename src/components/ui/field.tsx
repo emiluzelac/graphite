@@ -8,11 +8,17 @@ import {
 } from '@headlessui/react'
 import { cn } from '@/lib/cn'
 
-export function Field({ className, ...props }: Omit<HUIFieldProps, 'className'> & { className?: string }) {
+export function Field({
+  className,
+  ...props
+}: Omit<HUIFieldProps, 'className'> & { className?: string }) {
   return <HUIField {...props} className={cn('space-y-1', className)} />
 }
 
-export function Label({ className, ...props }: Omit<HUILabelProps, 'className'> & { className?: string }) {
+export function Label({
+  className,
+  ...props
+}: Omit<HUILabelProps, 'className'> & { className?: string }) {
   return (
     <HUILabel
       {...props}

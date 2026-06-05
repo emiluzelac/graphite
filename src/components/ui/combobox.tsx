@@ -33,8 +33,8 @@ export function ComboboxInput<T>({
         className={cn(
           'w-full rounded-lg bg-white py-1.5 pr-10 pl-3 text-sm/6',
           'border border-gray-300 text-gray-900',
-          'data-hover:border-gray-400 data-focus:outline-2 data-focus:outline-sky-600 data-focus:-outline-offset-2',
-          'dark:border-white/10 dark:bg-white/5 dark:text-white dark:data-hover:border-white/20 dark:data-focus:outline-sky-400',
+          'data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-sky-600 data-hover:border-gray-400',
+          'dark:border-white/10 dark:bg-white/5 dark:text-white dark:data-focus:outline-sky-400 dark:data-hover:border-white/20',
           className,
         )}
       />

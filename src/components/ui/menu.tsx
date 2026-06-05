@@ -50,7 +50,10 @@ export function MenuItems({ className, ...props }: MenuItemsLocalProps) {
   )
 }
 
-export function MenuItem({ className, ...props }: Omit<MenuItemProps<'button'>, 'className'> & { className?: string }) {
+export function MenuItem({
+  className,
+  ...props
+}: Omit<MenuItemProps<'button'>, 'className'> & { className?: string }) {
   return (
     <HUIMenuItem
       {...props}

@@ -21,7 +21,9 @@ function Preview() {
           >
             <Radio value={plan} />
             <Label className="flex-1 font-normal">
-              <div className="text-sm/6 font-semibold text-gray-900 dark:text-white">{plan.name}</div>
+              <div className="text-sm/6 font-semibold text-gray-900 dark:text-white">
+                {plan.name}
+              </div>
               <div className="flex gap-2 text-xs text-gray-500 dark:text-white/50">
                 <span>{plan.ram}</span>
                 <span aria-hidden="true">·</span>

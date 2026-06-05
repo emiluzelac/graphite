@@ -22,9 +22,7 @@ export function Dialog({ className, children, ...props }: RootDialogProps) {
         transition
         className="fixed inset-0 bg-black/30 backdrop-blur-sm transition duration-200 ease-out data-closed:opacity-0 dark:bg-black/60"
       />
-      <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-        {children}
-      </div>
+      <div className="fixed inset-0 flex w-screen items-center justify-center p-4">{children}</div>
     </HUIDialog>
   )
 }

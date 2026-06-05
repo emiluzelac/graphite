@@ -15,10 +15,7 @@ export function ThemeToggle() {
 
   return (
     <Menu>
-      <MenuButton
-        aria-label="Toggle theme"
-        className="size-9 justify-center !p-0"
-      >
+      <MenuButton aria-label="Toggle theme" className="size-9 justify-center !p-0">
         <Current className="size-4" />
       </MenuButton>
       <MenuItems anchor="bottom end" className="w-40">

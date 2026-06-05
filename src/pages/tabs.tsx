@@ -8,7 +8,12 @@ const categories = {
   ],
   Popular: [
     { id: 1, title: 'Is tech making coffee better or worse?', date: 'Jan 7', comments: 29 },
-    { id: 2, title: 'The most innovative things happening in coffee', date: 'Mar 19', comments: 24 },
+    {
+      id: 2,
+      title: 'The most innovative things happening in coffee',
+      date: 'Mar 19',
+      comments: 24,
+    },
   ],
   Trending: [
     { id: 1, title: 'Ask Me Anything: 10 answers about coffee', date: '2d ago', comments: 9 },
@@ -38,10 +43,7 @@ function Preview() {
                       <span className="absolute inset-0" />
                       {post.title}
                     </a>
-                    <ul
-                      className="flex gap-2 text-gray-500 dark:text-white/50"
-                      aria-hidden="true"
-                    >
+                    <ul className="flex gap-2 text-gray-500 dark:text-white/50" aria-hidden="true">
                       <li>{post.date}</li>
                       <li>·</li>
                       <li>{post.comments} comments</li>

@@ -13,10 +13,7 @@ export function Fieldset({
   return (
     <HUIFieldset
       {...props}
-      className={cn(
-        'space-y-6 rounded-xl bg-gray-100 p-6 dark:bg-white/5',
-        className,
-      )}
+      className={cn('space-y-6 rounded-xl bg-gray-100 p-6 dark:bg-white/5', className)}
     />
   )
 }

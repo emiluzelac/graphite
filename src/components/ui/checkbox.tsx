@@ -10,7 +10,7 @@ export function Checkbox({ className, ...props }: CheckboxProps) {
     <HUICheckbox
       {...props}
       className={cn(
-        'group block size-5 shrink-0 rounded border bg-gray-100 ring-1 ring-gray-300 ring-inset transition',
+        'group block size-5 shrink-0 rounded border bg-gray-100 ring-1 ring-gray-300 transition ring-inset',
         'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-gray-900',
         'data-checked:border-transparent data-checked:bg-sky-600 data-checked:ring-sky-600',
         'dark:bg-white/10 dark:ring-white/15 dark:data-checked:bg-sky-500 dark:data-checked:ring-sky-500 dark:data-focus:outline-white',

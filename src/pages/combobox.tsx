@@ -15,13 +15,16 @@ function Preview() {
   const [query, setQuery] = useState('')
 
   const filtered =
-    query === ''
-      ? people
-      : people.filter((p) => p.name.toLowerCase().includes(query.toLowerCase()))
+    query === '' ? people : people.filter((p) => p.name.toLowerCase().includes(query.toLowerCase()))
 
   return (
     <div className="w-72">
-      <Combobox value={selected} onChange={(v) => v && setSelected(v)} onClose={() => setQuery('')} __demoMode>
+      <Combobox
+        value={selected}
+        onChange={(v) => v && setSelected(v)}
+        onClose={() => setQuery('')}
+        __demoMode
+      >
         <ComboboxInput
           displayValue={(p: { name: string } | null) => p?.name ?? ''}
           onChange={(e) => setQuery(e.target.value)}
