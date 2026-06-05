@@ -1,14 +1,5 @@
-import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
-
-export type Theme = 'system' | 'light' | 'dark'
-
-interface ThemeCtx {
-  theme: Theme
-  resolved: 'light' | 'dark'
-  setTheme: (t: Theme) => void
-}
-
-const Ctx = createContext<ThemeCtx | null>(null)
+import { useCallback, useEffect, useState, type ReactNode } from 'react'
+import { Ctx, type Theme } from './theme-context'
 
 function readStored(): Theme {
   try {
@@ -56,10 +47,4 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [theme])
 
   return <Ctx.Provider value={{ theme, resolved, setTheme }}>{children}</Ctx.Provider>
-}
-
-export function useTheme() {
-  const ctx = useContext(Ctx)
-  if (!ctx) throw new Error('useTheme must be used inside ThemeProvider')
-  return ctx
 }

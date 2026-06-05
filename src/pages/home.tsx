@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 const components = [
   { to: '/react/menu', label: 'Dropdown Menu' },

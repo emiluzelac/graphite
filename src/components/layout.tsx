@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router'
 import { Sidebar } from '@/components/sidebar'
 import { ThemeToggle } from '@/components/theme-toggle'
 

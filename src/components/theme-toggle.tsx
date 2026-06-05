@@ -1,7 +1,7 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@/components/ui/menu'
 import { MonitorLinear, MoonLinear, SunLinear } from 'icona'
 import { cn } from '@/lib/cn'
-import { useTheme, type Theme } from '@/theme'
+import { useTheme, type Theme } from '@/theme-context'
 
 const options: { value: Theme; label: string; Icon: typeof SunLinear }[] = [
   { value: 'light', label: 'Light', Icon: SunLinear },
