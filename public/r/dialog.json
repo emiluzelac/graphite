@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog",
+  "title": "Dialog",
+  "description": "Modal dialog with backdrop, centered panel, and transitions.",
+  "dependencies": ["@headlessui/react"],
+  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "files": [
+    {
+      "path": "src/components/ui/dialog.tsx",
+      "content": "import {\n  Dialog as HUIDialog,\n  DialogBackdrop as HUIDialogBackdrop,\n  DialogPanel as HUIDialogPanel,\n  DialogTitle as HUIDialogTitle,\n  type DialogProps,\n  type DialogPanelProps,\n  type DialogTitleProps,\n} from '@headlessui/react'\nimport type { ReactNode } from 'react'\nimport { cn } from '@/lib/cn'\n\nexport interface RootDialogProps extends Omit<DialogProps, 'className' | 'children'> {\n  className?: string\n  children: ReactNode\n}\n\nexport function Dialog({ className, children, ...props }: RootDialogProps) {\n  return (\n    <HUIDialog {...props} className={cn('relative z-50', className)}>\n      <HUIDialogBackdrop\n        transition\n        className=\"fixed inset-0 bg-black/50 backdrop-blur-sm transition duration-200 ease-out data-closed:opacity-0\"\n      />\n      <div className=\"fixed inset-0 flex w-screen items-center justify-center p-4\">{children}</div>\n    </HUIDialog>\n  )\n}\n\nexport function DialogPanel({\n  className,\n  ...props\n}: Omit<DialogPanelProps, 'className'> & { className?: string }) {\n  return (\n    <HUIDialogPanel\n      {...props}\n      transition\n      className={cn(\n        'w-full max-w-md space-y-4 rounded-2xl border bg-card p-8 text-card-foreground shadow-xl',\n        'duration-200 ease-out data-closed:scale-95 data-closed:opacity-0',\n        className,\n      )}\n    />\n  )\n}\n\nexport function DialogTitle({\n  className,\n  ...props\n}: Omit<DialogTitleProps, 'className'> & { className?: string }) {\n  return <HUIDialogTitle {...props} className={cn('text-lg font-bold', className)} />\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

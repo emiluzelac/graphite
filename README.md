@@ -46,3 +46,33 @@ src/
 ```
 
 Each page exports a styled preview component and a matching `code` string passed to `PreviewCode`.
+
+## Component registry
+
+The `ui/` components are distributed as a custom [shadcn-format registry](https://ui.shadcn.com/docs/registry) — the shadcn CLI is only the delivery mechanism; every component is built on Headless UI.
+
+Build the registry JSON (output in `public/r/`, served by Vite and any static host):
+
+```bash
+npm run registry:build
+```
+
+Consume from another app by adding the namespace to its `components.json`:
+
+```json
+{
+  "registries": {
+    "@graphite": "http://localhost:5176/r/{name}.json"
+  }
+}
+```
+
+then:
+
+```bash
+npx shadcn add @graphite/button
+```
+
+This copies `button.tsx` (plus the `cn` util and Graphite theme variables) into the consuming app and installs its npm dependencies.
+
+> **Note:** components that use icons depend on `icona`, which currently resolves via a local `file:` link. Until icona is published to a registry consumers can reach, `shadcn add` for those components (`combobox`, `listbox`, `select`) will fail to install that dependency in external apps.

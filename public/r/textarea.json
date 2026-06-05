@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea",
+  "title": "Textarea",
+  "description": "Multiline input with focus and invalid states.",
+  "dependencies": ["@headlessui/react"],
+  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "files": [
+    {
+      "path": "src/components/ui/textarea.tsx",
+      "content": "import { Textarea as HUITextarea, type TextareaProps as HUITextareaProps } from '@headlessui/react'\nimport { cn } from '@/lib/cn'\n\nexport interface TextareaProps extends Omit<HUITextareaProps, 'className'> {\n  className?: string\n}\n\nexport function Textarea({ className, ...props }: TextareaProps) {\n  return (\n    <HUITextarea\n      {...props}\n      className={cn(\n        'block w-full resize-none rounded-lg border border-input bg-card px-3 py-1.5 text-sm/6 text-foreground placeholder:text-muted-foreground',\n        'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-ring',\n        'data-invalid:border-destructive',\n        className,\n      )}\n    />\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

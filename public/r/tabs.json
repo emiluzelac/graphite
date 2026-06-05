@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "title": "Tabs",
+  "description": "Tab group with pill-style selected state.",
+  "dependencies": ["@headlessui/react"],
+  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "files": [
+    {
+      "path": "src/components/ui/tabs.tsx",
+      "content": "import {\n  TabGroup as HUITabGroup,\n  TabList as HUITabList,\n  Tab as HUITab,\n  TabPanels as HUITabPanels,\n  TabPanel as HUITabPanel,\n  type TabProps,\n  type TabListProps,\n  type TabPanelProps,\n  type TabPanelsProps,\n} from '@headlessui/react'\nimport type { ComponentProps } from 'react'\nimport { cn } from '@/lib/cn'\n\nexport const TabGroup = HUITabGroup\n\nexport function TabList({\n  className,\n  ...props\n}: Omit<TabListProps, 'className'> & { className?: string }) {\n  return <HUITabList {...props} className={cn('flex gap-4 rounded-xl bg-muted p-1', className)} />\n}\n\nexport function Tab({\n  className,\n  ...props\n}: Omit<ComponentProps<typeof HUITab>, 'className'> & { className?: string }) {\n  return (\n    <HUITab\n      {...(props as TabProps)}\n      className={cn(\n        'rounded-full px-3 py-1 text-sm/6 font-semibold text-muted-foreground',\n        'focus:outline-none data-focus:outline data-focus:outline-ring',\n        'data-hover:bg-accent data-hover:text-accent-foreground',\n        'data-selected:bg-primary data-selected:text-primary-foreground data-selected:data-hover:bg-primary',\n        className,\n      )}\n    />\n  )\n}\n\nexport function TabPanels({\n  className,\n  ...props\n}: Omit<TabPanelsProps, 'className'> & { className?: string }) {\n  return <HUITabPanels {...props} className={cn('mt-3', className)} />\n}\n\nexport function TabPanel({\n  className,\n  ...props\n}: Omit<TabPanelProps, 'className'> & { className?: string }) {\n  return <HUITabPanel {...props} className={cn('rounded-xl bg-muted p-3', className)} />\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

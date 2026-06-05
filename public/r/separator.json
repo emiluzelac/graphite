@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "separator",
+  "title": "Separator",
+  "description": "Hairline divider.",
+  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "files": [
+    {
+      "path": "src/components/ui/separator.tsx",
+      "content": "import { cn } from '@/lib/cn'\n\nexport function Separator({ className }: { className?: string }) {\n  return <div className={cn('my-1 h-px bg-border', className)} />\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

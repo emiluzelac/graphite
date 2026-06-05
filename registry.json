@@ -1,0 +1,218 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "graphite",
+  "homepage": "http://localhost:5176",
+  "items": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "cn utility",
+      "description": "clsx + tailwind-merge class combiner.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [{ "path": "src/lib/cn.ts", "type": "registry:lib", "target": "lib/cn.ts" }]
+    },
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Graphite theme",
+      "description": "Custom OKLCH neutral ramp (hue 295) in shadcn-compatible slots, plus radius knob.",
+      "cssVars": {
+        "light": {
+          "background": "oklch(0.985 0.004 295)",
+          "foreground": "oklch(0.21 0.016 295)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.21 0.016 295)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.21 0.016 295)",
+          "primary": "oklch(0.21 0.016 295)",
+          "primary-foreground": "oklch(0.985 0.004 295)",
+          "secondary": "oklch(0.92 0.008 295)",
+          "secondary-foreground": "oklch(0.21 0.016 295)",
+          "muted": "oklch(0.967 0.005 295)",
+          "muted-foreground": "oklch(0.554 0.014 295)",
+          "accent": "oklch(0.945 0.007 295)",
+          "accent-foreground": "oklch(0.21 0.016 295)",
+          "destructive": "oklch(0.577 0.215 27)",
+          "destructive-foreground": "oklch(1 0 0)",
+          "border": "oklch(0.92 0.008 295)",
+          "input": "oklch(0.92 0.008 295)",
+          "ring": "oklch(0.708 0.014 295)",
+          "radius": "0.625rem"
+        },
+        "dark": {
+          "background": "oklch(0.141 0.012 295)",
+          "foreground": "oklch(0.985 0.004 295)",
+          "card": "oklch(0.21 0.016 295)",
+          "card-foreground": "oklch(0.985 0.004 295)",
+          "popover": "oklch(0.21 0.016 295)",
+          "popover-foreground": "oklch(0.985 0.004 295)",
+          "primary": "oklch(0.985 0.004 295)",
+          "primary-foreground": "oklch(0.21 0.016 295)",
+          "secondary": "oklch(0.269 0.014 295)",
+          "secondary-foreground": "oklch(0.985 0.004 295)",
+          "muted": "oklch(0.269 0.014 295)",
+          "muted-foreground": "oklch(0.708 0.014 295)",
+          "accent": "oklch(0.269 0.014 295)",
+          "accent-foreground": "oklch(0.985 0.004 295)",
+          "destructive": "oklch(0.704 0.191 22)",
+          "destructive-foreground": "oklch(0.141 0.012 295)",
+          "border": "oklch(0.269 0.014 295)",
+          "input": "oklch(0.269 0.014 295)",
+          "ring": "oklch(0.554 0.014 295)"
+        }
+      }
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "CVA-powered variants and sizes on the Headless UI button.",
+      "dependencies": ["@headlessui/react", "class-variance-authority"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/button.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Accessible checkbox with centered check and token styling.",
+      "dependencies": ["@headlessui/react"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/checkbox.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Autocomplete input with anchored options list.",
+      "dependencies": ["@headlessui/react", "icona"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/combobox.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Modal dialog with backdrop, centered panel, and transitions.",
+      "dependencies": ["@headlessui/react"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/dialog.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "disclosure",
+      "type": "registry:ui",
+      "title": "Disclosure",
+      "description": "Expand/collapse sections with full keyboard support.",
+      "dependencies": ["@headlessui/react"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/disclosure.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Field, Label, and Description form primitives.",
+      "dependencies": ["@headlessui/react"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/field.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "fieldset",
+      "type": "registry:ui",
+      "title": "Fieldset",
+      "description": "Fieldset and Legend grouping primitives.",
+      "dependencies": ["@headlessui/react"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/fieldset.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Text input with focus, invalid, and disabled states.",
+      "dependencies": ["@headlessui/react"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/input.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "listbox",
+      "type": "registry:ui",
+      "title": "Listbox",
+      "description": "Custom select with anchored options and selected indicator.",
+      "dependencies": ["@headlessui/react", "icona"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/listbox.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Menu button with anchored items and focus styling.",
+      "dependencies": ["@headlessui/react"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme", "@graphite/separator"],
+      "files": [{ "path": "src/components/ui/menu.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Anchored floating panel with transitions.",
+      "dependencies": ["@headlessui/react"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/popover.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Card-style radios with checked state styling.",
+      "dependencies": ["@headlessui/react"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/radio-group.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Native select with custom chrome and chevron.",
+      "dependencies": ["@headlessui/react", "icona"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/select.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Hairline divider.",
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/separator.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Toggle switch with token-pure thumb/track contrast.",
+      "dependencies": ["@headlessui/react"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/switch.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Tab group with pill-style selected state.",
+      "dependencies": ["@headlessui/react"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/tabs.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Multiline input with focus and invalid states.",
+      "dependencies": ["@headlessui/react"],
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/textarea.tsx", "type": "registry:ui" }]
+    }
+  ]
+}

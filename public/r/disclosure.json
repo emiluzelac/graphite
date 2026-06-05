@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "disclosure",
+  "title": "Disclosure",
+  "description": "Expand/collapse sections with full keyboard support.",
+  "dependencies": ["@headlessui/react"],
+  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "files": [
+    {
+      "path": "src/components/ui/disclosure.tsx",
+      "content": "import {\n  Disclosure as HUIDisclosure,\n  DisclosureButton as HUIDisclosureButton,\n  DisclosurePanel as HUIDisclosurePanel,\n  type DisclosureButtonProps,\n  type DisclosurePanelProps,\n} from '@headlessui/react'\nimport { cn } from '@/lib/cn'\n\nexport const Disclosure = HUIDisclosure\n\nexport function DisclosureButton({\n  className,\n  ...props\n}: Omit<DisclosureButtonProps, 'className'> & { className?: string }) {\n  return (\n    <HUIDisclosureButton\n      {...props}\n      className={cn(\n        'group flex w-full items-center justify-between text-left text-sm/6 font-medium text-foreground',\n        'focus:outline-none data-focus:outline data-focus:outline-ring',\n        className,\n      )}\n    />\n  )\n}\n\nexport function DisclosurePanel({\n  className,\n  ...props\n}: Omit<DisclosurePanelProps, 'className'> & { className?: string }) {\n  return (\n    <HUIDisclosurePanel\n      {...props}\n      className={cn('mt-2 text-sm/5 text-muted-foreground', className)}\n    />\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

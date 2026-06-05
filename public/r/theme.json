@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme",
+  "title": "Graphite theme",
+  "description": "Custom OKLCH neutral ramp (hue 295) in shadcn-compatible slots, plus radius knob.",
+  "cssVars": {
+    "light": {
+      "background": "oklch(0.985 0.004 295)",
+      "foreground": "oklch(0.21 0.016 295)",
+      "card": "oklch(1 0 0)",
+      "card-foreground": "oklch(0.21 0.016 295)",
+      "popover": "oklch(1 0 0)",
+      "popover-foreground": "oklch(0.21 0.016 295)",
+      "primary": "oklch(0.21 0.016 295)",
+      "primary-foreground": "oklch(0.985 0.004 295)",
+      "secondary": "oklch(0.92 0.008 295)",
+      "secondary-foreground": "oklch(0.21 0.016 295)",
+      "muted": "oklch(0.967 0.005 295)",
+      "muted-foreground": "oklch(0.554 0.014 295)",
+      "accent": "oklch(0.945 0.007 295)",
+      "accent-foreground": "oklch(0.21 0.016 295)",
+      "destructive": "oklch(0.577 0.215 27)",
+      "destructive-foreground": "oklch(1 0 0)",
+      "border": "oklch(0.92 0.008 295)",
+      "input": "oklch(0.92 0.008 295)",
+      "ring": "oklch(0.708 0.014 295)",
+      "radius": "0.625rem"
+    },
+    "dark": {
+      "background": "oklch(0.141 0.012 295)",
+      "foreground": "oklch(0.985 0.004 295)",
+      "card": "oklch(0.21 0.016 295)",
+      "card-foreground": "oklch(0.985 0.004 295)",
+      "popover": "oklch(0.21 0.016 295)",
+      "popover-foreground": "oklch(0.985 0.004 295)",
+      "primary": "oklch(0.985 0.004 295)",
+      "primary-foreground": "oklch(0.21 0.016 295)",
+      "secondary": "oklch(0.269 0.014 295)",
+      "secondary-foreground": "oklch(0.985 0.004 295)",
+      "muted": "oklch(0.269 0.014 295)",
+      "muted-foreground": "oklch(0.708 0.014 295)",
+      "accent": "oklch(0.269 0.014 295)",
+      "accent-foreground": "oklch(0.985 0.004 295)",
+      "destructive": "oklch(0.704 0.191 22)",
+      "destructive-foreground": "oklch(0.141 0.012 295)",
+      "border": "oklch(0.269 0.014 295)",
+      "input": "oklch(0.269 0.014 295)",
+      "ring": "oklch(0.554 0.014 295)"
+    }
+  },
+  "type": "registry:theme"
+}
