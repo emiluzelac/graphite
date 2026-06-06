@@ -1,17 +1,13 @@
 # Design Tokens — Graphite Theme
 
-**Date:** 2026-06-05
-**Status:** Approved (user delegated final approval)
-**Scope:** Semantic color + radius tokens for the Headless UI component library; refactor all components off hardcoded palette classes.
+Graphite's visual system in four choices:
 
-## Decisions (from brainstorm)
-
-| Question             | Decision                                                                              |
-| -------------------- | ------------------------------------------------------------------------------------- |
-| Accent/primary color | Monochrome (near-black in light, near-white in dark)                                  |
-| Neutral scale        | **Custom OKLCH ramp, hue 295 ("Graphite")** — violet undertone, not a Tailwind preset |
-| Token naming         | shadcn-compatible (`--background`, `--primary`, `--muted`, …) for ecosystem leverage  |
-| Token scope          | Colors + single `--radius` knob. No shadow/spacing/font tokens (YAGNI)                |
+| Aspect               | Choice                                                                                 |
+| -------------------- | -------------------------------------------------------------------------------------- |
+| Accent/primary color | Monochrome (near-black in light, near-white in dark)                                   |
+| Neutral scale        | **Custom OKLCH ramp, hue 295 ("Graphite")** — violet undertone, not a Tailwind preset  |
+| Token naming         | shadcn-compatible (`--background`, `--primary`, `--muted`, …) for ecosystem leverage   |
+| Token scope          | Colors + single `--radius` knob. No shadow/spacing/font tokens until a real need shows |
 
 ## Architecture
 
@@ -105,24 +101,12 @@ Radius derivations in `@theme inline`: `--radius-sm: calc(var(--radius) - 4px)`,
 | `rounded-lg/xl` on components                                    | `rounded-md/lg/xl` from radius tokens (visually same at default)  |
 | every `dark:*` class                                             | **deleted**                                                       |
 
-## Files to change
+## Where the tokens live
 
-- `src/index.css` — token sheet (the bulk of the new code)
-- `src/components/ui/*.tsx` — all 16 components
-- `src/components/{layout,sidebar,preview-code,theme-toggle,signup-form}.tsx` — page chrome
-- `src/pages/*.tsx` — preview wrappers and embedded `code` strings that mention colors
-- `src/components/ui/button.test.tsx` — assert semantic classes (`bg-primary`)
+- `src/index.css` — the entire token sheet (`:root`, `.dark`, `@theme inline`)
+- Components contain only semantic classes; a grep for `gray-`, `sky-`, or `dark:` in `src/components/ui/` should always come back empty
+- Consumers get the same values via the registry's `theme` item (`registry.json` → `cssVars`)
 
-## Verification
+## Retheming
 
-1. `tsc -b`, `eslint`, `vitest`, `vite build` all green
-2. New test: token smoke test asserting `bg-primary`/`bg-secondary` on Button variants
-3. Manual visual pass over every showcase page in light and dark via dev server
-4. `grep`-check: no `gray-`, `sky-`, `dark:` classes remain in `src/components/ui/`
-
-## Out of scope (later tasks)
-
-- CVA variant/size system (task #4)
-- `data-slot` attributes
-- Distribution model / registry (task #5)
-- Icona scoping and publishing (task #6)
+Everything visual is a variable. To retheme an app built on Graphite, override the slots in `:root` / `.dark` — no component changes needed. `--radius: 0` gives sharp corners; `--radius: 9999px` goes pill.

@@ -4,7 +4,7 @@
 
 /*
  * Graphite theme — custom OKLCH neutral ramp, hue 295 (violet undertone).
- * shadcn-compatible semantic slots. See docs/superpowers/specs/2026-06-05-design-tokens-design.md
+ * shadcn-compatible semantic slots. See docs/design-tokens.md
  */
 :root {
   color-scheme: light;
