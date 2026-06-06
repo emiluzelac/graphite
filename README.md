@@ -62,10 +62,12 @@ Consume from another app by adding the namespace to its `components.json`:
 ```json
 {
   "registries": {
-    "@graphite": "http://localhost:5176/r/{name}.json"
+    "@graphite": "https://emiluzelac.github.io/graphite/r/{name}.json"
   }
 }
 ```
+
+The registry is rebuilt and deployed to GitHub Pages automatically on every push to `main` (`.github/workflows/registry.yml`).
 
 then:
 

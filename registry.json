@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "graphite",
-  "homepage": "http://localhost:5176",
+  "homepage": "https://emiluzelac.github.io/graphite",
   "items": [
     {
       "name": "utils",
