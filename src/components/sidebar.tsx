@@ -63,9 +63,11 @@ export function Sidebar() {
         <NavLink to="/" className="block">
           <div className="flex items-center gap-2">
             <div className="size-7 rounded-md bg-gradient-to-br from-primary/60 to-primary" />
-            <span className="text-lg font-semibold text-foreground">Headless UI</span>
+            <span className="text-lg font-semibold text-foreground">Graphite</span>
           </div>
-          <span className="mt-1 block text-xs text-muted-foreground">Local clone · v2</span>
+          <span className="mt-1 block text-xs text-muted-foreground">
+            Headless UI · Tailwind v4
+          </span>
         </NavLink>
         <ThemeToggle />
       </div>

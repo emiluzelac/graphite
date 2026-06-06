@@ -49,11 +49,15 @@ export default function Home() {
   return (
     <div>
       <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
-        Completely unstyled, fully accessible UI components.
+        Graphite — styled, fully accessible components built on Headless UI.
       </h1>
       <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-        A local clone of the Headless UI documentation showcase, with a styled preview and source
-        code for every component.
+        A component library with its own OKLCH design tokens, distributed as a registry. Every
+        component has a live preview and its source on the Code tab — add one to your app with{' '}
+        <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-base">
+          npx shadcn add @graphite/button
+        </code>
+        .
       </p>
       <Grid title="Components" items={components} />
       <Grid title="Forms" items={forms} />

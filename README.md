@@ -1,6 +1,6 @@
-# Headless UI — Local Clone
+# Graphite
 
-A local clone of the [headlessui.com](https://headlessui.com/react) showcase. Each component has a styled preview and the matching source on Preview / Code tabs.
+A component library built on [Headless UI](https://headlessui.com/react) with its own OKLCH design tokens ("Graphite" — custom neutral ramp, hue 295), distributed as a shadcn-format registry. The showcase app gives every component a styled preview and its source on Preview / Code tabs.
 
 ## Stack
 

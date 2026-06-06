@@ -1,5 +1,5 @@
 {
-  "name": "headless-local",
+  "name": "graphite",
   "private": true,
   "version": "0.0.0",
   "type": "module",
