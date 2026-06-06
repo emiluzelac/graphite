@@ -20,4 +20,12 @@ export default tseslint.config([
       globals: globals.browser,
     },
   },
+  {
+    // ui components intentionally export variant objects (e.g. buttonVariants)
+    // alongside components — that's the library API, one file per component.
+    files: ['src/components/ui/**/*.tsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
 ])
