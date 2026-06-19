@@ -31,7 +31,7 @@ function StatusPill({ status }: { status: Person['status'] }) {
   )
 }
 
-function Preview() {
+export function Preview() {
   return (
     <DataList columns="2fr 1fr 1fr auto" aria-label="Team members" className="w-full max-w-xl">
       <DataListHeader>

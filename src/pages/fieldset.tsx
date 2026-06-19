@@ -5,7 +5,7 @@ import { Select } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { PreviewCode } from '@/components/preview-code'
 
-function Preview() {
+export function Preview() {
   return (
     <Fieldset className="w-full max-w-md">
       <Legend>Shipping details</Legend>

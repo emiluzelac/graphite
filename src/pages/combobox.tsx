@@ -10,7 +10,7 @@ const people = [
   { id: 5, name: 'Devon Webb' },
 ]
 
-function Preview() {
+export function Preview({ demoMode = true }: { demoMode?: boolean }) {
   const [selected, setSelected] = useState(people[1])
   const [query, setQuery] = useState('')
 
@@ -23,7 +23,7 @@ function Preview() {
         value={selected}
         onChange={(v) => v && setSelected(v)}
         onClose={() => setQuery('')}
-        __demoMode
+        __demoMode={demoMode}
       >
         <ComboboxInput
           displayValue={(p: { name: string } | null) => p?.name ?? ''}

@@ -4,8 +4,8 @@ import { Dialog, DialogPanel, DialogTitle } from '@/components/ui/dialog'
 import { PreviewCode } from '@/components/preview-code'
 import { CheckCircleBold } from '@emiluzelac/icona'
 
-function Preview() {
-  const [isOpen, setIsOpen] = useState(true)
+export function Preview({ defaultOpen = true }: { defaultOpen?: boolean }) {
+  const [isOpen, setIsOpen] = useState(defaultOpen)
   return (
     <>
       <Button onClick={() => setIsOpen(true)}>Open dialog</Button>

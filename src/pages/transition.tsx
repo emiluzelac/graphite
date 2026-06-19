@@ -5,7 +5,7 @@ import { PreviewCode } from '@/components/preview-code'
 import { cn } from '@/lib/cn'
 import { RefreshLinear } from '@emiluzelac/icona'
 
-function Preview() {
+export function Preview() {
   const [isShowing, setIsShowing] = useState(true)
   return (
     <div className="flex flex-col items-center">

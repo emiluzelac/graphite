@@ -3,7 +3,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Field, Label } from '@/components/ui/field'
 import { PreviewCode } from '@/components/preview-code'
 
-function Preview() {
+export function Preview() {
   const [enabled, setEnabled] = useState(true)
   return (
     <Field className="flex items-center gap-3 space-y-0">

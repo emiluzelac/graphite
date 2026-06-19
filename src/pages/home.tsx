@@ -1,44 +1,85 @@
+import type { ReactNode } from 'react'
 import { Link } from 'react-router'
 
-const components = [
-  { to: '/react/menu', label: 'Dropdown Menu' },
-  { to: '/react/disclosure', label: 'Disclosure' },
-  { to: '/react/dialog', label: 'Dialog' },
-  { to: '/react/popover', label: 'Popover' },
-  { to: '/react/tabs', label: 'Tabs' },
-  { to: '/react/transition', label: 'Transition' },
+import { Preview as DataListDemo } from '@/pages/data-list'
+import { Preview as MenuDemo } from '@/pages/menu'
+import { Preview as DisclosureDemo } from '@/pages/disclosure'
+import { Preview as DialogDemo } from '@/pages/dialog'
+import { Preview as PopoverDemo } from '@/pages/popover'
+import { Preview as TabsDemo } from '@/pages/tabs'
+import { Preview as TransitionDemo } from '@/pages/transition'
+import { Preview as ButtonDemo } from '@/pages/button'
+import { Preview as CheckboxDemo } from '@/pages/checkbox'
+import { Preview as ComboboxDemo } from '@/pages/combobox'
+import { Preview as FieldsetDemo } from '@/pages/fieldset'
+import { Preview as InputDemo } from '@/pages/input'
+import { Preview as ListboxDemo } from '@/pages/listbox'
+import { Preview as RadioGroupDemo } from '@/pages/radio-group'
+import { Preview as SelectDemo } from '@/pages/select'
+import { Preview as SwitchDemo } from '@/pages/switch'
+import { Preview as TextareaDemo } from '@/pages/textarea'
+
+type Item = { to: string; name: string; demo: ReactNode }
+
+const components: Item[] = [
+  { to: '/react/data-list', name: 'Data List', demo: <DataListDemo /> },
+  { to: '/react/menu', name: 'Dropdown Menu', demo: <MenuDemo demoMode={false} /> },
+  { to: '/react/disclosure', name: 'Disclosure', demo: <DisclosureDemo /> },
+  { to: '/react/dialog', name: 'Dialog', demo: <DialogDemo defaultOpen={false} /> },
+  { to: '/react/popover', name: 'Popover', demo: <PopoverDemo demoMode={false} /> },
+  { to: '/react/tabs', name: 'Tabs', demo: <TabsDemo /> },
+  { to: '/react/transition', name: 'Transition', demo: <TransitionDemo /> },
 ]
 
-const forms = [
-  { to: '/react/button', label: 'Button' },
-  { to: '/react/checkbox', label: 'Checkbox' },
-  { to: '/react/combobox', label: 'Combobox' },
-  { to: '/react/fieldset', label: 'Fieldset' },
-  { to: '/react/input', label: 'Input' },
-  { to: '/react/listbox', label: 'Listbox' },
-  { to: '/react/radio-group', label: 'Radio Group' },
-  { to: '/react/select', label: 'Select' },
-  { to: '/react/switch', label: 'Switch' },
-  { to: '/react/textarea', label: 'Textarea' },
+const forms: Item[] = [
+  { to: '/react/button', name: 'Button', demo: <ButtonDemo /> },
+  { to: '/react/checkbox', name: 'Checkbox', demo: <CheckboxDemo /> },
+  { to: '/react/combobox', name: 'Combobox', demo: <ComboboxDemo demoMode={false} /> },
+  { to: '/react/fieldset', name: 'Fieldset', demo: <FieldsetDemo /> },
+  { to: '/react/input', name: 'Input', demo: <InputDemo /> },
+  { to: '/react/listbox', name: 'Listbox', demo: <ListboxDemo demoMode={false} /> },
+  { to: '/react/radio-group', name: 'Radio Group', demo: <RadioGroupDemo /> },
+  { to: '/react/select', name: 'Select', demo: <SelectDemo /> },
+  { to: '/react/switch', name: 'Switch', demo: <SwitchDemo /> },
+  { to: '/react/textarea', name: 'Textarea', demo: <TextareaDemo /> },
 ]
 
-const examples = [{ to: '/signup', label: 'Signup form' }]
+/**
+ * Masonry card: the body is the real, interactive component preview, with a
+ * full-card link overlay for navigation. The overlay is an empty <a> sitting
+ * *below* the demo (z-0 vs z-10), so clicking the demo interacts with it while
+ * clicking the rest of the card routes to its page — and no interactive control
+ * is ever nested inside the anchor (which would be invalid HTML).
+ */
+function GalleryCard({ to, name, children }: { to: string; name: string; children: ReactNode }) {
+  return (
+    <div className="relative flex flex-col overflow-hidden rounded-xl border bg-card">
+      <Link
+        to={to}
+        aria-label={`${name} component`}
+        className="absolute inset-0 z-0 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+      />
+      <div className="px-5 pt-4 pb-1">
+        <span className="text-xs font-medium tracking-wide text-muted-foreground">{name}</span>
+      </div>
+      <div className="relative z-10 flex min-h-40 flex-1 items-center justify-center overflow-hidden px-5 pt-3 pb-6">
+        {children}
+      </div>
+    </div>
+  )
+}
 
-function Grid({ title, items }: { title: string; items: { to: string; label: string }[] }) {
+function Gallery({ title, items }: { title: string; items: Item[] }) {
   return (
     <section className="mt-12">
       <h2 className="mb-4 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
         {title}
       </h2>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {items.map((item) => (
-          <Link
-            key={item.to}
-            to={item.to}
-            className="rounded-xl border bg-card px-4 py-6 text-center text-sm font-medium text-muted-foreground transition hover:border-ring hover:bg-accent hover:text-accent-foreground"
-          >
-            {item.label}
-          </Link>
+          <GalleryCard key={item.to} to={item.to} name={item.name}>
+            {item.demo}
+          </GalleryCard>
         ))}
       </div>
     </section>
@@ -52,16 +93,34 @@ export default function Home() {
         Graphite — styled, fully accessible components built on Headless UI.
       </h1>
       <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-        A component library with its own OKLCH design tokens, distributed as a registry. Every
-        component has a live preview and its source on the Code tab — add one to your app with{' '}
+        A component library with its own OKLCH design tokens, distributed as a registry. Every card
+        below is the real, interactive component — click one to open its page, source, and the rest
+        of the library. Add one to your app with{' '}
         <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-base">
           npx shadcn add @graphite/button
         </code>
         .
       </p>
-      <Grid title="Components" items={components} />
-      <Grid title="Forms" items={forms} />
-      <Grid title="Examples" items={examples} />
+
+      <Gallery title="Components" items={components} />
+      <Gallery title="Forms" items={forms} />
+
+      <section className="mt-12">
+        <h2 className="mb-4 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
+          Examples
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Link
+            to="/signup"
+            className="flex min-h-44 flex-col items-center justify-center rounded-xl border bg-card p-6 text-center"
+          >
+            <span className="text-sm font-medium text-foreground">Signup form</span>
+            <span className="mt-1 text-xs text-muted-foreground">
+              A full form composed from Graphite fields
+            </span>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

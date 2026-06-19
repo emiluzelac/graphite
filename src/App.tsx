@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router'
 import { Layout } from '@/components/layout'
+import { HomeLayout } from '@/components/home-layout'
 import Home from '@/pages/home'
 import MenuPage from '@/pages/menu'
 import DisclosurePage from '@/pages/disclosure'
@@ -23,8 +24,10 @@ import DataListPage from '@/pages/data-list'
 export default function App() {
   return (
     <Routes>
-      <Route element={<Layout />}>
+      <Route element={<HomeLayout />}>
         <Route index element={<Home />} />
+      </Route>
+      <Route element={<Layout />}>
         <Route path="signup" element={<SignupPage />} />
         <Route path="react/data-list" element={<DataListPage />} />
         <Route path="react/menu" element={<MenuPage />} />

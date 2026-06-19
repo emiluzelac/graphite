@@ -9,9 +9,9 @@ import {
   TrashBinMinimalisticLinear,
 } from '@emiluzelac/icona'
 
-function Preview() {
+export function Preview({ demoMode = true }: { demoMode?: boolean }) {
   return (
-    <Menu __demoMode>
+    <Menu __demoMode={demoMode}>
       <MenuButton>
         Options
         <AltArrowDownLinear className="size-4 text-muted-foreground" />

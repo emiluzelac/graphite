@@ -14,7 +14,7 @@ const faqs = [
   },
 ]
 
-function Preview() {
+export function Preview() {
   return (
     <div className="w-full max-w-md divide-y divide-border rounded-xl bg-muted p-2">
       {faqs.map(({ q, a }, i) => (

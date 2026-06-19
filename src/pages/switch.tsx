@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Switch } from '@/components/ui/switch'
 import { PreviewCode } from '@/components/preview-code'
 
-function Preview() {
+export function Preview() {
   const [enabled, setEnabled] = useState(true)
   return <Switch checked={enabled} onChange={setEnabled} />
 }

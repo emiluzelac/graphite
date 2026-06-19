@@ -21,7 +21,7 @@ const categories = {
   ],
 }
 
-function Preview() {
+export function Preview() {
   return (
     <div className="w-full max-w-md">
       <TabGroup>

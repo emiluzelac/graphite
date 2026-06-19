@@ -9,7 +9,7 @@ const plans = [
   { name: 'Enterprise', ram: '32GB', cpus: '12 CPUs', disk: '1TB SSD disk' },
 ]
 
-function Preview() {
+export function Preview() {
   const [selected, setSelected] = useState(plans[0])
   return (
     <div className="w-full max-w-md">

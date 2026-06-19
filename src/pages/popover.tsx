@@ -15,13 +15,13 @@ const solutions = [
   { name: 'Security', desc: 'Lock down sensitive data', Icon: ShieldCheckLinear },
 ]
 
-function Preview() {
+export function Preview({ demoMode = true }: { demoMode?: boolean }) {
   return (
     <PopoverGroup className="flex items-center gap-6 text-sm">
       <a href="#" className="font-medium text-muted-foreground hover:text-foreground">
         Products
       </a>
-      <Popover className="relative" __demoMode>
+      <Popover className="relative" __demoMode={demoMode}>
         <PopoverButton>
           Solutions
           <AltArrowDownLinear className="size-4 transition group-data-open:rotate-180" />

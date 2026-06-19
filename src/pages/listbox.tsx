@@ -9,11 +9,11 @@ const people = [
   { id: 4, name: 'Ringo' },
 ]
 
-function Preview() {
+export function Preview({ demoMode = true }: { demoMode?: boolean }) {
   const [selected, setSelected] = useState(people[0])
   return (
     <div className="w-60">
-      <Listbox value={selected} onChange={setSelected} __demoMode>
+      <Listbox value={selected} onChange={setSelected} __demoMode={demoMode}>
         <ListboxButton>{selected.name}</ListboxButton>
         <ListboxOptions>
           {people.map((person) => (

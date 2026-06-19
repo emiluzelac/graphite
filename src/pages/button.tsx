@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { PreviewCode } from '@/components/preview-code'
 import { SettingsLinear } from '@emiluzelac/icona'
 
-function Preview() {
+export function Preview() {
   return (
     <div className="flex flex-col items-center gap-6">
       <div className="flex flex-wrap items-center justify-center gap-3">
