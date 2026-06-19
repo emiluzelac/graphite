@@ -18,6 +18,7 @@ import SelectPage from '@/pages/select'
 import SwitchPage from '@/pages/switch'
 import TextareaPage from '@/pages/textarea'
 import SignupPage from '@/pages/signup'
+import DataListPage from '@/pages/data-list'
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="signup" element={<SignupPage />} />
+        <Route path="react/data-list" element={<DataListPage />} />
         <Route path="react/menu" element={<MenuPage />} />
         <Route path="react/disclosure" element={<DisclosurePage />} />
         <Route path="react/dialog" element={<DialogPage />} />

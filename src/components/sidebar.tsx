@@ -3,6 +3,7 @@ import { cn } from '@/lib/cn'
 import { ThemeToggle } from '@/components/theme-toggle'
 
 const components = [
+  { to: '/react/data-list', label: 'Data List' },
   { to: '/react/menu', label: 'Dropdown Menu' },
   { to: '/react/disclosure', label: 'Disclosure' },
   { to: '/react/dialog', label: 'Dialog' },
