@@ -4,7 +4,9 @@
 
 /*
  * Graphite theme — custom OKLCH neutral ramp, hue 295 (violet undertone).
- * shadcn-compatible semantic slots. See docs/design-tokens.md
+ * Components are Headless UI based (not shadcn/ui); only the token slot names
+ * (--background, --primary, …) follow shadcn's contract so the registry installs
+ * and themes cleanly in shadcn-based apps. See docs/design-tokens.md
  */
 :root {
   color-scheme: light;

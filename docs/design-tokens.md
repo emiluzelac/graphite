@@ -6,10 +6,15 @@ Graphite's visual system in four choices:
 | -------------------- | -------------------------------------------------------------------------------------- |
 | Accent/primary color | Monochrome (near-black in light, near-white in dark)                                   |
 | Neutral scale        | **Custom OKLCH ramp, hue 295 ("Graphite")** — violet undertone, not a Tailwind preset  |
-| Token naming         | shadcn-compatible (`--background`, `--primary`, `--muted`, …) for ecosystem leverage   |
+| Token naming         | Slot names follow shadcn's contract (`--background`, `--primary`, …); not shadcn/ui    |
 | Token scope          | Colors + single `--radius` knob. No shadow/spacing/font tokens until a real need shows |
 
 ## Architecture
+
+Graphite's components are [Headless UI](https://headlessui.com/) based — **not shadcn/ui**
+(which is Radix based). Only the token _slot names_ and the wiring below follow shadcn's
+v4 contract, so the components install via the shadcn registry CLI and pick up the right
+colors when dropped into a shadcn-themed app. The values filling those slots are custom.
 
 Three-layer wiring in `src/index.css` (the shadcn v4 pattern):
 
