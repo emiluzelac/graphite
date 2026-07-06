@@ -15,7 +15,7 @@
       "name": "theme",
       "type": "registry:theme",
       "title": "Graphite theme",
-      "description": "Custom OKLCH neutral ramp (hue 295) in shadcn-compatible slots, plus radius knob.",
+      "description": "Graphite OKLCH ink (hue 295) plus the frosted-glass material tokens, in shadcn-compatible slots.",
       "cssVars": {
         "light": {
           "background": "oklch(0.985 0.004 295)",

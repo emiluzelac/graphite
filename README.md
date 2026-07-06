@@ -1,6 +1,6 @@
 # Graphite
 
-A component library built on [Headless UI](https://headlessui.com/react) with its own OKLCH design tokens ("Graphite" — custom neutral ramp, hue 295), distributed as a shadcn-format registry. The showcase app gives every component a styled preview and its source on Preview / Code tabs.
+Ink-dark components under frosted glass. A component library built on [Headless UI](https://headlessui.com/react) with its own OKLCH design tokens ("Graphite" — custom neutral ramp, hue 295) and a translucent glass material (`glass` / `glass-flat` over an ambient backdrop), distributed as a shadcn-format registry. The showcase app gives every component a styled preview and its source on Preview / Code tabs.
 
 ## Stack
 

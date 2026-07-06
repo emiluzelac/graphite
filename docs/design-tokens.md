@@ -2,12 +2,13 @@
 
 Graphite's visual system in four choices:
 
-| Aspect               | Choice                                                                                 |
-| -------------------- | -------------------------------------------------------------------------------------- |
-| Accent/primary color | Monochrome (near-black in light, near-white in dark)                                   |
-| Neutral scale        | **Custom OKLCH ramp, hue 295 ("Graphite")** — violet undertone, not a Tailwind preset  |
-| Token naming         | Slot names follow shadcn's contract (`--background`, `--primary`, …); not shadcn/ui    |
-| Token scope          | Colors + single `--radius` knob. No shadow/spacing/font tokens until a real need shows |
+| Aspect               | Choice                                                                                       |
+| -------------------- | -------------------------------------------------------------------------------------------- |
+| Accent/primary color | Monochrome (near-black in light, near-white in dark)                                         |
+| Neutral scale        | **Custom OKLCH ramp, hue 295 ("Graphite")** — violet undertone, not a Tailwind preset        |
+| Token naming         | Slot names follow shadcn's contract (`--background`, `--primary`, …); not shadcn/ui          |
+| Token scope          | Colors + single `--radius` knob. No shadow/spacing/font tokens until a real need shows       |
+| Material             | Frosted glass (`glass` / `glass-flat`) over an ambient backdrop; ink and accents stay opaque |
 
 ## Architecture
 

@@ -111,12 +111,13 @@ export default function Home() {
   return (
     <div>
       <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
-        Graphite — styled, fully accessible components built on Headless UI.
+        Graphite — ink-dark components under frosted glass.
       </h1>
       <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-        A component library with its own OKLCH design tokens, distributed as a registry. Every card
-        below is the real, interactive component — click one to open its page, source, and the rest
-        of the library. Add one to your app with{' '}
+        Fully accessible components built on Headless UI: graphite OKLCH ink over a translucent
+        glass material, distributed as a registry. Every card below is the real, interactive
+        component — click one to open its page, source, and the rest of the library. Add one to your
+        app with{' '}
         <code className="rounded bg-foreground/10 px-1.5 py-0.5 font-mono text-base">
           npx shadcn add @graphite/button
         </code>
