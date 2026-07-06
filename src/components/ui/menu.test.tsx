@@ -120,4 +120,18 @@ describe('Menu', () => {
     await user.click(screen.getByRole('button', { name: 'Options' }))
     expect(screen.getByRole('menuitem', { name: 'Edit' })).toHaveClass('is-idle')
   })
+
+  it('renders the items panel as glass', async () => {
+    const user = userEvent.setup()
+    render(
+      <Menu>
+        <MenuButton>Options</MenuButton>
+        <MenuItems>
+          <MenuItem>Edit</MenuItem>
+        </MenuItems>
+      </Menu>,
+    )
+    await user.click(screen.getByRole('button', { name: 'Options' }))
+    expect(screen.getByRole('menu')).toHaveClass('glass')
+  })
 })

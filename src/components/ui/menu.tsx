@@ -42,7 +42,7 @@ export function MenuItems({ className, ...props }: MenuItemsProps) {
       {...props}
       className={composeClass(
         [
-          'origin-top-right rounded-xl border bg-popover p-1 text-sm/6 text-popover-foreground shadow-lg',
+          'origin-top-right rounded-xl glass p-1 text-sm/6 text-foreground',
           'transition duration-100 ease-out [--anchor-gap:--spacing(1)]',
           'focus:outline-none data-closed:scale-95 data-closed:opacity-0',
         ].join(' '),
@@ -61,7 +61,7 @@ export function MenuItem<T extends ElementType = 'button'>(props: MenuItemProps<
       className={composeClass(
         [
           'group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 text-left',
-          'data-focus:bg-accent data-focus:text-accent-foreground',
+          'data-focus:bg-foreground/10',
         ].join(' '),
         className,
       )}

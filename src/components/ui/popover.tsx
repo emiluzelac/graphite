@@ -52,7 +52,7 @@ export function PopoverPanel({ className, ...props }: PopoverPanelProps) {
       {...props}
       className={composeClass(
         [
-          'origin-top divide-y divide-border rounded-xl border bg-popover p-2 text-sm/6 text-popover-foreground shadow-xl',
+          'origin-top divide-y divide-foreground/10 rounded-xl glass p-2 text-sm/6 text-foreground',
           'transition duration-150 ease-out [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:opacity-0',
         ].join(' '),
         className,

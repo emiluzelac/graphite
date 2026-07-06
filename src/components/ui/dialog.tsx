@@ -33,7 +33,7 @@ export function DialogPanel({ className, ...props }: DialogPanelProps) {
       {...props}
       className={composeClass(
         [
-          'w-full max-w-md space-y-4 rounded-2xl border bg-card p-8 text-card-foreground shadow-xl',
+          'w-full max-w-md space-y-4 rounded-2xl glass p-8 text-foreground',
           'duration-200 ease-out data-closed:scale-95 data-closed:opacity-0',
         ].join(' '),
         className,

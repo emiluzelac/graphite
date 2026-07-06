@@ -25,4 +25,13 @@ describe('Dialog', () => {
     const panel = screen.getByText('Tall content')
     expect(panel.closest('.overflow-y-auto')).not.toBeNull()
   })
+
+  it('renders the panel as glass', () => {
+    render(
+      <Dialog open onClose={() => {}}>
+        <DialogPanel>Content</DialogPanel>
+      </Dialog>,
+    )
+    expect(screen.getByText('Content')).toHaveClass('glass')
+  })
 })

@@ -45,7 +45,7 @@ export function ListboxOptions({ className, ...props }: ListboxOptionsProps<'ul'
       {...(props as ListboxOptionsProps<'ul'>)}
       className={composeClass(
         [
-          'z-10 w-(--button-width) rounded-xl border bg-popover p-1 text-sm/6 text-popover-foreground shadow-lg [--anchor-gap:--spacing(1)]',
+          'z-10 w-(--button-width) rounded-xl glass p-1 text-sm/6 text-foreground [--anchor-gap:--spacing(1)]',
           'transition duration-100 ease-in data-closed:scale-95 data-closed:opacity-0 data-leave:duration-75',
           '[&]:focus:outline-none',
         ].join(' '),
@@ -64,7 +64,7 @@ export function ListboxOption<T>({ className, children, ...props }: LOProps<T>) 
       className={composeClass(
         [
           'group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none',
-          'text-popover-foreground data-focus:bg-accent data-focus:text-accent-foreground',
+          'text-foreground data-focus:bg-foreground/10',
         ].join(' '),
         className,
       )}

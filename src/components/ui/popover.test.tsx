@@ -71,4 +71,16 @@ describe('Popover', () => {
       expect(screen.queryByRole('button', { name: 'Dismiss' })).not.toBeInTheDocument(),
     )
   })
+
+  it('renders the panel as glass', async () => {
+    const user = userEvent.setup()
+    render(
+      <Popover>
+        <PopoverButton>Solutions</PopoverButton>
+        <PopoverPanel>Panel content</PopoverPanel>
+      </Popover>,
+    )
+    await user.click(screen.getByRole('button', { name: 'Solutions' }))
+    expect(screen.getByText('Panel content')).toHaveClass('glass')
+  })
 })
