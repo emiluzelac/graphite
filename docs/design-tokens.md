@@ -49,6 +49,33 @@ A base layer sets sensible defaults:
 }
 ```
 
+## Glass material
+
+Graphite's default surface treatment is frosted glass ("Frost"): alpha surface +
+16px backdrop-blur + hairline border. It is defined once as two utilities in
+`src/index.css`, driven by four tokens that flip with `.dark`:
+
+| Token             | Light                          | Dark                  |
+| ----------------- | ------------------------------ | --------------------- |
+| `--glass-surface` | `oklch(1 0 0 / 0.55)`          | `oklch(1 0 0 / 0.08)` |
+| `--glass-border`  | `oklch(0.21 0.016 295 / 0.1)`  | `oklch(1 0 0 / 0.12)` |
+| `--glass-shadow`  | `oklch(0.21 0.016 295 / 0.08)` | `oklch(0 0 0 / 0.25)` |
+| `--glass-blur`    | `16px`                         | (same)                |
+
+- `glass` — floating surfaces (menus, popovers, dialogs, option lists): surface,
+  hairline border, `backdrop-filter: blur(...) saturate(120%)`, soft shadow.
+- `glass-flat` — inline controls (inputs, triggers, cards): surface + border only.
+
+**State fills on glass use foreground-alpha**, never opaque `accent`/`secondary`
+(opaque fills punch holes in translucent panels): focus/active `bg-foreground/10`,
+hover `bg-foreground/5`. `--foreground` flips per mode, so this is white-alpha in
+dark and ink-alpha in light.
+
+The shadcn slots (`--popover`, `--card`, …) keep opaque values for contract
+compatibility; glass components do not reference them. The optional `backdrop`
+registry item provides the ambient gradient stage (`--backdrop-1/2/3`) the demos
+sit on. Without `backdrop-filter` support, surfaces degrade to plain alpha film.
+
 ## Graphite ramp (internal reference)
 
 All hue 295. Not exposed as utilities — these values fill the semantic slots below.
