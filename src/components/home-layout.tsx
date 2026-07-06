@@ -1,9 +1,11 @@
 import { Outlet, Link } from 'react-router'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { Backdrop } from '@/components/ui/backdrop'
 
 export function HomeLayout() {
   return (
     <div className="min-h-svh">
+      <Backdrop />
       <header className="sticky top-0 z-30 border-b bg-background/80 backdrop-blur">
         <div className="flex items-center justify-between px-6 py-4 lg:px-8">
           <Link to="/" className="flex items-center gap-2">
