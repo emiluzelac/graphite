@@ -1,6 +1,6 @@
 # Design Tokens — Graphite Theme
 
-Graphite's visual system in four choices:
+Graphite's visual system in five choices:
 
 | Aspect               | Choice                                                                                       |
 | -------------------- | -------------------------------------------------------------------------------------------- |
@@ -125,7 +125,7 @@ All hue 295. Not exposed as utilities — these values fill the semantic slots b
 | `--accent-foreground`                        | 900                      | 50                      |
 | `--destructive`                              | `oklch(0.577 0.215 27)`  | `oklch(0.704 0.191 22)` |
 | `--destructive-foreground`                   | white                    | 950                     |
-| `--border` / `--input`                       | 200                      | 800                     |
+| `--border` / `--input`                       | ink `/ 0.1` hairline     | white `/ 0.12` hairline |
 | `--ring`                                     | 400                      | 500                     |
 | `--radius`                                   | `0.625rem`               | (same)                  |
 
