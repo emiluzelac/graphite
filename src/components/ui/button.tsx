@@ -1,4 +1,9 @@
-import { Button as HUIButton, type ButtonProps as HUIButtonProps } from '@headlessui/react'
+import {
+  Button as HUIButton,
+  CloseButton as HUICloseButton,
+  type ButtonProps as HUIButtonProps,
+  type CloseButtonProps as HUICloseButtonProps,
+} from '@headlessui/react'
 // Re-exported so buttonVariants works on plain elements (e.g. links): DataInteractive
 // applies the data-hover/data-active attributes the variants are styled against.
 export { DataInteractive } from '@headlessui/react'
@@ -45,4 +50,14 @@ export interface ButtonProps
 
 export function Button({ className, variant, size, ...props }: ButtonProps) {
   return <HUIButton {...props} className={cn(buttonVariants({ variant, size }), className)} />
+}
+
+export interface CloseButtonProps
+  extends Omit<HUICloseButtonProps, 'className'>, VariantProps<typeof buttonVariants> {
+  className?: string
+}
+
+// Styled like Button, but closes the nearest Dialog or Popover when clicked.
+export function CloseButton({ className, variant, size, ...props }: CloseButtonProps) {
+  return <HUICloseButton {...props} className={cn(buttonVariants({ variant, size }), className)} />
 }

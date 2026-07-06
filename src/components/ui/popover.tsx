@@ -1,15 +1,36 @@
 import {
   Popover as HUIPopover,
+  PopoverBackdrop as HUIPopoverBackdrop,
   PopoverButton as HUIPopoverButton,
   PopoverGroup as HUIPopoverGroup,
   PopoverPanel as HUIPopoverPanel,
+  type PopoverBackdropProps,
   type PopoverButtonProps,
   type PopoverPanelProps,
 } from '@headlessui/react'
 import { cn } from '@/lib/cn'
 
+// Re-exported so panel content can close the popover it lives in.
+export { useClose } from '@headlessui/react'
+
 export const Popover = HUIPopover
 export const PopoverGroup = HUIPopoverGroup
+
+export function PopoverBackdrop({
+  className,
+  ...props
+}: Omit<PopoverBackdropProps, 'className'> & { className?: string }) {
+  return (
+    <HUIPopoverBackdrop
+      transition
+      {...props}
+      className={cn(
+        'fixed inset-0 bg-black/50 backdrop-blur-sm transition duration-200 ease-out data-closed:opacity-0',
+        className,
+      )}
+    />
+  )
+}
 
 export function PopoverButton({
   className,

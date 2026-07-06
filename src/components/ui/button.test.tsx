@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Button } from './button'
 import * as button from './button'
+import { Dialog, DialogPanel } from './dialog'
 
 describe('Button', () => {
   it('renders children and fires onClick', async () => {
@@ -74,6 +75,24 @@ describe('Button', () => {
     expect(button).toBeDisabled()
     await user.click(button)
     expect(onClick).not.toHaveBeenCalled()
+  })
+
+  it('CloseButton closes the nearest dialog and supports variants', async () => {
+    const { CloseButton } = button
+    const user = userEvent.setup()
+    const onClose = vi.fn()
+    render(
+      <Dialog open onClose={onClose}>
+        <DialogPanel>
+          <CloseButton variant="ghost">Close</CloseButton>
+        </DialogPanel>
+      </Dialog>,
+    )
+
+    const closeButton = screen.getByRole('button', { name: 'Close' })
+    expect(closeButton).toHaveClass('text-muted-foreground')
+    await user.click(closeButton)
+    expect(onClose).toHaveBeenCalled()
   })
 
   it('gives buttonVariants links interactive data attributes via DataInteractive', async () => {

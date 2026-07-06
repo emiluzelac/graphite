@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 import * as menu from './menu'
 
 // Namespace import so a missing export fails its own test instead of the module.
-const { Menu, MenuButton, MenuItems, MenuItem, MenuSeparator } = menu
+const { Menu, MenuButton, MenuItems, MenuItem, MenuSeparator, MenuSection, MenuHeading } = menu
 
 describe('Menu', () => {
   it('opens on click and renders MenuItem as a button by default', async () => {
@@ -87,5 +87,23 @@ describe('Menu', () => {
 
     await user.click(screen.getByRole('button', { name: 'Options' }))
     expect(screen.getByRole('separator')).toBeInTheDocument()
+  })
+
+  it('groups MenuSection items under a MenuHeading label', async () => {
+    const user = userEvent.setup()
+    render(
+      <Menu>
+        <MenuButton>Options</MenuButton>
+        <MenuItems>
+          <MenuSection>
+            <MenuHeading>Actions</MenuHeading>
+            <MenuItem>Edit</MenuItem>
+          </MenuSection>
+        </MenuItems>
+      </Menu>,
+    )
+
+    await user.click(screen.getByRole('button', { name: 'Options' }))
+    expect(screen.getByRole('group', { name: 'Actions' })).toBeInTheDocument()
   })
 })

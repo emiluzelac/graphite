@@ -4,10 +4,14 @@ import {
   MenuItem as HUIMenuItem,
   MenuItems as HUIMenuItems,
   MenuSeparator as HUIMenuSeparator,
+  MenuSection as HUIMenuSection,
+  MenuHeading as HUIMenuHeading,
   type MenuButtonProps,
   type MenuItemsProps,
   type MenuItemProps,
   type MenuSeparatorProps,
+  type MenuSectionProps,
+  type MenuHeadingProps,
 } from '@headlessui/react'
 import type { ComponentProps, ElementType } from 'react'
 import { cn } from '@/lib/cn'
@@ -77,4 +81,23 @@ export function MenuSeparator({
   ...props
 }: Omit<MenuSeparatorProps, 'className'> & { className?: string }) {
   return <HUIMenuSeparator {...props} className={cn('my-1 h-px bg-border', className)} />
+}
+
+export function MenuSection({
+  className,
+  ...props
+}: Omit<MenuSectionProps, 'className'> & { className?: string }) {
+  return <HUIMenuSection {...props} className={cn(className)} />
+}
+
+export function MenuHeading({
+  className,
+  ...props
+}: Omit<MenuHeadingProps, 'className'> & { className?: string }) {
+  return (
+    <HUIMenuHeading
+      {...props}
+      className={cn('px-3 pt-2 pb-1 text-xs font-medium text-muted-foreground', className)}
+    />
+  )
 }
