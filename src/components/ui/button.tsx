@@ -8,7 +8,7 @@ import {
 // applies the data-hover/data-active attributes the variants are styled against.
 export { DataInteractive } from '@headlessui/react'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '@/lib/cn'
+import { composeClass } from '@/lib/cn'
 
 export const buttonVariants = cva(
   [
@@ -43,21 +43,22 @@ export const buttonVariants = cva(
   },
 )
 
-export interface ButtonProps
-  extends Omit<HUIButtonProps, 'className'>, VariantProps<typeof buttonVariants> {
-  className?: string
-}
+export type ButtonProps = HUIButtonProps & VariantProps<typeof buttonVariants>
 
 export function Button({ className, variant, size, ...props }: ButtonProps) {
-  return <HUIButton {...props} className={cn(buttonVariants({ variant, size }), className)} />
+  return (
+    <HUIButton {...props} className={composeClass(buttonVariants({ variant, size }), className)} />
+  )
 }
 
-export interface CloseButtonProps
-  extends Omit<HUICloseButtonProps, 'className'>, VariantProps<typeof buttonVariants> {
-  className?: string
-}
+export type CloseButtonProps = HUICloseButtonProps & VariantProps<typeof buttonVariants>
 
 // Styled like Button, but closes the nearest Dialog or Popover when clicked.
 export function CloseButton({ className, variant, size, ...props }: CloseButtonProps) {
-  return <HUICloseButton {...props} className={cn(buttonVariants({ variant, size }), className)} />
+  return (
+    <HUICloseButton
+      {...props}
+      className={composeClass(buttonVariants({ variant, size }), className)}
+    />
+  )
 }

@@ -110,4 +110,15 @@ describe('Button', () => {
     await user.hover(link)
     expect(link).toHaveAttribute('data-hover')
   })
+
+  it('resolves function className with the state bag, merged with variants', () => {
+    render(
+      <Button disabled className={({ disabled }) => (disabled ? 'is-locked' : 'is-open')}>
+        Locked
+      </Button>,
+    )
+    const btn = screen.getByRole('button', { name: 'Locked' })
+    expect(btn).toHaveClass('is-locked')
+    expect(btn).toHaveClass('bg-primary')
+  })
 })
