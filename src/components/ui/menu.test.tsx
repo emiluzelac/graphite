@@ -106,4 +106,18 @@ describe('Menu', () => {
     await user.click(screen.getByRole('button', { name: 'Options' }))
     expect(screen.getByRole('group', { name: 'Actions' })).toBeInTheDocument()
   })
+
+  it('resolves function className on MenuItem with the state bag', async () => {
+    const user = userEvent.setup()
+    render(
+      <Menu>
+        <MenuButton>Options</MenuButton>
+        <MenuItems>
+          <MenuItem className={({ focus }) => (focus ? 'is-focused' : 'is-idle')}>Edit</MenuItem>
+        </MenuItems>
+      </Menu>,
+    )
+    await user.click(screen.getByRole('button', { name: 'Options' }))
+    expect(screen.getByRole('menuitem', { name: 'Edit' })).toHaveClass('is-idle')
+  })
 })

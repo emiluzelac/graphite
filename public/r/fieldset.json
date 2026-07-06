@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "src/components/ui/fieldset.tsx",
-      "content": "import {\n  Fieldset as HUIFieldset,\n  Legend as HUILegend,\n  type FieldsetProps as HUIFieldsetProps,\n  type LegendProps as HUILegendProps,\n} from '@headlessui/react'\nimport { cn } from '@/lib/cn'\n\nexport function Fieldset({\n  className,\n  ...props\n}: Omit<HUIFieldsetProps, 'className'> & { className?: string }) {\n  return <HUIFieldset {...props} className={cn('space-y-6 rounded-xl bg-muted p-6', className)} />\n}\n\nexport function Legend({\n  className,\n  ...props\n}: Omit<HUILegendProps, 'className'> & { className?: string }) {\n  return (\n    <HUILegend {...props} className={cn('text-base/7 font-semibold text-foreground', className)} />\n  )\n}\n",
+      "content": "import {\n  Fieldset as HUIFieldset,\n  Legend as HUILegend,\n  type FieldsetProps as HUIFieldsetProps,\n  type LegendProps as HUILegendProps,\n} from '@headlessui/react'\nimport { composeClass } from '@/lib/cn'\n\nexport function Fieldset({ className, ...props }: HUIFieldsetProps) {\n  return (\n    <HUIFieldset\n      {...props}\n      className={composeClass('space-y-6 rounded-xl bg-muted p-6', className)}\n    />\n  )\n}\n\nexport function Legend({ className, ...props }: HUILegendProps) {\n  return (\n    <HUILegend\n      {...props}\n      className={composeClass('text-base/7 font-semibold text-foreground', className)}\n    />\n  )\n}\n",
       "type": "registry:ui"
     }
   ],

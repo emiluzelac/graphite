@@ -8,7 +8,7 @@ import {
   type PopoverButtonProps,
   type PopoverPanelProps,
 } from '@headlessui/react'
-import { cn } from '@/lib/cn'
+import { composeClass } from '@/lib/cn'
 
 // Re-exported so panel content can close the popover it lives in.
 export { useClose } from '@headlessui/react'
@@ -16,15 +16,12 @@ export { useClose } from '@headlessui/react'
 export const Popover = HUIPopover
 export const PopoverGroup = HUIPopoverGroup
 
-export function PopoverBackdrop({
-  className,
-  ...props
-}: Omit<PopoverBackdropProps, 'className'> & { className?: string }) {
+export function PopoverBackdrop({ className, ...props }: PopoverBackdropProps) {
   return (
     <HUIPopoverBackdrop
       transition
       {...props}
-      className={cn(
+      className={composeClass(
         'fixed inset-0 bg-black/50 backdrop-blur-sm transition duration-200 ease-out data-closed:opacity-0',
         className,
       )}
@@ -32,34 +29,32 @@ export function PopoverBackdrop({
   )
 }
 
-export function PopoverButton({
-  className,
-  ...props
-}: Omit<PopoverButtonProps, 'className'> & { className?: string }) {
+export function PopoverButton({ className, ...props }: PopoverButtonProps) {
   return (
     <HUIPopoverButton
       {...props}
-      className={cn(
-        'group inline-flex items-center gap-1 font-medium text-muted-foreground focus:outline-none',
-        'data-focus:text-foreground data-hover:text-foreground',
+      className={composeClass(
+        [
+          'group inline-flex items-center gap-1 font-medium text-muted-foreground focus:outline-none',
+          'data-focus:text-foreground data-hover:text-foreground',
+        ].join(' '),
         className,
       )}
     />
   )
 }
 
-export function PopoverPanel({
-  className,
-  ...props
-}: Omit<PopoverPanelProps, 'className'> & { className?: string }) {
+export function PopoverPanel({ className, ...props }: PopoverPanelProps) {
   return (
     <HUIPopoverPanel
       anchor="bottom"
       transition
       {...props}
-      className={cn(
-        'origin-top divide-y divide-border rounded-xl border bg-popover p-2 text-sm/6 text-popover-foreground shadow-xl',
-        'transition duration-150 ease-out [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:opacity-0',
+      className={composeClass(
+        [
+          'origin-top divide-y divide-border rounded-xl border bg-popover p-2 text-sm/6 text-popover-foreground shadow-xl',
+          'transition duration-150 ease-out [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:opacity-0',
+        ].join(' '),
         className,
       )}
     />

@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "src/lib/cn.ts",
-      "content": "import { clsx, type ClassValue } from 'clsx'\nimport { twMerge } from 'tailwind-merge'\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
+      "content": "import { clsx, type ClassValue } from 'clsx'\nimport { twMerge } from 'tailwind-merge'\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n\n/**\n * Resolve a Headless UI className prop (string or render-prop function)\n * against wrapper base classes. Consumer classes win conflicts via\n * tailwind-merge. Always returns a function so Headless UI supplies the\n * state bag.\n */\nexport function composeClass<Bag>(\n  base: string,\n  className?: string | ((bag: Bag) => string),\n): (bag: Bag) => string {\n  return (bag) => cn(base, typeof className === 'function' ? className(bag) : className)\n}\n",
       "type": "registry:lib",
       "target": "lib/cn.ts"
     }

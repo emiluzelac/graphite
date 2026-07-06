@@ -1,19 +1,19 @@
 import { Checkbox as HUICheckbox, type CheckboxProps as HUICheckboxProps } from '@headlessui/react'
-import { cn } from '@/lib/cn'
+import { composeClass } from '@/lib/cn'
 
-export interface CheckboxProps extends Omit<HUICheckboxProps, 'className'> {
-  className?: string
-}
+export type CheckboxProps = HUICheckboxProps
 
 export function Checkbox({ className, ...props }: CheckboxProps) {
   return (
     <HUICheckbox
       {...props}
-      className={cn(
-        'group size-6 shrink-0 cursor-pointer rounded-md bg-muted p-1 ring-1 ring-input transition ring-inset',
-        'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-offset-2 data-focus:outline-ring',
-        'data-checked:bg-primary data-checked:ring-primary',
-        'data-indeterminate:bg-primary data-indeterminate:ring-primary',
+      className={composeClass(
+        [
+          'group size-6 shrink-0 cursor-pointer rounded-md bg-muted p-1 ring-1 ring-input transition ring-inset',
+          'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-offset-2 data-focus:outline-ring',
+          'data-checked:bg-primary data-checked:ring-primary',
+          'data-indeterminate:bg-primary data-indeterminate:ring-primary',
+        ].join(' '),
         className,
       )}
     >

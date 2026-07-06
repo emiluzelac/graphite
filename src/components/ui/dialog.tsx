@@ -8,16 +8,13 @@ import {
   type DialogTitleProps,
 } from '@headlessui/react'
 import type { ReactNode } from 'react'
-import { cn } from '@/lib/cn'
+import { composeClass } from '@/lib/cn'
 
-export interface RootDialogProps extends Omit<DialogProps, 'className' | 'children'> {
-  className?: string
-  children: ReactNode
-}
+export type RootDialogProps = Omit<DialogProps, 'children'> & { children: ReactNode }
 
 export function Dialog({ className, children, ...props }: RootDialogProps) {
   return (
-    <HUIDialog {...props} className={cn('relative z-50', className)}>
+    <HUIDialog {...props} className={composeClass('relative z-50', className)}>
       <HUIDialogBackdrop
         transition
         className="fixed inset-0 bg-black/50 backdrop-blur-sm transition duration-200 ease-out data-closed:opacity-0"
@@ -29,26 +26,22 @@ export function Dialog({ className, children, ...props }: RootDialogProps) {
   )
 }
 
-export function DialogPanel({
-  className,
-  ...props
-}: Omit<DialogPanelProps, 'className'> & { className?: string }) {
+export function DialogPanel({ className, ...props }: DialogPanelProps) {
   return (
     <HUIDialogPanel
       transition
       {...props}
-      className={cn(
-        'w-full max-w-md space-y-4 rounded-2xl border bg-card p-8 text-card-foreground shadow-xl',
-        'duration-200 ease-out data-closed:scale-95 data-closed:opacity-0',
+      className={composeClass(
+        [
+          'w-full max-w-md space-y-4 rounded-2xl border bg-card p-8 text-card-foreground shadow-xl',
+          'duration-200 ease-out data-closed:scale-95 data-closed:opacity-0',
+        ].join(' '),
         className,
       )}
     />
   )
 }
 
-export function DialogTitle({
-  className,
-  ...props
-}: Omit<DialogTitleProps, 'className'> & { className?: string }) {
-  return <HUIDialogTitle {...props} className={cn('text-lg font-bold', className)} />
+export function DialogTitle({ className, ...props }: DialogTitleProps) {
+  return <HUIDialogTitle {...props} className={composeClass('text-lg font-bold', className)} />
 }

@@ -4,20 +4,22 @@ import {
   type FieldsetProps as HUIFieldsetProps,
   type LegendProps as HUILegendProps,
 } from '@headlessui/react'
-import { cn } from '@/lib/cn'
+import { composeClass } from '@/lib/cn'
 
-export function Fieldset({
-  className,
-  ...props
-}: Omit<HUIFieldsetProps, 'className'> & { className?: string }) {
-  return <HUIFieldset {...props} className={cn('space-y-6 rounded-xl bg-muted p-6', className)} />
+export function Fieldset({ className, ...props }: HUIFieldsetProps) {
+  return (
+    <HUIFieldset
+      {...props}
+      className={composeClass('space-y-6 rounded-xl bg-muted p-6', className)}
+    />
+  )
 }
 
-export function Legend({
-  className,
-  ...props
-}: Omit<HUILegendProps, 'className'> & { className?: string }) {
+export function Legend({ className, ...props }: HUILegendProps) {
   return (
-    <HUILegend {...props} className={cn('text-base/7 font-semibold text-foreground', className)} />
+    <HUILegend
+      {...props}
+      className={composeClass('text-base/7 font-semibold text-foreground', className)}
+    />
   )
 }
