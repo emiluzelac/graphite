@@ -73,7 +73,7 @@ function GalleryCard({
       onClick={(e) => {
         if (!(e.target as Element).closest(INTERACTIVE)) navigate(to)
       }}
-      className={`relative flex cursor-pointer flex-col overflow-hidden rounded-xl border bg-card transition hover:border-foreground/25 ${wide ? 'sm:col-span-2' : ''}`}
+      className={`relative flex cursor-pointer flex-col overflow-hidden rounded-xl glass-flat transition hover:border-foreground/25 ${wide ? 'sm:col-span-2' : ''}`}
     >
       <Link
         to={to}

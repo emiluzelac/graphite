@@ -48,7 +48,7 @@ export function PreviewCode({ title, description, preview, code }: Props) {
       <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
       {description && <p className="mt-2 max-w-2xl text-muted-foreground">{description}</p>}
 
-      <div className="mt-8 overflow-hidden rounded-2xl border bg-muted/50">
+      <div className="mt-8 overflow-hidden rounded-2xl glass-flat">
         <div className="flex items-center justify-between border-b px-2 py-2">
           <div className="flex gap-1">
             {(['preview', 'code'] as const).map((t) => (
@@ -77,9 +77,7 @@ export function PreviewCode({ title, description, preview, code }: Props) {
         </div>
 
         {tab === 'preview' ? (
-          <div className="flex min-h-96 items-center justify-center bg-background p-10">
-            {preview}
-          </div>
+          <div className="flex min-h-96 items-center justify-center p-10">{preview}</div>
         ) : highlighted ? (
           // Safe: Shiki output of our own hardcoded demo strings; Shiki escapes the source.
           <div

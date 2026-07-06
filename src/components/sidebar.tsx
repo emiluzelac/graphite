@@ -59,7 +59,7 @@ function Section({ title, items }: { title: string; items: { to: string; label: 
 
 export function Sidebar() {
   return (
-    <aside className="sticky top-0 hidden h-svh w-72 shrink-0 overflow-y-auto border-r bg-card px-6 py-8 lg:block">
+    <aside className="sticky top-0 hidden h-svh w-72 shrink-0 overflow-y-auto border-r bg-(--glass-surface) px-6 py-8 backdrop-blur-xl lg:block">
       <div className="mb-10 flex items-start justify-between">
         <NavLink to="/" className="block">
           <div className="flex items-center gap-2">
