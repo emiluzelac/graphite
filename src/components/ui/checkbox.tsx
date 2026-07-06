@@ -9,7 +9,7 @@ export function Checkbox({ className, ...props }: CheckboxProps) {
       {...props}
       className={composeClass(
         [
-          'group size-6 shrink-0 cursor-pointer rounded-md glass-flat p-1 transition',
+          'group flex size-5 shrink-0 cursor-pointer items-center justify-center rounded-md glass-flat transition',
           'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-offset-2 data-focus:outline-ring',
           'data-checked:border-primary data-checked:bg-primary',
           'data-indeterminate:border-primary data-indeterminate:bg-primary',
@@ -19,7 +19,7 @@ export function Checkbox({ className, ...props }: CheckboxProps) {
     >
       <svg
         data-slot="check-icon"
-        className="hidden size-4 stroke-primary-foreground group-data-checked:not-group-data-indeterminate:block"
+        className="hidden size-3.5 stroke-primary-foreground group-data-checked:not-group-data-indeterminate:block"
         viewBox="0 0 14 14"
         fill="none"
         aria-hidden="true"
@@ -28,7 +28,7 @@ export function Checkbox({ className, ...props }: CheckboxProps) {
       </svg>
       <svg
         data-slot="indeterminate-icon"
-        className="hidden size-4 stroke-primary-foreground group-data-indeterminate:block"
+        className="hidden size-3.5 stroke-primary-foreground group-data-indeterminate:block"
         viewBox="0 0 14 14"
         fill="none"
         aria-hidden="true"

@@ -14,6 +14,6 @@ describe('Listbox', () => {
       </Listbox>,
     )
     await user.click(screen.getByRole('button', { name: /Choose/ }))
-    expect(screen.getByRole('listbox')).toHaveClass('glass')
+    expect(screen.getByRole('listbox')).toHaveClass('glass', 'z-50')
   })
 })

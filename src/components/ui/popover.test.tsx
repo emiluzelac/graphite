@@ -81,6 +81,6 @@ describe('Popover', () => {
       </Popover>,
     )
     await user.click(screen.getByRole('button', { name: 'Solutions' }))
-    expect(screen.getByText('Panel content')).toHaveClass('glass')
+    expect(screen.getByText('Panel content')).toHaveClass('glass', 'z-50')
   })
 })

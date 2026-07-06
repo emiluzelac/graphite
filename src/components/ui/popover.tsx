@@ -35,7 +35,7 @@ export function PopoverButton({ className, ...props }: PopoverButtonProps) {
       {...props}
       className={composeClass(
         [
-          'group inline-flex items-center gap-1 font-medium text-muted-foreground focus:outline-none',
+          'group inline-flex cursor-pointer items-center gap-1 font-medium text-muted-foreground focus:outline-none',
           'data-focus:text-foreground data-hover:text-foreground',
         ].join(' '),
         className,
@@ -52,7 +52,7 @@ export function PopoverPanel({ className, ...props }: PopoverPanelProps) {
       {...props}
       className={composeClass(
         [
-          'origin-top divide-y divide-foreground/10 rounded-xl glass p-2 text-sm/6 text-foreground',
+          'z-50 origin-top rounded-xl glass p-2 text-sm/6 text-foreground',
           'transition duration-150 ease-out [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:opacity-0',
         ].join(' '),
         className,

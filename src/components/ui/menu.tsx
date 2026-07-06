@@ -24,7 +24,7 @@ export function MenuButton({ className, ...props }: MenuButtonProps) {
       {...props}
       className={composeClass(
         [
-          'inline-flex items-center gap-2 rounded-md glass-flat px-3 py-1.5 text-sm/6 font-semibold text-foreground',
+          'inline-flex cursor-pointer items-center gap-2 rounded-md glass-flat px-3 py-1.5 text-sm/6 font-semibold text-foreground',
           'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-ring',
           'data-hover:bg-foreground/5 data-open:bg-foreground/5',
         ].join(' '),
@@ -42,7 +42,7 @@ export function MenuItems({ className, ...props }: MenuItemsProps) {
       {...props}
       className={composeClass(
         [
-          'origin-top-right rounded-xl glass p-1 text-sm/6 text-foreground',
+          'z-50 origin-top-right rounded-xl glass p-1 text-sm/6 text-foreground',
           'transition duration-100 ease-out [--anchor-gap:--spacing(1)]',
           'focus:outline-none data-closed:scale-95 data-closed:opacity-0',
         ].join(' '),
@@ -60,7 +60,7 @@ export function MenuItem<T extends ElementType = 'button'>(props: MenuItemProps<
       {...rest}
       className={composeClass(
         [
-          'group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 text-left',
+          'group flex w-full cursor-pointer items-center gap-2 rounded-lg px-3 py-1.5 text-left',
           'data-focus:bg-foreground/10',
         ].join(' '),
         className,

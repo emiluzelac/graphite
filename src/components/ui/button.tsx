@@ -14,7 +14,7 @@ export const buttonVariants = cva(
   [
     'inline-flex items-center justify-center gap-2 font-semibold transition',
     'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-2 data-focus:outline-ring',
-    'data-disabled:cursor-not-allowed data-disabled:opacity-50',
+    'cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-50',
   ],
   {
     variants: {

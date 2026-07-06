@@ -11,7 +11,7 @@ import {
 } from '@headlessui/react'
 import type { ReactNode } from 'react'
 import { composeClass } from '@/lib/cn'
-import { AltArrowDownLinear, CheckCircleLinear } from '@emiluzelac/icona'
+import { AltArrowDownLinear, UnreadLinear } from '@emiluzelac/icona'
 
 export function Combobox<T, M extends boolean | undefined = false>(
   props: ComboboxProps<T, M, 'div'>,
@@ -32,7 +32,7 @@ export function ComboboxInput<T>({ className, ...props }: ComboboxInputProps<'in
           className,
         )}
       />
-      <HUIComboboxButton className="group absolute inset-y-0 right-0 px-2.5">
+      <HUIComboboxButton className="group absolute inset-y-0 right-0 cursor-pointer px-2.5">
         <AltArrowDownLinear className="size-4 text-muted-foreground group-data-hover:text-foreground" />
       </HUIComboboxButton>
     </div>
@@ -47,7 +47,7 @@ export function ComboboxOptions({ className, ...props }: ComboboxOptionsProps<'u
       {...(props as ComboboxOptionsProps<'ul'>)}
       className={composeClass(
         [
-          'z-10 w-(--input-width) rounded-xl glass p-1 text-sm/6 text-foreground [--anchor-gap:--spacing(1)]',
+          'z-50 w-(--input-width) rounded-xl glass p-1 text-sm/6 text-foreground [--anchor-gap:--spacing(1)]',
           'transition duration-100 ease-in data-closed:scale-95 data-closed:opacity-0 data-leave:duration-75',
           'empty:invisible [&]:focus:outline-none',
         ].join(' '),
@@ -65,13 +65,13 @@ export function ComboboxOption<T>({ className, children, ...props }: COProps<T>)
       {...(props as ComboboxOptionProps<'li', T>)}
       className={composeClass(
         [
-          'group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none',
+          'group flex cursor-pointer items-center gap-2 rounded-lg px-3 py-1.5 select-none',
           'text-foreground data-focus:bg-foreground/10',
         ].join(' '),
         className,
       )}
     >
-      <CheckCircleLinear className="invisible size-4 text-primary group-data-selected:visible" />
+      <UnreadLinear className="invisible size-4 text-primary group-data-selected:visible" />
       <span className="flex-1">{children as ReactNode}</span>
     </HUIComboboxOption>
   )

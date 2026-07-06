@@ -15,7 +15,7 @@ export function DisclosureButton({ className, ...props }: DisclosureButtonProps)
       {...props}
       className={composeClass(
         [
-          'group flex w-full items-center justify-between text-left text-sm/6 font-medium text-foreground',
+          'group flex w-full cursor-pointer items-center justify-between text-left text-sm/6 font-medium text-foreground',
           'focus:outline-none data-focus:outline data-focus:outline-ring',
         ].join(' '),
         className,

@@ -132,6 +132,6 @@ describe('Menu', () => {
       </Menu>,
     )
     await user.click(screen.getByRole('button', { name: 'Options' }))
-    expect(screen.getByRole('menu')).toHaveClass('glass')
+    expect(screen.getByRole('menu')).toHaveClass('glass', 'z-50')
   })
 })
