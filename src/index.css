@@ -34,6 +34,9 @@
   --glass-border: oklch(0.21 0.016 295 / 0.1);
   --glass-shadow: oklch(0.21 0.016 295 / 0.08);
   --glass-blur: 16px;
+  --backdrop-1: oklch(0.85 0.07 295 / 0.8);
+  --backdrop-2: oklch(0.88 0.06 220 / 0.6);
+  --backdrop-3: oklch(0.87 0.06 330 / 0.55);
 }
 
 .dark {
@@ -60,6 +63,9 @@
   --glass-surface: oklch(1 0 0 / 0.08);
   --glass-border: oklch(1 0 0 / 0.12);
   --glass-shadow: oklch(0 0 0 / 0.25);
+  --backdrop-1: oklch(0.45 0.14 295 / 0.55);
+  --backdrop-2: oklch(0.55 0.1 220 / 0.35);
+  --backdrop-3: oklch(0.5 0.12 330 / 0.3);
 }
 
 @theme inline {

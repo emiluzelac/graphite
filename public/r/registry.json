@@ -82,6 +82,14 @@
       }
     },
     {
+      "name": "backdrop",
+      "type": "registry:ui",
+      "title": "Backdrop",
+      "description": "Fixed ambient gradient stage that gives the glass material something to refract.",
+      "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+      "files": [{ "path": "src/components/ui/backdrop.tsx", "type": "registry:ui" }]
+    },
+    {
       "name": "button",
       "type": "registry:ui",
       "title": "Button",

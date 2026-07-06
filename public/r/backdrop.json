@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "backdrop",
+  "title": "Backdrop",
+  "description": "Fixed ambient gradient stage that gives the glass material something to refract.",
+  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "files": [
+    {
+      "path": "src/components/ui/backdrop.tsx",
+      "content": "import { cn } from '@/lib/cn'\n\n/**\n * Ambient stage for the glass material: three fixed radial gradient blobs\n * (hues 295/220/330) behind all content. Mode switching happens in the\n * --backdrop-* tokens, not here.\n */\nexport function Backdrop({ className }: { className?: string }) {\n  return (\n    <div\n      aria-hidden=\"true\"\n      className={cn('pointer-events-none fixed inset-0 -z-10', className)}\n      style={{\n        background: [\n          'radial-gradient(55% 70% at 18% 25%, var(--backdrop-1), transparent 65%)',\n          'radial-gradient(45% 60% at 85% 15%, var(--backdrop-2), transparent 60%)',\n          'radial-gradient(50% 55% at 70% 90%, var(--backdrop-3), transparent 60%)',\n        ].join(', '),\n      }}\n    />\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
