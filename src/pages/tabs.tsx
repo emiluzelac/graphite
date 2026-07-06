@@ -31,8 +31,8 @@ export function Preview() {
           ))}
         </TabList>
         <TabPanels>
-          {Object.values(categories).map((posts) => (
-            <TabPanel key={posts[0].id}>
+          {Object.entries(categories).map(([name, posts]) => (
+            <TabPanel key={name}>
               <ul>
                 {posts.map((post) => (
                   <li
