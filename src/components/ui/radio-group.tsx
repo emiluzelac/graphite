@@ -16,7 +16,9 @@ export function RadioGroup<T>({ className, ...props }: RadioGroupProps<'div', T>
   )
 }
 
-export function Radio<T>({ className, children, ...props }: RadioProps<'span', T>) {
+type RProps<T> = Omit<RadioProps<'span', T>, 'children'> & { children?: ReactNode }
+
+export function Radio<T>({ className, children, ...props }: RProps<T>) {
   return (
     <HUIRadio
       {...(props as RadioProps<'span', T>)}

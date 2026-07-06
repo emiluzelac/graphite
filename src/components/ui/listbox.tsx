@@ -16,7 +16,9 @@ export function Listbox<T>(props: ListboxProps<'div', T>) {
   return <HUIListbox {...(props as ListboxProps<'div', T>)} />
 }
 
-export function ListboxButton({ className, children, ...props }: ListboxButtonProps<'button'>) {
+type LBProps = Omit<ListboxButtonProps<'button'>, 'children'> & { children?: ReactNode }
+
+export function ListboxButton({ className, children, ...props }: LBProps) {
   return (
     <HUIListboxButton
       {...(props as ListboxButtonProps<'button'>)}
@@ -53,7 +55,9 @@ export function ListboxOptions({ className, ...props }: ListboxOptionsProps<'ul'
   )
 }
 
-export function ListboxOption<T>({ className, children, ...props }: ListboxOptionProps<'li', T>) {
+type LOProps<T> = Omit<ListboxOptionProps<'li', T>, 'children'> & { children?: ReactNode }
+
+export function ListboxOption<T>({ className, children, ...props }: LOProps<T>) {
   return (
     <HUIListboxOption
       {...(props as ListboxOptionProps<'li', T>)}

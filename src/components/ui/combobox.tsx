@@ -58,7 +58,9 @@ export function ComboboxOptions({ className, ...props }: ComboboxOptionsProps<'u
   )
 }
 
-export function ComboboxOption<T>({ className, children, ...props }: ComboboxOptionProps<'li', T>) {
+type COProps<T> = Omit<ComboboxOptionProps<'li', T>, 'children'> & { children?: ReactNode }
+
+export function ComboboxOption<T>({ className, children, ...props }: COProps<T>) {
   return (
     <HUIComboboxOption
       {...(props as ComboboxOptionProps<'li', T>)}
