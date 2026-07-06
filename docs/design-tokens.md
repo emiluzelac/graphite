@@ -76,6 +76,14 @@ compatibility; glass components do not reference them. The optional `backdrop`
 registry item provides the ambient gradient stage (`--backdrop-1/2/3`) the demos
 sit on. Without `backdrop-filter` support, surfaces degrade to plain alpha film.
 
+`glass`/`glass-flat` are custom utilities, so tailwind-merge does not resolve
+conflicts against them — a border-width override like `border-0`/`border-2` on
+a glass component loses to the utility's own `border`; override via the
+`--glass-*` tokens or a wrapper class instead. `Backdrop` paints at `-z-10`
+behind in-flow content and stays visible because the page canvas gets its
+background from `body`; mounting it inside a wrapper that paints its own
+opaque background will hide it.
+
 ## Graphite ramp (internal reference)
 
 All hue 295. Not exposed as utilities — these values fill the semantic slots below.

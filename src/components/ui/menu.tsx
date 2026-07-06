@@ -74,6 +74,7 @@ export function MenuSeparator({ className, ...props }: MenuSeparatorProps) {
 }
 
 export function MenuSection({ className, ...props }: MenuSectionProps) {
+  // No base classes; composeClass still adapts the render-prop className.
   return <HUIMenuSection {...props} className={composeClass('', className)} />
 }
 
