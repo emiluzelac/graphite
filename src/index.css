@@ -119,4 +119,18 @@
   body {
     @apply min-h-svh bg-background text-foreground antialiased;
   }
+
+  /* Shiki dual-theme opt-in: tokens carry --shiki-light/--shiki-dark vars;
+     the container supplies the background. */
+  .shiki,
+  .shiki span {
+    color: var(--shiki-light);
+  }
+  .dark .shiki,
+  .dark .shiki span {
+    color: var(--shiki-dark);
+  }
+  .shiki {
+    background-color: transparent !important;
+  }
 }

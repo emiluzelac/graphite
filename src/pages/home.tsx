@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
+import { SignupForm } from '@/components/signup-form'
 
 import { Preview as DataListDemo } from '@/pages/data-list'
 import { Preview as MenuDemo } from '@/pages/menu'
@@ -19,15 +20,15 @@ import { Preview as SelectDemo } from '@/pages/select'
 import { Preview as SwitchDemo } from '@/pages/switch'
 import { Preview as TextareaDemo } from '@/pages/textarea'
 
-type Item = { to: string; name: string; demo: ReactNode }
+type Item = { to: string; name: string; demo: ReactNode; wide?: boolean }
 
 const components: Item[] = [
-  { to: '/react/data-list', name: 'Data List', demo: <DataListDemo /> },
+  { to: '/react/data-list', name: 'Data List', demo: <DataListDemo />, wide: true },
   { to: '/react/menu', name: 'Dropdown Menu', demo: <MenuDemo demoMode={false} /> },
   { to: '/react/disclosure', name: 'Disclosure', demo: <DisclosureDemo /> },
-  { to: '/react/dialog', name: 'Dialog', demo: <DialogDemo defaultOpen={false} /> },
+  { to: '/react/dialog', name: 'Dialog', demo: <DialogDemo /> },
   { to: '/react/popover', name: 'Popover', demo: <PopoverDemo demoMode={false} /> },
-  { to: '/react/tabs', name: 'Tabs', demo: <TabsDemo /> },
+  { to: '/react/tabs', name: 'Tabs', demo: <TabsDemo />, wide: true },
   { to: '/react/transition', name: 'Transition', demo: <TransitionDemo /> },
 ]
 
@@ -35,7 +36,7 @@ const forms: Item[] = [
   { to: '/react/button', name: 'Button', demo: <ButtonDemo /> },
   { to: '/react/checkbox', name: 'Checkbox', demo: <CheckboxDemo /> },
   { to: '/react/combobox', name: 'Combobox', demo: <ComboboxDemo demoMode={false} /> },
-  { to: '/react/fieldset', name: 'Fieldset', demo: <FieldsetDemo /> },
+  { to: '/react/fieldset', name: 'Fieldset', demo: <FieldsetDemo />, wide: true },
   { to: '/react/input', name: 'Input', demo: <InputDemo /> },
   { to: '/react/listbox', name: 'Listbox', demo: <ListboxDemo demoMode={false} /> },
   { to: '/react/radio-group', name: 'Radio Group', demo: <RadioGroupDemo /> },
@@ -44,16 +45,36 @@ const forms: Item[] = [
   { to: '/react/textarea', name: 'Textarea', demo: <TextareaDemo /> },
 ]
 
+/** Anything matching this keeps its own click; everywhere else the card navigates. */
+const INTERACTIVE =
+  'a, button, input, textarea, select, label, [role="button"], [role="checkbox"], [role="switch"], [role="radio"], [role="radiogroup"], [role="tab"], [role="option"], [role="menuitem"], [role="combobox"], [role="listbox"], [role="menu"], [role="dialog"]'
+
 /**
  * Masonry card: the body is the real, interactive component preview, with a
- * full-card link overlay for navigation. The overlay is an empty <a> sitting
- * *below* the demo (z-0 vs z-10), so clicking the demo interacts with it while
- * clicking the rest of the card routes to its page — and no interactive control
- * is ever nested inside the anchor (which would be invalid HTML).
+ * full-card link overlay for navigation (keyboard focus, middle-click). The
+ * demo layer sits above the overlay (z-10 vs z-0), so a card-level onClick
+ * routes any click that didn't land on an interactive control — the whole
+ * card navigates, not just the label strip.
  */
-function GalleryCard({ to, name, children }: { to: string; name: string; children: ReactNode }) {
+function GalleryCard({
+  to,
+  name,
+  wide,
+  children,
+}: {
+  to: string
+  name: string
+  wide?: boolean
+  children: ReactNode
+}) {
+  const navigate = useNavigate()
   return (
-    <div className="relative flex flex-col overflow-hidden rounded-xl border bg-card">
+    <div
+      onClick={(e) => {
+        if (!(e.target as Element).closest(INTERACTIVE)) navigate(to)
+      }}
+      className={`relative flex cursor-pointer flex-col overflow-hidden rounded-xl border bg-card transition hover:border-foreground/25 ${wide ? 'sm:col-span-2' : ''}`}
+    >
       <Link
         to={to}
         aria-label={`${name} component`}
@@ -62,7 +83,7 @@ function GalleryCard({ to, name, children }: { to: string; name: string; childre
       <div className="px-5 pt-4 pb-1">
         <span className="text-xs font-medium tracking-wide text-muted-foreground">{name}</span>
       </div>
-      <div className="relative z-10 flex min-h-40 flex-1 items-center justify-center overflow-hidden px-5 pt-3 pb-6">
+      <div className="relative z-10 flex min-h-40 min-w-0 flex-1 items-center justify-center overflow-hidden px-5 pt-3 pb-6">
         {children}
       </div>
     </div>
@@ -77,7 +98,7 @@ function Gallery({ title, items }: { title: string; items: Item[] }) {
       </h2>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {items.map((item) => (
-          <GalleryCard key={item.to} to={item.to} name={item.name}>
+          <GalleryCard key={item.to} to={item.to} name={item.name} wide={item.wide}>
             {item.demo}
           </GalleryCard>
         ))}
@@ -109,16 +130,10 @@ export default function Home() {
         <h2 className="mb-4 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
           Examples
         </h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <Link
-            to="/signup"
-            className="flex min-h-44 flex-col items-center justify-center rounded-xl border bg-card p-6 text-center"
-          >
-            <span className="text-sm font-medium text-foreground">Signup form</span>
-            <span className="mt-1 text-xs text-muted-foreground">
-              A full form composed from Graphite fields
-            </span>
-          </Link>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <GalleryCard to="/signup" name="Signup form" wide>
+            <SignupForm />
+          </GalleryCard>
         </div>
       </section>
     </div>

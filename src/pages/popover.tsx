@@ -31,7 +31,7 @@ export function Preview({ demoMode = true }: { demoMode?: boolean }) {
             <a
               key={s.name}
               href="#"
-              className="flex items-start gap-3 rounded-lg p-3 hover:bg-accent"
+              className="flex items-start gap-3 rounded-lg p-3 hover:bg-foreground/5"
             >
               <s.Icon className="mt-0.5 size-5 text-primary" />
               <div>

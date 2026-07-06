@@ -15,13 +15,14 @@
     "registry:build": "shadcn build"
   },
   "dependencies": {
+    "@emiluzelac/icona": "^0.1.0",
     "@headlessui/react": "^2.2.10",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "@emiluzelac/icona": "^0.1.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router": "^7.17.0",
+    "shiki": "^4.3.1",
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {

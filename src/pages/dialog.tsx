@@ -4,7 +4,7 @@ import { Dialog, DialogPanel, DialogTitle } from '@/components/ui/dialog'
 import { PreviewCode } from '@/components/preview-code'
 import { CheckCircleBold } from '@emiluzelac/icona'
 
-export function Preview({ defaultOpen = true }: { defaultOpen?: boolean }) {
+export function Preview({ defaultOpen = false }: { defaultOpen?: boolean }) {
   const [isOpen, setIsOpen] = useState(defaultOpen)
   return (
     <>

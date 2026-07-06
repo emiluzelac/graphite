@@ -1,4 +1,5 @@
-import { useState, type ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
+import { codeToHtml } from 'shiki'
 import { cn } from '@/lib/cn'
 
 interface Props {
@@ -8,9 +9,29 @@ interface Props {
   code: string
 }
 
+/** Shiki dual-theme highlight; resolves async, so render the plain code until ready. */
+function useHighlightedCode(code: string) {
+  const [html, setHtml] = useState<string | null>(null)
+  useEffect(() => {
+    let alive = true
+    codeToHtml(code, {
+      lang: 'tsx',
+      themes: { light: 'github-light', dark: 'github-dark' },
+      defaultColor: false,
+    }).then((result) => {
+      if (alive) setHtml(result)
+    })
+    return () => {
+      alive = false
+    }
+  }, [code])
+  return html
+}
+
 export function PreviewCode({ title, description, preview, code }: Props) {
   const [tab, setTab] = useState<'preview' | 'code'>('preview')
   const [copied, setCopied] = useState(false)
+  const highlighted = useHighlightedCode(code)
 
   async function copy() {
     try {
@@ -35,7 +56,7 @@ export function PreviewCode({ title, description, preview, code }: Props) {
                 key={t}
                 onClick={() => setTab(t)}
                 className={cn(
-                  'rounded-md px-3 py-1 text-sm font-medium capitalize transition',
+                  'cursor-pointer rounded-md px-3 py-1 text-sm font-medium capitalize transition',
                   tab === t
                     ? 'bg-primary text-primary-foreground'
                     : 'text-muted-foreground hover:text-foreground',
@@ -48,7 +69,7 @@ export function PreviewCode({ title, description, preview, code }: Props) {
           {tab === 'code' && (
             <button
               onClick={copy}
-              className="rounded-md px-2.5 py-1 text-xs font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+              className="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-muted-foreground hover:bg-foreground/5 hover:text-foreground"
             >
               {copied ? 'Copied!' : 'Copy'}
             </button>
@@ -59,8 +80,14 @@ export function PreviewCode({ title, description, preview, code }: Props) {
           <div className="flex min-h-96 items-center justify-center bg-background p-10">
             {preview}
           </div>
+        ) : highlighted ? (
+          // Safe: Shiki output of our own hardcoded demo strings; Shiki escapes the source.
+          <div
+            className="max-h-[36rem] overflow-auto bg-card p-6 text-sm leading-6 [&_pre]:outline-none"
+            dangerouslySetInnerHTML={{ __html: highlighted }}
+          />
         ) : (
-          <pre className="max-h-[36rem] overflow-auto bg-primary p-6 text-sm leading-6 text-primary-foreground">
+          <pre className="max-h-[36rem] overflow-auto bg-card p-6 text-sm leading-6 text-foreground">
             <code className="font-mono">{code}</code>
           </pre>
         )}
