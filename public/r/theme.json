@@ -24,7 +24,11 @@
       "border": "oklch(0.92 0.008 295)",
       "input": "oklch(0.92 0.008 295)",
       "ring": "oklch(0.708 0.014 295)",
-      "radius": "0.625rem"
+      "radius": "0.625rem",
+      "glass-surface": "oklch(1 0 0 / 0.55)",
+      "glass-border": "oklch(0.21 0.016 295 / 0.1)",
+      "glass-shadow": "oklch(0.21 0.016 295 / 0.08)",
+      "glass-blur": "16px"
     },
     "dark": {
       "background": "oklch(0.141 0.012 295)",
@@ -45,7 +49,22 @@
       "destructive-foreground": "oklch(0.141 0.012 295)",
       "border": "oklch(0.269 0.014 295)",
       "input": "oklch(0.269 0.014 295)",
-      "ring": "oklch(0.554 0.014 295)"
+      "ring": "oklch(0.554 0.014 295)",
+      "glass-surface": "oklch(1 0 0 / 0.08)",
+      "glass-border": "oklch(1 0 0 / 0.12)",
+      "glass-shadow": "oklch(0 0 0 / 0.25)"
+    }
+  },
+  "css": {
+    "@utility glass": {
+      "background-color": "var(--glass-surface)",
+      "border": "1px solid var(--glass-border)",
+      "backdrop-filter": "blur(var(--glass-blur)) saturate(120%)",
+      "box-shadow": "0 8px 24px var(--glass-shadow)"
+    },
+    "@utility glass-flat": {
+      "background-color": "var(--glass-surface)",
+      "border": "1px solid var(--glass-border)"
     }
   },
   "type": "registry:theme"
