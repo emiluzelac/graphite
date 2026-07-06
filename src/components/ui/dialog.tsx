@@ -22,7 +22,9 @@ export function Dialog({ className, children, ...props }: RootDialogProps) {
         transition
         className="fixed inset-0 bg-black/50 backdrop-blur-sm transition duration-200 ease-out data-closed:opacity-0"
       />
-      <div className="fixed inset-0 flex w-screen items-center justify-center p-4">{children}</div>
+      <div className="fixed inset-0 w-screen overflow-y-auto">
+        <div className="flex min-h-full items-center justify-center p-4">{children}</div>
+      </div>
     </HUIDialog>
   )
 }
@@ -33,8 +35,8 @@ export function DialogPanel({
 }: Omit<DialogPanelProps, 'className'> & { className?: string }) {
   return (
     <HUIDialogPanel
-      {...props}
       transition
+      {...props}
       className={cn(
         'w-full max-w-md space-y-4 rounded-2xl border bg-card p-8 text-card-foreground shadow-xl',
         'duration-200 ease-out data-closed:scale-95 data-closed:opacity-0',

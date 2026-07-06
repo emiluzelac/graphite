@@ -3,11 +3,13 @@ import {
   MenuButton as HUIMenuButton,
   MenuItem as HUIMenuItem,
   MenuItems as HUIMenuItems,
+  MenuSeparator as HUIMenuSeparator,
   type MenuButtonProps,
   type MenuItemsProps,
   type MenuItemProps,
+  type MenuSeparatorProps,
 } from '@headlessui/react'
-import type { ComponentProps } from 'react'
+import type { ComponentProps, ElementType } from 'react'
 import { cn } from '@/lib/cn'
 
 export const Menu = HUIMenu
@@ -36,8 +38,9 @@ type MenuItemsLocalProps = Omit<ComponentProps<typeof HUIMenuItems>, 'className'
 export function MenuItems({ className, ...props }: MenuItemsLocalProps) {
   return (
     <HUIMenuItems
-      {...(props as MenuItemsProps)}
+      anchor="bottom end"
       transition
+      {...(props as MenuItemsProps)}
       className={cn(
         'origin-top-right rounded-xl border bg-popover p-1 text-sm/6 text-popover-foreground shadow-lg',
         'transition duration-100 ease-out [--anchor-gap:--spacing(1)]',
@@ -48,14 +51,18 @@ export function MenuItems({ className, ...props }: MenuItemsLocalProps) {
   )
 }
 
-export function MenuItem({
+type MenuItemLocalProps<T extends ElementType = 'button'> = Omit<MenuItemProps<T>, 'className'> & {
+  className?: string
+}
+
+export function MenuItem<T extends ElementType = 'button'>({
   className,
   ...props
-}: Omit<MenuItemProps<'button'>, 'className'> & { className?: string }) {
+}: MenuItemLocalProps<T>) {
   return (
     <HUIMenuItem
-      {...props}
       as="button"
+      {...(props as MenuItemProps<'button'>)}
       className={cn(
         'group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 text-left',
         'data-focus:bg-accent data-focus:text-accent-foreground',
@@ -63,4 +70,11 @@ export function MenuItem({
       )}
     />
   )
+}
+
+export function MenuSeparator({
+  className,
+  ...props
+}: Omit<MenuSeparatorProps, 'className'> & { className?: string }) {
+  return <HUIMenuSeparator {...props} className={cn('my-1 h-px bg-border', className)} />
 }

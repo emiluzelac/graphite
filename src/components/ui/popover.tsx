@@ -33,8 +33,9 @@ export function PopoverPanel({
 }: Omit<PopoverPanelProps, 'className'> & { className?: string }) {
   return (
     <HUIPopoverPanel
-      {...props}
+      anchor="bottom"
       transition
+      {...props}
       className={cn(
         'origin-top divide-y divide-border rounded-xl border bg-popover p-2 text-sm/6 text-popover-foreground shadow-xl',
         'transition duration-150 ease-out [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:opacity-0',

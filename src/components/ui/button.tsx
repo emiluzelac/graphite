@@ -1,4 +1,7 @@
 import { Button as HUIButton, type ButtonProps as HUIButtonProps } from '@headlessui/react'
+// Re-exported so buttonVariants works on plain elements (e.g. links): DataInteractive
+// applies the data-hover/data-active attributes the variants are styled against.
+export { DataInteractive } from '@headlessui/react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/cn'
 

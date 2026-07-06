@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Button } from './button'
+import * as button from './button'
 
 describe('Button', () => {
   it('renders children and fires onClick', async () => {
@@ -73,5 +74,21 @@ describe('Button', () => {
     expect(button).toBeDisabled()
     await user.click(button)
     expect(onClick).not.toHaveBeenCalled()
+  })
+
+  it('gives buttonVariants links interactive data attributes via DataInteractive', async () => {
+    const { DataInteractive, buttonVariants } = button
+    const user = userEvent.setup()
+    render(
+      <DataInteractive>
+        <a href="/docs" className={buttonVariants({ variant: 'outline' })}>
+          Docs
+        </a>
+      </DataInteractive>,
+    )
+
+    const link = screen.getByRole('link', { name: 'Docs' })
+    await user.hover(link)
+    expect(link).toHaveAttribute('data-hover')
   })
 })
