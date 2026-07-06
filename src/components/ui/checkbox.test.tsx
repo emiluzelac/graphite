@@ -36,4 +36,9 @@ describe('Checkbox', () => {
     const check = checkbox.querySelector('[data-slot="check-icon"]')
     expect(check!.getAttribute('class')).toMatch(/not-group-data-indeterminate/)
   })
+
+  it('renders as a glass-flat control', () => {
+    render(<Checkbox aria-label="Terms" />)
+    expect(screen.getByRole('checkbox', { name: 'Terms' })).toHaveClass('glass-flat')
+  })
 })

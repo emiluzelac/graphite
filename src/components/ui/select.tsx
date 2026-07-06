@@ -11,7 +11,7 @@ export function Select({ className, children, ...props }: SelectProps) {
         {...props}
         className={composeClass(
           [
-            'block w-full appearance-none rounded-lg border border-input bg-card px-3 py-1.5 pr-9 text-sm/6 text-foreground',
+            'block w-full appearance-none rounded-lg glass-flat px-3 py-1.5 pr-9 text-sm/6 text-foreground',
             'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-ring',
           ].join(' '),
           className,

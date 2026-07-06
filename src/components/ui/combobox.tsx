@@ -26,9 +26,8 @@ export function ComboboxInput<T>({ className, ...props }: ComboboxInputProps<'in
         {...(props as ComboboxInputProps<'input', T>)}
         className={composeClass(
           [
-            'w-full rounded-lg bg-card py-1.5 pr-10 pl-3 text-sm/6',
-            'border border-input text-foreground placeholder:text-muted-foreground',
-            'data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-ring data-hover:border-ring',
+            'w-full rounded-lg glass-flat py-1.5 pr-10 pl-3 text-sm/6 text-foreground placeholder:text-muted-foreground',
+            'data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-ring data-hover:border-foreground/25',
           ].join(' '),
           className,
         )}

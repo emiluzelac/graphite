@@ -24,9 +24,9 @@ export function MenuButton({ className, ...props }: MenuButtonProps) {
       {...props}
       className={composeClass(
         [
-          'inline-flex items-center gap-2 rounded-md bg-secondary px-3 py-1.5 text-sm/6 font-semibold text-secondary-foreground shadow-inner shadow-black/5',
+          'inline-flex items-center gap-2 rounded-md glass-flat px-3 py-1.5 text-sm/6 font-semibold text-foreground',
           'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-ring',
-          'data-hover:bg-secondary/70 data-open:bg-secondary/70',
+          'data-hover:bg-foreground/5 data-open:bg-foreground/5',
         ].join(' '),
         className,
       )}

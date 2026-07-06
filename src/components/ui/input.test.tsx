@@ -20,4 +20,9 @@ describe('Input', () => {
     await user.tab()
     expect(input).toHaveClass('is-focused')
   })
+
+  it('renders as a glass-flat control', () => {
+    render(<Input aria-label="Email" />)
+    expect(screen.getByRole('textbox', { name: 'Email' })).toHaveClass('glass-flat')
+  })
 })

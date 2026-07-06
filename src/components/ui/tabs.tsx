@@ -17,7 +17,7 @@ export function TabList({ className, ...props }: TabListProps) {
   return (
     <HUITabList
       {...props}
-      className={composeClass('flex gap-4 rounded-xl bg-muted p-1', className)}
+      className={composeClass('flex gap-4 rounded-xl glass-flat p-1', className)}
     />
   )
 }
@@ -30,7 +30,7 @@ export function Tab({ className, ...props }: TabProps) {
         [
           'rounded-full px-3 py-1 text-sm/6 font-semibold text-muted-foreground',
           'focus:outline-none data-focus:outline data-focus:outline-ring',
-          'data-hover:bg-accent data-hover:text-accent-foreground',
+          'data-hover:bg-foreground/5 data-hover:text-foreground',
           'data-selected:bg-primary data-selected:text-primary-foreground data-selected:data-hover:bg-primary',
         ].join(' '),
         className,

@@ -29,10 +29,10 @@ describe('Button', () => {
       'text-primary-foreground',
     )
     expect(screen.getByRole('button', { name: 'Cancel' })).toHaveClass(
-      'bg-secondary',
-      'text-secondary-foreground',
+      'glass-flat',
+      'text-foreground',
     )
-    expect(screen.getByRole('button', { name: 'Export' })).toHaveClass('border-input', 'bg-card')
+    expect(screen.getByRole('button', { name: 'Export' })).toHaveClass('glass-flat')
     expect(screen.getByRole('button', { name: 'More' })).toHaveClass('text-muted-foreground')
     expect(screen.getByRole('button', { name: 'Delete' })).toHaveClass(
       'bg-destructive',

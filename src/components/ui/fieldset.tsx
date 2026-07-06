@@ -10,7 +10,7 @@ export function Fieldset({ className, ...props }: HUIFieldsetProps) {
   return (
     <HUIFieldset
       {...props}
-      className={composeClass('space-y-6 rounded-xl bg-muted p-6', className)}
+      className={composeClass('space-y-6 rounded-xl glass-flat p-6', className)}
     />
   )
 }

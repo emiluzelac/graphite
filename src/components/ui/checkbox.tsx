@@ -9,10 +9,10 @@ export function Checkbox({ className, ...props }: CheckboxProps) {
       {...props}
       className={composeClass(
         [
-          'group size-6 shrink-0 cursor-pointer rounded-md bg-muted p-1 ring-1 ring-input transition ring-inset',
+          'group size-6 shrink-0 cursor-pointer rounded-md glass-flat p-1 transition',
           'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-offset-2 data-focus:outline-ring',
-          'data-checked:bg-primary data-checked:ring-primary',
-          'data-indeterminate:bg-primary data-indeterminate:ring-primary',
+          'data-checked:border-primary data-checked:bg-primary',
+          'data-indeterminate:border-primary data-indeterminate:bg-primary',
         ].join(' '),
         className,
       )}

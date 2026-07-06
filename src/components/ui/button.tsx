@@ -22,10 +22,9 @@ export const buttonVariants = cva(
         primary:
           'bg-primary text-primary-foreground shadow-inner shadow-white/10 data-hover:bg-primary/90 data-active:bg-primary/80',
         secondary:
-          'bg-secondary text-secondary-foreground data-hover:bg-secondary/70 data-active:bg-secondary',
-        outline:
-          'border border-input bg-card text-foreground data-hover:bg-accent data-hover:text-accent-foreground',
-        ghost: 'text-muted-foreground data-hover:bg-accent data-hover:text-accent-foreground',
+          'glass-flat text-foreground data-hover:bg-foreground/5 data-active:bg-foreground/10',
+        outline: 'glass-flat text-foreground data-hover:bg-foreground/5',
+        ghost: 'text-muted-foreground data-hover:bg-foreground/5 data-hover:text-foreground',
         destructive:
           'bg-destructive text-destructive-foreground data-hover:bg-destructive/90 data-active:bg-destructive/80',
       },

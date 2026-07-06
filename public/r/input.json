@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "src/components/ui/input.tsx",
-      "content": "import { Input as HUIInput, type InputProps as HUIInputProps } from '@headlessui/react'\nimport { composeClass } from '@/lib/cn'\n\nexport type InputProps = HUIInputProps\n\nexport function Input({ className, ...props }: InputProps) {\n  return (\n    <HUIInput\n      {...props}\n      className={composeClass(\n        [\n          'block w-full rounded-lg border border-input bg-card px-3 py-1.5 text-sm/6 text-foreground placeholder:text-muted-foreground',\n          'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-ring',\n          'data-invalid:border-destructive data-invalid:data-focus:outline-destructive',\n          'data-disabled:cursor-not-allowed data-disabled:opacity-50',\n        ].join(' '),\n        className,\n      )}\n    />\n  )\n}\n",
+      "content": "import { Input as HUIInput, type InputProps as HUIInputProps } from '@headlessui/react'\nimport { composeClass } from '@/lib/cn'\n\nexport type InputProps = HUIInputProps\n\nexport function Input({ className, ...props }: InputProps) {\n  return (\n    <HUIInput\n      {...props}\n      className={composeClass(\n        [\n          'block w-full rounded-lg glass-flat px-3 py-1.5 text-sm/6 text-foreground placeholder:text-muted-foreground',\n          'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-ring',\n          'data-invalid:border-destructive data-invalid:data-focus:outline-destructive',\n          'data-disabled:cursor-not-allowed data-disabled:opacity-50',\n        ].join(' '),\n        className,\n      )}\n    />\n  )\n}\n",
       "type": "registry:ui"
     }
   ],

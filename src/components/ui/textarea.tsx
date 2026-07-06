@@ -9,7 +9,7 @@ export function Textarea({ className, ...props }: TextareaProps) {
       {...props}
       className={composeClass(
         [
-          'block w-full resize-none rounded-lg border border-input bg-card px-3 py-1.5 text-sm/6 text-foreground placeholder:text-muted-foreground',
+          'block w-full resize-none rounded-lg glass-flat px-3 py-1.5 text-sm/6 text-foreground placeholder:text-muted-foreground',
           'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-ring',
           'data-invalid:border-destructive',
         ].join(' '),

@@ -24,9 +24,8 @@ export function ListboxButton({ className, children, ...props }: LBProps) {
       {...(props as ListboxButtonProps<'button'>)}
       className={composeClass(
         [
-          'relative w-full cursor-default rounded-lg bg-card py-1.5 pr-10 pl-3 text-left text-sm/6',
-          'border border-input text-foreground',
-          'data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-ring data-hover:border-ring',
+          'relative w-full cursor-default rounded-lg glass-flat py-1.5 pr-10 pl-3 text-left text-sm/6 text-foreground',
+          'data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-ring data-hover:border-foreground/25',
         ].join(' '),
         className,
       )}

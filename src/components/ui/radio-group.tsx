@@ -24,9 +24,9 @@ export function Radio<T>({ className, children, ...props }: RProps<T>) {
       {...(props as RadioProps<'span', T>)}
       className={composeClass(
         [
-          'group relative flex cursor-pointer rounded-lg bg-muted px-5 py-4 shadow-md transition',
+          'group relative flex cursor-pointer rounded-lg glass-flat px-5 py-4 transition',
           'focus:not-data-focus:outline-none data-focus:outline data-focus:outline-ring',
-          'data-checked:bg-secondary',
+          'data-checked:bg-foreground/10',
         ].join(' '),
         className,
       )}
