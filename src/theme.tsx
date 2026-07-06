@@ -8,7 +8,8 @@ function readStored(): Theme {
   } catch {
     /* noop */
   }
-  return 'system'
+  // No stored preference: default to dark — the glass shows best there.
+  return 'dark'
 }
 
 function systemPrefersDark(): boolean {

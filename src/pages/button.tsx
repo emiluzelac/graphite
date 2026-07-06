@@ -14,7 +14,14 @@ function Row({ label, children }: { label: string; children: ReactNode }) {
   )
 }
 
-export function Preview() {
+export function Preview({ compact = false }: { compact?: boolean }) {
+  if (compact)
+    return (
+      <div className="flex flex-wrap items-center justify-center gap-3">
+        <Button>Save changes</Button>
+        <Button variant="secondary">Cancel</Button>
+      </div>
+    )
   return (
     <div className="flex flex-col items-center gap-8">
       <Row label="Variants">

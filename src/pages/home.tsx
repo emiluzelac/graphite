@@ -33,7 +33,7 @@ const components: Item[] = [
 ]
 
 const forms: Item[] = [
-  { to: '/react/button', name: 'Button', demo: <ButtonDemo /> },
+  { to: '/react/button', name: 'Button', demo: <ButtonDemo compact /> },
   { to: '/react/checkbox', name: 'Checkbox', demo: <CheckboxDemo /> },
   { to: '/react/combobox', name: 'Combobox', demo: <ComboboxDemo demoMode={false} /> },
   { to: '/react/fieldset', name: 'Fieldset', demo: <FieldsetDemo />, wide: true },
