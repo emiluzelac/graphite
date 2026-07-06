@@ -44,5 +44,7 @@ export function TabPanels({ className, ...props }: TabPanelsProps) {
 }
 
 export function TabPanel({ className, ...props }: TabPanelProps) {
-  return <HUITabPanel {...props} className={composeClass('rounded-xl bg-muted p-3', className)} />
+  return (
+    <HUITabPanel {...props} className={composeClass('rounded-xl bg-foreground/5 p-3', className)} />
+  )
 }

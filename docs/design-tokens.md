@@ -84,6 +84,15 @@ behind in-flow content and stays visible because the page canvas gets its
 background from `body`; mounting it inside a wrapper that paints its own
 opaque background will hide it.
 
+**Layering rule: nothing opaque sits on glass.** The material only reads when
+the whole chain stays translucent (backdrop → glass surface → nested surface).
+A surface rendered on top of glass is either itself `glass`/`glass-flat` (a
+distinct nested surface) or a foreground-alpha wash — `bg-foreground/5` for
+panels and hovers, `/10` for emphasis. `--border` and `--input` are translucent
+hairlines (the same values as `--glass-border`) so dividers and rules read on
+any surface. Deliberate exception: code blocks keep an opaque `bg-card` —
+syntax-highlighting contrast needs a stable background.
+
 ## Graphite ramp (internal reference)
 
 All hue 295. Not exposed as utilities — these values fill the semantic slots below.

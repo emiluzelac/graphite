@@ -38,7 +38,7 @@ export function DataListHeader({ className, ...props }: DivProps) {
       role="row"
       {...props}
       className={cn(
-        'col-span-full grid grid-cols-subgrid border-b bg-muted/40 px-4 py-2.5',
+        'col-span-full grid grid-cols-subgrid border-b bg-foreground/5 px-4 py-2.5',
         'text-xs font-medium tracking-wider text-muted-foreground uppercase',
         className,
       )}
@@ -61,7 +61,7 @@ export function DataListRow({ className, ...props }: DivProps) {
       {...props}
       className={cn(
         'col-span-full grid grid-cols-subgrid items-center border-b px-4 py-3 transition',
-        'last:border-b-0 hover:bg-accent/60',
+        'last:border-b-0 hover:bg-foreground/5',
         className,
       )}
     />

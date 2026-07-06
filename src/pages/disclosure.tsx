@@ -16,7 +16,7 @@ const faqs = [
 
 export function Preview() {
   return (
-    <div className="w-full max-w-md divide-y divide-border rounded-xl bg-muted p-2">
+    <div className="w-full max-w-md divide-y rounded-xl glass-flat p-2">
       {faqs.map(({ q, a }, i) => (
         <Disclosure key={q} as="div" className="p-4" defaultOpen={i === 0}>
           <DisclosureButton>

@@ -37,7 +37,7 @@ export function Preview() {
                 {posts.map((post) => (
                   <li
                     key={post.id}
-                    className="relative rounded-md p-3 text-sm/6 transition hover:bg-accent"
+                    className="relative rounded-md p-3 text-sm/6 transition hover:bg-foreground/5"
                   >
                     <a href="#" className="font-semibold text-foreground">
                       <span className="absolute inset-0" />
