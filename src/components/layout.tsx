@@ -8,7 +8,7 @@ export function Layout() {
     <div className="flex min-h-svh">
       <Backdrop />
       <Sidebar />
-      <main className="flex-1 px-8 py-12 lg:px-16">
+      <main className="min-w-0 flex-1 px-4 py-8 sm:px-8 sm:py-12 lg:px-16">
         <div className="mx-auto mb-8 flex max-w-4xl items-center justify-between lg:hidden">
           <Link to="/" className="flex items-center gap-2">
             <div className="size-7 rounded-md bg-gradient-to-br from-primary/60 to-primary" />

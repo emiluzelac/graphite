@@ -77,7 +77,9 @@ export function PreviewCode({ title, description, preview, code }: Props) {
         </div>
 
         {tab === 'preview' ? (
-          <div className="flex min-h-96 items-center justify-center p-10">{preview}</div>
+          <div className="flex min-h-96 items-center justify-center overflow-x-auto p-4 sm:p-10">
+            {preview}
+          </div>
         ) : highlighted ? (
           // Safe: Shiki output of our own hardcoded demo strings; Shiki escapes the source.
           <div

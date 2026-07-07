@@ -27,7 +27,7 @@ export function DataList({ className, columns, style, ...props }: DivProps & { c
       role="table"
       {...props}
       style={{ gridTemplateColumns: columns, ...style }}
-      className={cn('grid overflow-hidden rounded-xl border text-sm', className)}
+      className={cn('grid gap-x-4 overflow-hidden rounded-xl border text-sm', className)}
     />
   )
 }
