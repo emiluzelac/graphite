@@ -16,19 +16,13 @@ const people: Person[] = [
   { name: 'Katherine Johnson', role: 'Trajectory', status: 'Active', updated: '3d ago' },
 ]
 
-function StatusPill({ status }: { status: Person['status'] }) {
-  return (
-    <span className="inline-flex items-center gap-1.5">
-      <span
-        className={
-          status === 'Active'
-            ? 'size-1.5 rounded-full bg-foreground'
-            : 'size-1.5 rounded-full bg-muted-foreground/40'
-        }
-      />
-      <span className="text-muted-foreground">{status}</span>
-    </span>
-  )
+const statusColor: Record<Person['status'], string> = {
+  Active: 'text-emerald-500',
+  Away: 'text-amber-500',
+}
+
+function Status({ status }: { status: Person['status'] }) {
+  return <span className={`font-medium ${statusColor[status]}`}>{status}</span>
 }
 
 export function Preview() {
@@ -45,7 +39,7 @@ export function Preview() {
           <DataListCell className="font-medium text-foreground">{p.name}</DataListCell>
           <DataListCell className="text-muted-foreground">{p.role}</DataListCell>
           <DataListCell>
-            <StatusPill status={p.status} />
+            <Status status={p.status} />
           </DataListCell>
           <DataListCell align="right" className="text-muted-foreground tabular-nums">
             {p.updated}
@@ -76,7 +70,7 @@ export function Example() {
       <DataListRow>
         <DataListCell className="font-medium text-foreground">Ada Lovelace</DataListCell>
         <DataListCell className="text-muted-foreground">Engineering</DataListCell>
-        <DataListCell>Active</DataListCell>
+        <DataListCell className="font-medium text-emerald-500">Active</DataListCell>
         <DataListCell align="right" className="tabular-nums text-muted-foreground">2h ago</DataListCell>
       </DataListRow>
     </DataList>
