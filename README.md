@@ -21,6 +21,17 @@ npm run dev
 
 Open the URL printed in the terminal (usually http://localhost:5173).
 
+### Responsive audit
+
+With the app running, check every route for horizontal overflow at mobile/tablet widths
+(crawls the homepage links, so new pages are picked up automatically; exits non-zero on
+failure, so it can gate CI):
+
+```bash
+npm run audit:responsive                  # 390px + 768px against localhost:5173
+node scripts/audit-responsive.mjs --url http://localhost:4173 --widths 320,390,768
+```
+
 ## Components covered
 
 **Components:** Dropdown Menu, Disclosure, Dialog, Popover, Tabs, Transition
