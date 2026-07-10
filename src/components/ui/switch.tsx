@@ -4,7 +4,7 @@ import { composeClass } from '@/lib/cn'
 
 const switchVariants = cva(
   [
-    'group relative flex shrink-0 cursor-pointer rounded-full bg-input p-1 transition-colors duration-200 ease-in-out',
+    'group relative flex shrink-0 cursor-pointer rounded-full border-0 bg-input p-1 transition-colors duration-200 ease-in-out',
     'focus:not-data-focus:outline-none data-focus:outline-1 data-focus:outline-ring',
     'data-checked:bg-primary',
   ],
