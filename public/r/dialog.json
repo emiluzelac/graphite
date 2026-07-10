@@ -3,8 +3,12 @@
   "name": "dialog",
   "title": "Dialog",
   "description": "Modal dialog with backdrop, centered panel, and transitions.",
-  "dependencies": ["@headlessui/react"],
-  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "dependencies": [
+    "@headlessui/react"
+  ],
+  "registryDependencies": [
+    "@graphite/utils"
+  ],
   "files": [
     {
       "path": "src/components/ui/dialog.tsx",

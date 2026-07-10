@@ -3,12 +3,16 @@
   "name": "switch",
   "title": "Switch",
   "description": "Toggle switch with token-pure thumb/track contrast.",
-  "dependencies": ["@headlessui/react"],
-  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "dependencies": [
+    "@headlessui/react"
+  ],
+  "registryDependencies": [
+    "@graphite/utils"
+  ],
   "files": [
     {
       "path": "src/components/ui/switch.tsx",
-      "content": "import { Switch as HUISwitch, type SwitchProps as HUISwitchProps } from '@headlessui/react'\nimport { composeClass } from '@/lib/cn'\n\nexport type SwitchProps = HUISwitchProps\n\nexport function Switch({ className, ...props }: SwitchProps) {\n  return (\n    <HUISwitch\n      {...props}\n      className={composeClass(\n        [\n          'group relative flex h-7 w-14 shrink-0 cursor-pointer rounded-full bg-input p-1 transition-colors duration-200 ease-in-out',\n          'focus:not-data-focus:outline-none data-focus:outline-1 data-focus:outline-ring',\n          'data-checked:bg-primary',\n        ].join(' '),\n        className,\n      )}\n    >\n      <span\n        aria-hidden=\"true\"\n        className=\"pointer-events-none inline-block size-5 translate-x-0 rounded-full bg-foreground shadow-lg ring-0 transition duration-200 ease-in-out group-data-checked:translate-x-7 group-data-checked:bg-primary-foreground\"\n      />\n    </HUISwitch>\n  )\n}\n",
+      "content": "import { Switch as HUISwitch, type SwitchProps as HUISwitchProps } from '@headlessui/react'\nimport { cva, type VariantProps } from 'class-variance-authority'\nimport { composeClass } from '@/lib/cn'\n\nconst switchVariants = cva(\n  [\n    'group relative flex shrink-0 cursor-pointer rounded-full bg-input p-1 transition-colors duration-200 ease-in-out',\n    'focus:not-data-focus:outline-none data-focus:outline-1 data-focus:outline-ring',\n    'data-checked:bg-primary',\n  ],\n  {\n    variants: {\n      size: {\n        sm: 'h-5 w-9',\n        default: 'h-7 w-14',\n      },\n    },\n    defaultVariants: {\n      size: 'default',\n    },\n  },\n)\n\nconst knobVariants = cva(\n  [\n    'pointer-events-none inline-block translate-x-0 rounded-full bg-foreground shadow-lg ring-0',\n    'transition duration-200 ease-in-out group-data-checked:bg-primary-foreground',\n  ],\n  {\n    variants: {\n      size: {\n        sm: 'size-3 group-data-checked:translate-x-4',\n        default: 'size-5 group-data-checked:translate-x-7',\n      },\n    },\n    defaultVariants: {\n      size: 'default',\n    },\n  },\n)\n\nexport type SwitchProps = HUISwitchProps & VariantProps<typeof switchVariants>\n\nexport function Switch({ className, size, ...props }: SwitchProps) {\n  return (\n    <HUISwitch {...props} className={composeClass(switchVariants({ size }), className)}>\n      <span aria-hidden=\"true\" className={knobVariants({ size })} />\n    </HUISwitch>\n  )\n}\n",
       "type": "registry:ui"
     }
   ],

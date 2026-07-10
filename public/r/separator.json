@@ -3,7 +3,9 @@
   "name": "separator",
   "title": "Separator",
   "description": "Hairline divider.",
-  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "registryDependencies": [
+    "@graphite/utils"
+  ],
   "files": [
     {
       "path": "src/components/ui/separator.tsx",

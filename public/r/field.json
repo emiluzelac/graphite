@@ -3,8 +3,12 @@
   "name": "field",
   "title": "Field",
   "description": "Field, Label, and Description form primitives.",
-  "dependencies": ["@headlessui/react"],
-  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "dependencies": [
+    "@headlessui/react"
+  ],
+  "registryDependencies": [
+    "@graphite/utils"
+  ],
   "files": [
     {
       "path": "src/components/ui/field.tsx",

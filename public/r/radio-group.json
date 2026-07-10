@@ -3,8 +3,12 @@
   "name": "radio-group",
   "title": "Radio Group",
   "description": "Card-style radios with checked state styling.",
-  "dependencies": ["@headlessui/react"],
-  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "dependencies": [
+    "@headlessui/react"
+  ],
+  "registryDependencies": [
+    "@graphite/utils"
+  ],
   "files": [
     {
       "path": "src/components/ui/radio-group.tsx",

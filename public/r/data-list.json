@@ -3,7 +3,9 @@
   "name": "data-list",
   "title": "Data List",
   "description": "Grid-aligned records with table semantics (ARIA grid roles) but no HTML table — CSS Grid + subgrid.",
-  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "registryDependencies": [
+    "@graphite/utils"
+  ],
   "files": [
     {
       "path": "src/components/ui/data-list.tsx",

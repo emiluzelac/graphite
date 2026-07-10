@@ -3,8 +3,13 @@
   "name": "menu",
   "title": "Dropdown Menu",
   "description": "Menu button with anchored items and focus styling.",
-  "dependencies": ["@headlessui/react"],
-  "registryDependencies": ["@graphite/utils", "@graphite/theme", "@graphite/separator"],
+  "dependencies": [
+    "@headlessui/react"
+  ],
+  "registryDependencies": [
+    "@graphite/utils",
+    "@graphite/separator"
+  ],
   "files": [
     {
       "path": "src/components/ui/menu.tsx",

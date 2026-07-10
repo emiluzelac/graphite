@@ -3,8 +3,12 @@
   "name": "popover",
   "title": "Popover",
   "description": "Anchored floating panel with transitions.",
-  "dependencies": ["@headlessui/react"],
-  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "dependencies": [
+    "@headlessui/react"
+  ],
+  "registryDependencies": [
+    "@graphite/utils"
+  ],
   "files": [
     {
       "path": "src/components/ui/popover.tsx",

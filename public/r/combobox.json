@@ -3,8 +3,13 @@
   "name": "combobox",
   "title": "Combobox",
   "description": "Autocomplete input with anchored options list.",
-  "dependencies": ["@headlessui/react", "@emiluzelac/icona"],
-  "registryDependencies": ["@graphite/utils", "@graphite/theme"],
+  "dependencies": [
+    "@headlessui/react",
+    "@emiluzelac/icona"
+  ],
+  "registryDependencies": [
+    "@graphite/utils"
+  ],
   "files": [
     {
       "path": "src/components/ui/combobox.tsx",

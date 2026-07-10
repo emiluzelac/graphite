@@ -3,7 +3,10 @@
   "name": "utils",
   "title": "cn utility",
   "description": "clsx + tailwind-merge class combiner.",
-  "dependencies": ["clsx", "tailwind-merge"],
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
   "files": [
     {
       "path": "src/lib/cn.ts",
