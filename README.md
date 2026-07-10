@@ -86,6 +86,17 @@ then:
 npx shadcn add @graphite/button
 ```
 
-This copies `button.tsx` (plus the `cn` util and Graphite theme variables) into the consuming app and installs its npm dependencies.
+This copies `button.tsx` (plus the `cn` util) into the consuming app and installs its npm dependencies.
+
+### Theme
+
+Components do not pull the theme in automatically. Two paths:
+
+- **Fresh app:** install the Graphite tokens once — `npx shadcn add @graphite/theme` —
+  then add components freely.
+- **App with its own tokens:** skip `@graphite/theme` entirely. Map the utility slots
+  to your tokens in your `@theme` block (`--color-primary: var(--your-primary)` …)
+  and provide `glass` / `glass-flat` utilities backed by your surface tokens.
+  Component adds will never touch your CSS variables.
 
 > **Note:** components that use icons depend on `@emiluzelac/icona` (npmjs). This app links it locally via `file:../icons/icona`; external registry consumers install the published package.
