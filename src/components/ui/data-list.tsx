@@ -12,6 +12,12 @@ import { cn } from '@/lib/cn'
  *
  * Subgrid requires rows to be *direct* children of the root grid, so the DOM
  * is intentionally flat — no rowgroup wrappers (ARIA allows table > row).
+ *
+ * Borders name `border-border` explicitly rather than riding a bare `border`:
+ * Tailwind v4 dropped v3's gray-200 default, so an unqualified border-width
+ * resolves its color to `currentColor` — the hairline renders in the row's
+ * ink color (near-black) instead of the border token. Preflight does not fix
+ * this; consumers without Preflight have nothing else to fall back on.
  */
 
 type Align = 'left' | 'right' | 'center'
@@ -27,7 +33,7 @@ export function DataList({ className, columns, style, ...props }: DivProps & { c
       role="table"
       {...props}
       style={{ gridTemplateColumns: columns, ...style }}
-      className={cn('grid gap-x-4 overflow-hidden rounded-xl border text-sm', className)}
+      className={cn('grid gap-x-4 overflow-hidden rounded-xl border border-border text-sm', className)}
     />
   )
 }
@@ -38,7 +44,7 @@ export function DataListHeader({ className, ...props }: DivProps) {
       role="row"
       {...props}
       className={cn(
-        'col-span-full grid grid-cols-subgrid border-b bg-foreground/5 px-4 py-2.5',
+        'col-span-full grid grid-cols-subgrid border-b border-border bg-foreground/5 px-4 py-2.5',
         'text-xs font-medium tracking-wider text-muted-foreground uppercase',
         className,
       )}
@@ -60,7 +66,7 @@ export function DataListRow({ className, ...props }: DivProps) {
       role="row"
       {...props}
       className={cn(
-        'col-span-full grid grid-cols-subgrid items-center border-b px-4 py-3 transition',
+        'col-span-full grid grid-cols-subgrid items-center border-b border-border px-4 py-3 transition',
         'last:border-b-0 hover:bg-foreground/5',
         className,
       )}
