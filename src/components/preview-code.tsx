@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react'
-import { codeToHtml } from 'shiki'
 import { cn } from '@/lib/cn'
+import { highlightCode } from '@/lib/highlight'
 
 interface Props {
   title: string
@@ -9,29 +9,31 @@ interface Props {
   code: string
 }
 
-/** Shiki dual-theme highlight; resolves async, so render the plain code until ready. */
-function useHighlightedCode(code: string) {
+/**
+ * Shiki dual-theme highlight, loaded lazily. Returns null until the async
+ * import resolves, so the plain code renders as a fallback. `enabled` keeps
+ * shiki (and its wasm/engine) entirely out of the bundle until the Code tab is
+ * actually opened — the Preview tab and the home gallery never load it.
+ */
+function useHighlightedCode(code: string, enabled: boolean) {
   const [html, setHtml] = useState<string | null>(null)
   useEffect(() => {
+    if (!enabled) return
     let alive = true
-    codeToHtml(code, {
-      lang: 'tsx',
-      themes: { light: 'github-light', dark: 'github-dark' },
-      defaultColor: false,
-    }).then((result) => {
+    highlightCode(code).then((result) => {
       if (alive) setHtml(result)
     })
     return () => {
       alive = false
     }
-  }, [code])
+  }, [code, enabled])
   return html
 }
 
 export function PreviewCode({ title, description, preview, code }: Props) {
   const [tab, setTab] = useState<'preview' | 'code'>('preview')
   const [copied, setCopied] = useState(false)
-  const highlighted = useHighlightedCode(code)
+  const highlighted = useHighlightedCode(code, tab === 'code')
 
   async function copy() {
     try {
