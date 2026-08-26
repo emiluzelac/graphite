@@ -13,6 +13,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "registry:build": "shadcn build",
+    "smoke:registry": "node scripts/smoke-registry.mjs",
     "audit:responsive": "node scripts/audit-responsive.mjs"
   },
   "dependencies": {
@@ -22,7 +23,7 @@
     "clsx": "^2.1.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-router": "^7.17.0",
+    "react-router": "^7.18.2",
     "shiki": "^4.3.1",
     "tailwind-merge": "^3.6.0"
   },
