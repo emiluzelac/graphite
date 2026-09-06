@@ -1,0 +1,44 @@
+# Graphite
+
+> Copy-in React/TypeScript components built on Headless UI v2 and Tailwind CSS v4, with semantic OKLCH tokens and optional frosted-glass styling. Distributed through a shadcn-format registry, not implemented with Radix.
+
+Start with the integration guide. Component JSON includes dependencies and source;
+use it to confirm exports and props instead of assuming shadcn/Radix APIs.
+Links below are relative to this document so they also work on local previews.
+
+## Integration
+
+- [Using Graphite](using-graphite.md): Canonical setup, theme preservation, composition examples, styling, and accessibility guidance.
+- [Registry catalog](r/registry.json): Available item names, files, dependencies, and theme metadata.
+
+## Component references
+
+- [Button](r/button.json): Button, CloseButton, variants, and sizes.
+- [Checkbox](r/checkbox.json): Checkbox control.
+- [Combobox](r/combobox.json): Autocomplete root, input with integrated toggle, and options.
+- [Data List](r/data-list.json): Grid-based record display.
+- [Dialog](r/dialog.json): Dialog, DialogPanel, and DialogTitle.
+- [Disclosure](r/disclosure.json): Expand/collapse composition.
+- [Field](r/field.json): Field, Label, and Description.
+- [Fieldset](r/fieldset.json): Fieldset and Legend.
+- [Input](r/input.json): Text input and its control states.
+- [Listbox](r/listbox.json): Custom select composition.
+- [Menu](r/menu.json): Menu button, items, and grouping primitives.
+- [Popover](r/popover.json): Anchored floating panel.
+- [Radio Group](r/radio-group.json): Radio group and card-style options.
+- [Select](r/select.json): Native select with custom styling.
+- [Separator](r/separator.json): Hairline divider.
+- [Switch](r/switch.json): Toggle with sm/default sizes.
+- [Tabs](r/tabs.json): TabGroup, TabList, Tab, TabPanels, and TabPanel.
+- [Textarea](r/textarea.json): Multiline text input.
+
+## Theme and utilities
+
+- [Theme](r/theme.json): Opt-in light/dark tokens and glass utilities; do not install over an existing theme without approval.
+- [Backdrop](r/backdrop.json): Optional ambient gradient and its own CSS variables.
+- [Utilities](r/utils.json): cn and composeClass helpers.
+
+## Repository maintenance
+
+- [Agent instructions](https://github.com/emiluzelac/graphite/blob/main/AGENTS.md): Rules for changing Graphite itself, not the consuming app.
+- [Design tokens](https://github.com/emiluzelac/graphite/blob/main/docs/design-tokens.md): Detailed token and material reference.

@@ -4,12 +4,11 @@ import { Ctx, type Theme } from './theme-context'
 function readStored(): Theme {
   try {
     const v = localStorage.getItem('theme')
-    if (v === 'light' || v === 'dark') return v
+    if (v === 'light' || v === 'dark' || v === 'system') return v
   } catch {
     /* noop */
   }
-  // No stored preference: default to dark — the glass shows best there.
-  return 'dark'
+  return 'light'
 }
 
 function systemPrefersDark(): boolean {
@@ -31,8 +30,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const setTheme = useCallback((t: Theme) => {
     setThemeState(t)
     try {
-      if (t === 'system') localStorage.removeItem('theme')
-      else localStorage.setItem('theme', t)
+      localStorage.setItem('theme', t)
     } catch {
       /* noop */
     }

@@ -1,5 +1,8 @@
 # Design Tokens — Graphite Theme
 
+For integration into another app, start with [Using Graphite](../public/using-graphite.md).
+This document is the detailed token and material reference.
+
 Graphite's visual system in five choices:
 
 | Aspect               | Choice                                                                                       |
@@ -12,10 +15,11 @@ Graphite's visual system in five choices:
 
 ## Architecture
 
-Graphite's components are [Headless UI](https://headlessui.com/) based — **not shadcn/ui**
-(which is Radix based). Only the token _slot names_ and the wiring below follow shadcn's
-v4 contract, so the components install via the shadcn registry CLI and pick up the right
-colors when dropped into a shadcn-themed app. The values filling those slots are custom.
+Graphite's components are [Headless UI](https://headlessui.com/) based — **not shadcn/ui
+implementations**. Only the token _slot names_ and the wiring below follow shadcn's
+v4 contract. The shadcn CLI distributes the source, while the semantic slots let
+components use an existing compatible theme. Glass surfaces additionally require
+the material tokens and utilities below. The default slot values are custom.
 
 Three-layer wiring in `src/index.css` (the shadcn v4 pattern):
 
@@ -33,9 +37,10 @@ Three-layer wiring in `src/index.css` (the shadcn v4 pattern):
 
 `@theme inline` maps Tailwind utilities (`bg-background`, `text-muted-foreground`, …) to
 CSS variables rather than literal values, so toggling `.dark` re-themes everything.
-**Components contain zero `dark:` variants.** The existing ThemeProvider, FOUC guard,
-and `@custom-variant dark` stay unchanged (the variant remains available but should be
-unused after the refactor).
+**Reusable components contain zero `dark:` variants.** The showcase ThemeProvider
+and pre-paint script manage `.dark`; `@custom-variant dark` remains available for
+other application styling. The registry theme supplies CSS, not runtime theme
+management.
 
 A base layer sets sensible defaults:
 
@@ -85,13 +90,15 @@ behind in-flow content and stays visible because the page canvas gets its
 background from `body`; mounting it inside a wrapper that paints its own
 opaque background will hide it.
 
-**Layering rule: nothing opaque sits on glass.** The material only reads when
+**Layering rule: no opaque content panels on glass.** The material only reads when
 the whole chain stays translucent (backdrop → glass surface → nested surface).
 A surface rendered on top of glass is either itself `glass`/`glass-flat` (a
 distinct nested surface) or a foreground-alpha wash — `bg-foreground/5` for
 panels and hovers, `/10` for emphasis. `--border` and `--input` are translucent
 hairlines (the same values as `--glass-border`) so dividers and rules read on
-any surface. Deliberate exception: code blocks keep an opaque `bg-card` —
+any surface. This does not prohibit deliberate solid control states: primary
+and destructive buttons, selected tabs, and checked switch indicators retain
+their semantic fills. Code blocks also keep an opaque `bg-card` because
 syntax-highlighting contrast needs a stable background.
 
 ## Graphite ramp (internal reference)
@@ -138,24 +145,29 @@ Radius derivations in `@theme inline`: `--radius-sm: calc(var(--radius) - 4px)`,
 | Old (hardcoded)                                                  | New (semantic)                                                    |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------- |
 | `bg-white` (page) / `dark:bg-gray-950`                           | `bg-background`                                                   |
-| `bg-white` (panels, menus, dialogs) / `dark:bg-gray-900`         | `bg-card` or `bg-popover` (floating)                              |
+| `bg-white` (panels, menus, dialogs) / `dark:bg-gray-900`         | `glass` (floating), `glass-flat` (inline), or `bg-foreground/5` (nested wash) |
 | `text-gray-900` / `dark:text-white`                              | `text-foreground`                                                 |
 | `text-gray-500`, `text-gray-600`, `dark:text-white/50`           | `text-muted-foreground`                                           |
-| `border-gray-200/300`, `border-black/5`, `dark:border-white/10`  | `border-border` (or bare `border` via base layer)                 |
+| `border-gray-200/300`, `border-black/5`, `dark:border-white/10`  | Explicit `border-border`; glass utilities supply their own border |
 | `bg-sky-600` primary actions, checked switch/checkbox            | `bg-primary text-primary-foreground`; hover via `bg-primary/90`   |
-| `bg-gray-900` secondary button                                   | `bg-secondary text-secondary-foreground`, hover `bg-secondary/80` |
-| ghost hover `bg-gray-100`, menu/listbox `data-focus:bg-gray-100` | `data-focus:bg-accent`, `data-hover:bg-accent`                    |
+| `bg-gray-900` secondary button                                   | `glass-flat text-foreground`, hover `bg-foreground/5`              |
+| ghost hover `bg-gray-100`, menu/listbox `data-focus:bg-gray-100` | `data-hover:bg-foreground/5`, `data-focus:bg-foreground/10`        |
 | selected checkmarks `text-sky-600`                               | `text-primary`                                                    |
 | `data-invalid:` red-500                                          | `data-invalid:border-destructive` etc.                            |
 | focus outlines `outline-gray-900` / `outline-sky-600`            | `data-focus:outline-ring`                                         |
 | `rounded-lg/xl` on components                                    | `rounded-md/lg/xl` from radius tokens (visually same at default)  |
-| every `dark:*` class                                             | **deleted**                                                       |
+| per-component `dark:*` colors                                    | Mode-aware semantic tokens instead                               |
+
+Opaque `bg-card`, `bg-popover`, `bg-accent`, and `bg-secondary` remain available
+for token-contract compatibility, not as replacements for glass panels or their
+interaction washes.
 
 ## Where the tokens live
 
 - `src/index.css` — the entire token sheet (`:root`, `.dark`, `@theme inline`)
 - Components contain only semantic classes; a grep for `gray-`, `sky-`, or `dark:` in `src/components/ui/` should always come back empty
-- Consumers get the same values via the registry's `theme` item (`registry.json` → `cssVars`)
+- Consumers can opt into the same values via the registry's `theme` item (`registry.json` → `cssVars`); ordinary controls do not install it
+- Ambient gradient values ship with the separate, opt-in `backdrop` registry item
 
 ## Retheming
 

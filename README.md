@@ -2,24 +2,42 @@
 
 Ink-dark components under frosted glass. A component library built on [Headless UI](https://headlessui.com/react) with its own OKLCH design tokens ("Graphite" — custom neutral ramp, hue 295) and a translucent glass material (`glass` / `glass-flat` over an ambient backdrop), distributed as a shadcn-format registry. The showcase app gives every component a styled preview and its source on Preview / Code tabs.
 
+## Agent and integration documentation
+
+- [Using Graphite](public/using-graphite.md) is the canonical guide for adding
+  components to another app: setup, theme preservation, composition, and accessibility.
+- [llms.txt](public/llms.txt) is the agent entry point, linking to the guide and
+  machine-readable component references.
+- [AGENTS.md](AGENTS.md) contains instructions for maintaining this repository.
+
+The guide and index are static public assets, available at `/using-graphite.md`
+and `/llms.txt` on the local preview and Vercel deployments. The existing Pages
+workflow publishes them under `/graphite/` alongside the registry. Point agents
+in consuming projects to the integration guide; this repo's `AGENTS.md` does not
+automatically apply to installed components.
+
 ## Stack
 
 - Vite + React + TypeScript
 - Tailwind CSS v4 (via `@tailwindcss/vite`)
 - `@headlessui/react` v2
-- `@emiluzelac/icona` (Solar-based icon library; local `file:` link to `../icons/icona`)
+- `@emiluzelac/icona` (published Solar-based icon library)
 - `react-router`
 
 ## Getting started
 
-Install Node.js 18+ (e.g. from [nodejs.org](https://nodejs.org/)), then:
+Install Node.js 22.12+ (e.g. from [nodejs.org](https://nodejs.org/); CI uses Node 22),
+then use the committed npm lockfile:
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
 Open the URL printed in the terminal (usually http://localhost:5173).
+
+New visits start in light mode. Explicit Light, Dark, and System selections are
+remembered across reloads; System follows the operating system's appearance.
 
 ### Responsive audit
 
@@ -34,9 +52,12 @@ node scripts/audit-responsive.mjs --url http://localhost:4173 --widths 320,390,7
 
 ## Components covered
 
-**Components:** Dropdown Menu, Disclosure, Dialog, Popover, Tabs, Transition
+**Components:** Data List, Dropdown Menu, Disclosure, Dialog, Popover, Separator, Tabs
 
-**Forms:** Button, Checkbox, Combobox, Fieldset, Input, Listbox, Radio Group, Select, Switch, Textarea
+**Forms:** Button, Checkbox, Combobox, Field, Fieldset, Input, Listbox, Radio Group, Select, Switch, Textarea
+
+The showcase also includes Transition and signup-form examples; these are not
+registry items. The theme and ambient backdrop are separate, explicit opt-ins.
 
 ## Project structure
 
@@ -68,7 +89,9 @@ Build the registry JSON (output in `public/r/`, served by Vite and any static ho
 npm run registry:build
 ```
 
-Consume from another app by adding the namespace to its `components.json`:
+For prerequisites and safe setup in another app, follow
+[Using Graphite](public/using-graphite.md). Add the namespace to its existing
+`components.json`:
 
 ```json
 {
@@ -97,6 +120,10 @@ Components do not pull the theme in automatically. Two paths:
 - **App with its own tokens:** skip `@graphite/theme` entirely. Map the utility slots
   to your tokens in your `@theme` block (`--color-primary: var(--your-primary)` …)
   and provide `glass` / `glass-flat` utilities backed by your surface tokens.
-  Component adds will never touch your CSS variables.
 
-> **Note:** components that use icons depend on `@emiluzelac/icona` (npmjs). This app links it locally via `file:../icons/icona`; external registry consumers install the published package.
+Ordinary controls do not install the theme or replace color variables. The opt-in
+`theme` item intentionally adds theme CSS; the optional `backdrop` item adds its
+own gradient variables.
+
+Icon-using registry items declare the published `@emiluzelac/icona` dependency.
+No local icon-library checkout is required.

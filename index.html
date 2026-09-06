@@ -3,18 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Graphite — ink-dark components under frosted glass</title>
+    <title>Graphite — Headless UI, beautifully composed</title>
     <meta
       name="description"
-      content="Graphite: fully accessible Headless UI components — OKLCH ink under a frosted-glass material, distributed as a shadcn-format registry."
+      content="Accessible React components built on Headless UI, with Graphite's signature glass finish. Copy the source, keep your own theme, and make it yours."
     />
     <script>
       // Avoid FOUC: apply theme before first paint.
       ;(function () {
         try {
           var stored = localStorage.getItem('theme')
-          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-          var isDark = stored === 'light' ? false : stored === 'system' ? prefersDark : true
+          var isDark =
+            stored === 'dark' ||
+            (stored === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
           document.documentElement.classList.toggle('dark', isDark)
         } catch (_) {}
       })()
