@@ -2,6 +2,8 @@ import { NavLink } from 'react-router'
 import { cn } from '@/lib/cn'
 import { ThemeToggle } from '@/components/theme-toggle'
 
+const documentation = [{ to: '/docs', label: 'Using Graphite' }]
+
 const components = [
   { to: '/react/data-list', label: 'Data List' },
   { to: '/react/menu', label: 'Dropdown Menu' },
@@ -72,6 +74,7 @@ export function Sidebar() {
         </NavLink>
         <ThemeToggle />
       </div>
+      <Section title="Documentation" items={documentation} />
       <Section title="Components" items={components} />
       <Section title="Forms" items={forms} />
       <Section title="Examples" items={examples} />

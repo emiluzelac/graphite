@@ -1,9 +1,11 @@
 import { Outlet, Link } from 'react-router'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { Backdrop } from '@/components/ui/backdrop'
 
 export function HomeLayout() {
   return (
-    <div className="min-h-svh bg-background">
+    <div className="relative isolate min-h-svh bg-background">
+      <Backdrop className="opacity-30" />
       <a
         href="#main-content"
         className="sr-only z-50 rounded-md bg-primary px-4 py-2 text-primary-foreground focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
@@ -38,12 +40,12 @@ export function HomeLayout() {
             >
               Examples
             </a>
-            <a
-              href="/using-graphite.md"
+            <Link
+              to="/docs"
               className="rounded-sm transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
             >
-              Guide
-            </a>
+              Docs
+            </Link>
           </nav>
           <div className="ml-auto flex items-center gap-5">
             <a

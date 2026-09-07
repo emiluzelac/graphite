@@ -78,12 +78,12 @@ export default function Home() {
             </a>
           </DataInteractive>
           <DataInteractive>
-            <a
-              href="/using-graphite.md"
+            <Link
+              to="/docs"
               className={cn(buttonVariants({ variant: 'secondary' }), 'min-h-11 rounded-full px-5')}
             >
               Read the guide
-            </a>
+            </Link>
           </DataInteractive>
         </div>
         <p className="mt-6 text-xs text-muted-foreground sm:text-sm">

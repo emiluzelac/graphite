@@ -10,6 +10,10 @@ Ink-dark components under frosted glass. A component library built on [Headless 
   machine-readable component references.
 - [AGENTS.md](AGENTS.md) contains instructions for maintaining this repository.
 
+The showcase renders the same guide as a readable documentation page at `/docs`.
+The homepage and documentation sidebar link there; the Markdown content remains
+the single source for both the page and agent access.
+
 The guide and index are static public assets, available at `/using-graphite.md`
 and `/llms.txt` on the local preview and Vercel deployments. The existing Pages
 workflow publishes them under `/graphite/` alongside the registry. Point agents

@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route, Navigate } from 'react-router'
 import { Layout } from '@/components/layout'
 import { HomeLayout } from '@/components/home-layout'
@@ -21,6 +22,8 @@ import TextareaPage from '@/pages/textarea'
 import SignupPage from '@/pages/signup'
 import DataListPage from '@/pages/data-list'
 
+const DocsPage = lazy(() => import('@/pages/docs'))
+
 export default function App() {
   return (
     <Routes>
@@ -28,6 +31,20 @@ export default function App() {
         <Route index element={<Home />} />
       </Route>
       <Route element={<Layout />}>
+        <Route
+          path="docs"
+          element={
+            <Suspense
+              fallback={
+                <p role="status" className="text-sm text-muted-foreground">
+                  Loading documentation...
+                </p>
+              }
+            >
+              <DocsPage />
+            </Suspense>
+          }
+        />
         <Route path="signup" element={<SignupPage />} />
         <Route path="react/data-list" element={<DataListPage />} />
         <Route path="react/menu" element={<MenuPage />} />

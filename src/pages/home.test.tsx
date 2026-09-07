@@ -66,11 +66,24 @@ describe('Graphite homepage', () => {
       'href',
       '#components',
     )
-    expect(screen.getByRole('link', { name: 'Read the guide' })).toHaveAttribute(
-      'href',
-      '/using-graphite.md',
-    )
+    expect(screen.getByRole('link', { name: 'Read the guide' })).toHaveAttribute('href', '/docs')
+    expect(screen.queryByRole('link', { name: 'Docs' })).toHaveAttribute('href', '/docs')
     expect(screen.getByRole('region', { name: 'Live examples' })).toBeInTheDocument()
+  })
+
+  it('keeps one fixed backdrop outside the constrained content sections', () => {
+    const { container } = renderHome()
+    const backdrops = container.querySelectorAll(
+      'div[aria-hidden="true"][style*="radial-gradient"]',
+    )
+    const page = screen.getByRole('main').parentElement
+
+    expect(backdrops).toHaveLength(1)
+    expect(backdrops[0]).toHaveClass('fixed', 'inset-0', 'opacity-30')
+    expect(backdrops[0]).not.toHaveClass('absolute')
+    expect(backdrops[0].parentElement === page).toBe(true)
+    expect(page).toHaveClass('isolate')
+    expect(screen.getByRole('region', { name: 'Live examples' })).toHaveClass('max-w-7xl')
   })
 
   it('keeps every existing component and example route discoverable', () => {

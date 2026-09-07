@@ -19,6 +19,7 @@ changes.
 | `src/components/ui/` | Reusable components and colocated tests |
 | `src/lib/cn.ts` | `cn` and Headless UI render-prop-aware `composeClass` |
 | `src/pages/` | Showcase compositions and displayed code examples |
+| `src/pages/docs.tsx` | In-app `/docs` page, rendered from the canonical public guide |
 | `src/App.tsx`, `src/components/sidebar.tsx` | Showcase routes and navigation |
 | `src/index.css` | Semantic tokens, Tailwind mappings, and material utilities |
 | `src/theme.tsx`, `src/theme-context.ts`, `index.html` | Showcase theme state and pre-paint handling |
@@ -87,7 +88,10 @@ Vite serves files in `public/` and copies them into its production output. The
 Pages workflow uploads `public/` directly after rebuilding the registry; it does
 not build the React showcase. Keep public guide/index links relative so they
 work at the Vercel root, the Pages `/graphite/` path, and local preview origins.
-Changes are not published until a deployment runs.
+Human-facing navigation uses the showcase's `/docs` route. Preserve the raw guide
+and `llms.txt` for agents, and resolve their relative resource links against the
+guide's public location when rendering it inside the app. Changes are not
+published until a deployment runs.
 
 Preserve unrelated user changes. Do not commit, push, or change branches unless
 the user requests it.

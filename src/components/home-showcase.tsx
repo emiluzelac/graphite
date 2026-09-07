@@ -1,7 +1,6 @@
 import { useId, useState, type FormEvent, type ReactNode } from 'react'
 import { AltArrowDownLinear, CodeSquareLinear } from '@emiluzelac/icona'
 import { Link } from 'react-router'
-import { Backdrop } from '@/components/ui/backdrop'
 import { Button, CloseButton } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import {
@@ -353,9 +352,8 @@ export function HomeShowcase() {
     <section
       id="examples"
       aria-labelledby="examples-heading"
-      className="relative isolate mx-auto max-w-7xl scroll-mt-32 px-5 pb-8 sm:px-8"
+      className="mx-auto max-w-7xl scroll-mt-32 px-5 pb-8 sm:px-8"
     >
-      <Backdrop className="absolute opacity-30" />
       <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
         <h2 id="examples-heading" className="text-sm font-semibold text-foreground">
           Live examples
