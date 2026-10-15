@@ -26,6 +26,8 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Install pinned npm for the reviewed lock format
+        run: npm install --global npm@11.6.2
       - run: npm ci
       - run: npm run lint
       - run: npm test
