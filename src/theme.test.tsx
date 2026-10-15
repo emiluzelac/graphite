@@ -4,7 +4,9 @@ import html from '../index.html?raw'
 import { ThemeProvider } from './theme'
 import { useTheme } from './theme-context'
 
-const bootstrap = html.match(/<script>([\s\S]*?)<\/script>/)?.[1]
+const bootstrap = new DOMParser()
+  .parseFromString(html, 'text/html')
+  .querySelector('script:not([src]):not([type])')?.textContent
 
 function applyBootstrap() {
   if (!bootstrap) throw new Error('The initial HTML must contain the theme bootstrap')
