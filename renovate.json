@@ -1,0 +1,4 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Graphite's dependency updates: Renovate on our Forgejo since 2026-11-15, when Graphite's canonical repository moved there (GitHub is its mirror, where a push to main republishes the registry to GitHub Pages). Estate defaults come from the preset emiluzelac/renovate-config. Everything waits for review: the registry's components are copied into other apps (um.chat among them) by `shadcn add`, so an update can change what they install."
+}

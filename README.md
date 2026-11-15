@@ -105,7 +105,7 @@ For prerequisites and safe setup in another app, follow
 }
 ```
 
-The registry is rebuilt and deployed to GitHub Pages automatically on every push to `main` (`.github/workflows/registry.yml`).
+The registry is rebuilt and deployed to GitHub Pages automatically on every push to `main` (`.github/workflows/registry.yml`). This GitHub repository is a mirror of Graphite's canonical (private) repository since 2026-11-15; changes land there and reach `main` here through the mirror.
 
 then:
 

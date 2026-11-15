@@ -1,11 +1,17 @@
 name: Deploy registry to GitHub Pages
 
+# Since 2026-11-15 Graphite's canonical repository is on our own (private)
+# Forgejo, where its CI runs (.forgejo/workflows/ci.yml); Forgejo mirrors every
+# push here, and a push to main publishes the registry to GitHub Pages through
+# this workflow, on GitHub-hosted runners (a public repository never runs on
+# the estate's machines).
+
 on:
   push:
     branches: [main]
-  # Branch protection on main requires the "deploy" check, so pull requests
-  # run the same job. They stop after the verification steps and never
-  # publish: the Pages steps and the github-pages environment are push-only.
+  # An outside contributor's pull request opened here runs the same checks.
+  # It stops after the verification steps and never publishes: the Pages steps
+  # and the github-pages environment are push-only.
   pull_request:
     branches: [main]
   workflow_dispatch:

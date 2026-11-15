@@ -1,0 +1,42 @@
+name: CI
+
+# Runs in a disposable VM on the estate's CI host. Since 2026-11-15 Graphite's
+# canonical repository is on our own (private) Forgejo, which mirrors every
+# push to github.com/emiluzelac/graphite, where a push to main publishes the
+# registry to GitHub Pages (.github/workflows/registry.yml). These are the same
+# checks, without the publishing. The job runs on the guest itself (its Node 24
+# runs the actions, which are their Node 20 majors).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  verify:
+    name: Lint, test, build and smoke-test the registry
+    runs-on: [self-hosted, linux, x64, iam-ci-isolated]
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install pinned npm for the reviewed lock format
+        run: npm install --global npm@11.6.2
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run registry:build
+      - run: npm run smoke:registry
