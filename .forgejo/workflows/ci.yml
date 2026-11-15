@@ -2,10 +2,12 @@ name: CI
 
 # Runs in a disposable VM on the estate's CI host. Since 2026-11-15 Graphite's
 # canonical repository is on our own (private) Forgejo, which mirrors every
-# push to github.com/emiluzelac/graphite, where a push to main publishes the
-# registry to GitHub Pages (.github/workflows/registry.yml). These are the same
-# checks, without the publishing. The job runs on the guest itself (its Node 24
-# runs the actions, which are their Node 20 majors).
+# push to github.com/emiluzelac/graphite. A push to main that passes the checks
+# is published by the `publish` job: the Vercel CLI builds the site (showcase,
+# registry under /r/, the guide and llms.txt) and deploys it to
+# https://emiluzelac-graphite.vercel.app. vercel.json turns Vercel's own Git
+# deployments off, so this job is the only way to publish. The jobs run on the
+# guest itself (its Node 24 runs the actions, which are their Node 20 majors).
 
 on:
   push:
@@ -40,3 +42,62 @@ jobs:
       - run: npm test
       - run: npm run registry:build
       - run: npm run smoke:registry
+
+  publish:
+    name: Publish to Vercel
+    needs: [verify]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: [self-hosted, linux, x64, iam-ci-isolated]
+    timeout-minutes: 30
+    concurrency:
+      group: publish-graphite
+      cancel-in-progress: false
+    env:
+      # Not secrets: the team and project ids of graphite on Vercel.
+      VERCEL_ORG_ID: team_HRt6sAwQSr2J1KTNpQLNf8oe
+      VERCEL_PROJECT_ID: prj_410iqb6f3pWPvri0ic8eTyFw7qv3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install pinned npm for the reviewed lock format
+        run: npm install --global npm@11.6.2
+      - name: Pull the Vercel project settings
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: npx --yes vercel@59.26.0 pull --yes --environment=production --token="$VERCEL_TOKEN"
+      - name: Build
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: npx --yes vercel@59.26.0 build --prod --token="$VERCEL_TOKEN"
+      - name: Refuse to publish a commit main has moved past
+        env:
+          CHECK_TOKEN: ${{ github.token }}
+          SERVER: ${{ github.server_url }}
+          REPOSITORY: ${{ github.repository }}
+          COMMIT: ${{ github.sha }}
+        run: |
+          current=$(git -c "http.extraHeader=Authorization: token $CHECK_TOKEN" \
+            ls-remote "$SERVER/$REPOSITORY.git" refs/heads/main | cut -f1)
+          if [ -z "$current" ]; then echo "Cannot read main" >&2; exit 1; fi
+          if [ "$current" != "$COMMIT" ]; then echo "main has moved on; its own run publishes" >&2; exit 1; fi
+      - name: Deploy
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: >-
+          npx --yes vercel@59.26.0 deploy --prebuilt --prod
+          --token="$VERCEL_TOKEN"
+          --meta gitCommitSha="$GITHUB_SHA"
+          --meta gitCommitRef=main
+          --meta gitRepo=emiluzelac/graphite
+          --meta forgejoRunId="$GITHUB_RUN_ID"
+      - name: The registry answers
+        run: |
+          for path in r/registry.json r/button.json using-graphite.md llms.txt; do
+            curl -fsS --retry 5 --retry-delay 3 -o /dev/null "https://emiluzelac-graphite.vercel.app/$path"
+            echo "ok /$path"
+          done

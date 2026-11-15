@@ -39,7 +39,7 @@ not a replacement for the rest of the configuration:
 ```json
 {
   "registries": {
-    "@graphite": "https://emiluzelac.github.io/graphite/r/{name}.json"
+    "@graphite": "https://emiluzelac-graphite.vercel.app/r/{name}.json"
   }
 }
 ```

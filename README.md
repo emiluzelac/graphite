@@ -15,8 +15,8 @@ The homepage and documentation sidebar link there; the Markdown content remains
 the single source for both the page and agent access.
 
 The guide and index are static public assets, available at `/using-graphite.md`
-and `/llms.txt` on the local preview and Vercel deployments. The existing Pages
-workflow publishes them under `/graphite/` alongside the registry. Point agents
+and `/llms.txt` on the local preview and the published site,
+<https://emiluzelac-graphite.vercel.app>, alongside the registry. Point agents
 in consuming projects to the integration guide; this repo's `AGENTS.md` does not
 automatically apply to installed components.
 
@@ -100,12 +100,12 @@ For prerequisites and safe setup in another app, follow
 ```json
 {
   "registries": {
-    "@graphite": "https://emiluzelac.github.io/graphite/r/{name}.json"
+    "@graphite": "https://emiluzelac-graphite.vercel.app/r/{name}.json"
   }
 }
 ```
 
-The registry is rebuilt and deployed to GitHub Pages automatically on every push to `main` (`.github/workflows/registry.yml`). This GitHub repository is a mirror of Graphite's canonical (private) repository since 2026-11-15; changes land there and reach `main` here through the mirror.
+The registry and the showcase are published to <https://emiluzelac-graphite.vercel.app> on every push to `main`, after lint, tests, the registry build and its smoke test pass. Since 2026-11-15 Graphite's canonical repository is a private Forgejo, where that CI and the publishing run; this GitHub repository is its push mirror, and changes land there and reach `main` here through the mirror. The old address, `https://emiluzelac.github.io/graphite/r/{name}.json`, still answers but stays at its 2026-11-04 build: GitHub Pages is no longer published, so point `components.json` at the address above.
 
 then:
 

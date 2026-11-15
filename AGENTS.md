@@ -84,10 +84,12 @@ available scripts are documented in the README and `package.json`.
   file responses; no full application suite is necessary. An HTTP 200 containing
   the SPA fallback is not proof that a Markdown or text endpoint exists.
 
-Vite serves files in `public/` and copies them into its production output. The
-Pages workflow uploads `public/` directly after rebuilding the registry; it does
-not build the React showcase. Keep public guide/index links relative so they
-work at the Vercel root, the Pages `/graphite/` path, and local preview origins.
+Vite serves files in `public/` and copies them into its production output, which
+is what is published: Forgejo CI's publish job builds the site with the Vercel
+CLI and deploys it to <https://emiluzelac-graphite.vercel.app> (registry at
+`/r/`). GitHub Pages (`/graphite/`) is frozen at its 2026-11-04 build. Keep
+public guide/index links relative so they work at the site root and on local
+preview origins.
 Human-facing navigation uses the showcase's `/docs` route. Preserve the raw guide
 and `llms.txt` for agents, and resolve their relative resource links against the
 guide's public location when rendering it inside the app. Changes are not
