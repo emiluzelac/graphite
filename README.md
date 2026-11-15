@@ -131,3 +131,12 @@ own gradient variables.
 
 Icon-using registry items declare the published `@emiluzelac/icona` dependency.
 No local icon-library checkout is required.
+
+## Where this lives
+
+This repository is developed in a private Forgejo and mirrored here: every commit
+and tag on GitHub arrives from there. Issues and pull requests are welcome on
+GitHub; an accepted change is applied on Forgejo and comes back through the mirror,
+so nothing is merged here directly.
+
+CI runs from `.forgejo/workflows/`, and dependency updates come from Renovate (`renovate.json`), not Dependabot. A push to `main` that passes CI publishes the registry and showcase to <https://emiluzelac-graphite.vercel.app> (the `publish` job of `.forgejo/workflows/ci.yml`).
